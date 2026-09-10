@@ -52,7 +52,7 @@ export const PRODUCTS: Product[] = [
     icon: "Activity",
     accentColor: "#10b981",
     gradient: "from-emerald-500/20 via-teal-500/10 to-transparent",
-    storeUrl: "https://play.google.com/store/apps/details?id=com.collco.ditta",
+    storeUrl: "https://play.google.com/store/apps/details?id=com.collco.ditta&pcampaignid=web_share",
   },
   {
     id: "jangnal-gaja",
