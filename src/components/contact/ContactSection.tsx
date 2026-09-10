@@ -26,7 +26,7 @@ export function ContactSection() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const contactEmail = "contact@collco.studio";
+  const contactEmail = "collcokorea@gmail.com";
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(contactEmail);
@@ -37,11 +37,19 @@ export function ContactSection() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    // Simulate async submission
+
+    const subject = encodeURIComponent(`[COLLCO 협업 제안] ${formData.type} - ${formData.name}`);
+    const body = encodeURIComponent(
+      `보낸 사람: ${formData.name} (${formData.email})\n문의 유형: ${formData.type}\n\n[문의 내용]\n${formData.message}`
+    );
+    
+    // Automatically trigger mailto client with pre-filled subject and body
+    window.location.href = `mailto:${contactEmail}?subject=${subject}&body=${body}`;
+
     setTimeout(() => {
       setLoading(false);
       setSubmitted(true);
-    }, 800);
+    }, 600);
   };
 
   const inquiryTypes = ["프로덕트 협업", "스토어 & 굿즈 제휴", "기술 및 DX 자문", "기타 문의"];
@@ -90,9 +98,13 @@ export function ContactSection() {
                 </div>
                 <div className="truncate">
                   <div className="text-[10px] text-zinc-400 uppercase">Official Email</div>
-                  <div className="text-sm font-semibold text-white font-mono truncate">
+                  <a
+                    href={`mailto:${contactEmail}`}
+                    className="text-sm font-semibold text-white hover:text-blue-400 font-mono truncate transition-colors block"
+                    title="이메일 바로 보내기"
+                  >
                     {contactEmail}
-                  </div>
+                  </a>
                 </div>
               </div>
 

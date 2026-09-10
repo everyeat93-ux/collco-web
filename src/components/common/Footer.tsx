@@ -77,11 +77,11 @@ export function Footer() {
                 <span>GitHub Profile</span>
               </a>
               <a
-                href="#contact"
+                href="mailto:collcokorea@gmail.com"
                 className="inline-flex items-center gap-2 hover:text-white transition-colors group"
               >
                 <Mail className="w-4 h-4 text-blue-400" />
-                <span>Direct Inquiry</span>
+                <span>collcokorea@gmail.com</span>
               </a>
             </div>
           </div>
