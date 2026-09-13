@@ -11,23 +11,23 @@ export function ProductsSection() {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
 
   return (
-    <section id="products" className="py-20 md:py-28 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative">
-      {/* Background ambient light */}
-      <div className="absolute top-1/2 left-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl pointer-events-none -z-10" />
+    <section id="products" className="py-28 md:py-36 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative">
+      {/* Background warm ambient light */}
+      <div className="absolute top-1/2 left-0 w-[480px] h-[480px] bg-[#F5EAD4]/35 rounded-full blur-3xl pointer-events-none -z-10" />
 
       {/* Section Header */}
       <SectionHeader
-        badgeText="Core Digital Products"
-        badgeVariant="info"
+        badgeText="01 / WORKS & SOLUTIONS"
+        badgeVariant="neutral"
         title={
           <span>
-            일상의 틈새를 채우는{" "}
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-400">
-              5가지 디지털 솔루션
+            일상의 틈새를 파고드는{" "}
+            <span className="text-[#0B0B0C]">
+              5가지 독자적 솔루션
             </span>
           </span>
         }
-        subtitle="실제 배포 및 라이브 서비스 중인 모바일 앱, 웹 서비스, 데이터 분석 유틸리티입니다. 카드를 클릭해 [문제 정의 → 기술적 해결책 → 실제 성과]를 확인해 보세요."
+        subtitle="불필요한 가식을 덜고 실사용 가치에 집중했습니다. 모바일 앱부터 웹 서비스, 데이터 분석 도구까지 직접 기획하고 배포한 포트폴리오를 확인해 보세요."
       />
 
       {/* Product Cards Grid */}

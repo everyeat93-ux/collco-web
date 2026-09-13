@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Menu, X, ArrowUpRight, Sparkles } from "lucide-react";
+import Image from "next/image";
+import { Menu, X, ArrowUpRight } from "lucide-react";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -26,35 +27,41 @@ export function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-[#0d1117]/85 backdrop-blur-md border-b border-[#30363d]/70 py-3.5 shadow-lg shadow-black/20"
+          ? "bg-[#F7F6F2]/85 backdrop-blur-xl py-3.5 shadow-chic-sm"
           : "bg-transparent py-5"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         {/* Brand Logo */}
         <a
           href="#"
-          className="group flex items-center gap-2.5 text-xl font-bold tracking-tight text-white transition-opacity hover:opacity-90"
+          className="group flex items-center gap-2.5 text-xl font-extrabold tracking-tight text-[#0B0B0C] transition-opacity hover:opacity-85"
         >
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-blue-600 via-indigo-600 to-cyan-400 flex items-center justify-center shadow-md shadow-blue-500/20 group-hover:shadow-blue-500/40 transition-shadow">
-            <Sparkles className="w-4 h-4 text-white" />
+          <div className="relative w-8 h-8 rounded-full overflow-hidden shadow-chic-xs group-hover:scale-105 transition-all">
+            <Image
+              src="/logo-collco.png"
+              alt="COLLCO Logo"
+              fill
+              sizes="32px"
+              priority
+              className="object-cover"
+            />
           </div>
-          <span className="font-extrabold tracking-wider text-xl bg-clip-text text-transparent bg-gradient-to-r from-white via-zinc-200 to-zinc-400">
+          <span className="font-black tracking-wider text-xl text-[#0B0B0C]">
             COLLCO
           </span>
-          <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" />
+          <span className="w-1.5 h-1.5 rounded-full bg-[#0B0B0C]" />
         </a>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-2">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
-              className="text-sm font-medium text-[#8b949e] hover:text-white transition-colors duration-200 relative group"
+              className="px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider text-[#666A73] hover:text-[#0B0B0C] hover:bg-[#ECEAE2] transition-all duration-200"
             >
               {link.name}
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-indigo-500 transition-all duration-300 group-hover:w-full" />
             </a>
           ))}
         </nav>
@@ -63,9 +70,9 @@ export function Navbar() {
         <div className="hidden md:flex items-center gap-3">
           <a
             href="#contact"
-            className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-semibold rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 text-white hover:from-blue-500 hover:to-indigo-500 shadow-md shadow-blue-500/20 hover:shadow-blue-500/40 transition-all active:scale-95"
+            className="inline-flex items-center gap-1.5 px-5 py-2 text-xs font-mono font-bold uppercase tracking-wider rounded-full bg-[#0B0B0C] text-white hover:bg-[#1E1E22] shadow-chic-xs hover:shadow-chic-sm transition-all active:scale-95"
           >
-            협업 제안하기
+            LET'S TALK
             <ArrowUpRight className="w-3.5 h-3.5" />
           </a>
         </div>
@@ -73,7 +80,7 @@ export function Navbar() {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="md:hidden p-2 rounded-lg text-[#8b949e] hover:text-white hover:bg-[#161b22] transition-colors border border-[#30363d]/50"
+          className="md:hidden p-2 rounded-xl text-[#111113] hover:bg-[#EFECE6] transition-colors"
           aria-label="Toggle menu"
         >
           {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -82,26 +89,26 @@ export function Navbar() {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-[#161b22]/95 backdrop-blur-xl border-b border-[#30363d] px-6 py-5 shadow-2xl space-y-4">
+        <div className="md:hidden bg-[#F7F6F2]/98 backdrop-blur-2xl px-6 py-6 shadow-chic-lg space-y-4">
           <div className="flex flex-col space-y-3">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-base font-medium text-[#8b949e] hover:text-white transition-colors py-2 border-b border-white/[0.05]"
+                className="text-base font-bold text-[#3E424B] hover:text-[#111113] transition-colors py-2"
               >
                 {link.name}
               </a>
             ))}
           </div>
-          <div className="pt-2">
+          <div className="pt-3">
             <a
               href="#contact"
               onClick={() => setMobileMenuOpen(false)}
-              className="flex items-center justify-center gap-2 w-full py-2.5 rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-sm font-semibold shadow-md shadow-blue-500/25"
+              className="flex items-center justify-center gap-2 w-full py-3.5 rounded-full bg-[#0B0B0C] text-white text-xs font-mono font-bold uppercase tracking-wider shadow-chic-sm"
             >
-              협업 제안하기
+              LET'S TALK
               <ArrowUpRight className="w-4 h-4" />
             </a>
           </div>

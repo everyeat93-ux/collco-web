@@ -42,6 +42,10 @@ export const metadata: Metadata = {
     title: "COLLCO (콜코) | 1인 프로덕트 스튜디오",
     description: "Everyday Problems, Solved with Digital Products & Collections.",
   },
+  icons: {
+    icon: "/logo-collco.png",
+    apple: "/logo-collco.png",
+  },
 };
 
 export default function RootLayout({
@@ -51,7 +55,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ko" className={`${inter.variable} scroll-smooth`}>
-      <body className="min-h-screen flex flex-col bg-[#0d1117] text-[#f0f6fc] antialiased selection:bg-blue-600 selection:text-white">
+      <body className="min-h-screen flex flex-col bg-[#F5F4EE] text-[#0B0B0C] antialiased selection:bg-[#0B0B0C] selection:text-white">
         {children}
       </body>
     </html>

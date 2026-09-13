@@ -16,49 +16,42 @@ export function Badge({
   className = "",
 }: BadgeProps) {
   const variantStyles = {
-    success: "bg-emerald-500/10 text-emerald-400 border-emerald-500/30",
-    emerald: "bg-emerald-500/10 text-emerald-400 border-emerald-500/30",
-    info: "bg-blue-500/10 text-blue-400 border-blue-500/30",
-    warning: "bg-amber-500/10 text-amber-400 border-amber-500/30",
-    amber: "bg-amber-500/10 text-amber-400 border-amber-500/30",
-    purple: "bg-purple-500/10 text-purple-400 border-purple-500/30",
-    indigo: "bg-indigo-500/10 text-indigo-400 border-indigo-500/30",
-    rose: "bg-rose-500/10 text-rose-400 border-rose-500/30",
-    neutral: "bg-white/[0.04] text-zinc-300 border-white/10",
+    success: "bg-[#0B0B0C] text-white",
+    emerald: "bg-[#0B0B0C] text-white",
+    info: "bg-[#ECEAE2] text-[#0B0B0C]",
+    warning: "bg-[#E5E2D8] text-[#22211E]",
+    amber: "bg-[#E5E2D8] text-[#22211E]",
+    purple: "bg-[#ECEAE2] text-[#0B0B0C]",
+    indigo: "bg-[#ECEAE2] text-[#0B0B0C]",
+    rose: "bg-[#ECEAE2] text-[#0B0B0C]",
+    neutral: "bg-[#ECEAE2] text-[#0B0B0C]",
   };
 
   const dotColors = {
     success: "bg-emerald-400",
     emerald: "bg-emerald-400",
-    info: "bg-blue-400",
-    warning: "bg-amber-400",
-    amber: "bg-amber-400",
-    purple: "bg-purple-400",
-    indigo: "bg-indigo-400",
-    rose: "bg-rose-400",
-    neutral: "bg-zinc-400",
+    info: "bg-[#0B0B0C]",
+    warning: "bg-[#847E72]",
+    amber: "bg-[#847E72]",
+    purple: "bg-[#0B0B0C]",
+    indigo: "bg-[#0B0B0C]",
+    rose: "bg-[#0B0B0C]",
+    neutral: "bg-[#0B0B0C]",
   };
 
   const sizeStyles = {
-    sm: "text-[11px] px-2.5 py-0.5 font-medium tracking-wide",
-    md: "text-xs px-3 py-1 font-medium",
+    sm: "text-[11px] px-2.5 py-1 font-bold tracking-tight",
+    md: "text-xs px-3.5 py-1.5 font-bold tracking-tight",
   };
 
   return (
     <span
-      className={`inline-flex items-center gap-1.5 rounded-full border transition-colors ${variantStyles[variant]} ${sizeStyles[size]} ${className}`}
+      className={`inline-flex items-center gap-1.5 rounded-full shadow-chic-xs transition-colors ${variantStyles[variant]} ${sizeStyles[size]} ${className}`}
     >
       {dot && (
-        <span className="relative flex h-1.5 w-1.5">
-          <span
-            className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${dotColors[variant]}`}
-          />
-          <span
-            className={`relative inline-flex rounded-full h-1.5 w-1.5 ${dotColors[variant]}`}
-          />
-        </span>
+        <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${dotColors[variant]}`} />
       )}
-      {children}
+      <span>{children}</span>
     </span>
   );
 }

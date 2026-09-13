@@ -8,7 +8,7 @@ import { ContactSection } from "@/components/contact/ContactSection";
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen bg-[#0d1117] text-[#f0f6fc]">
+    <div className="flex flex-col min-h-screen bg-[#F5F4EE] text-[#0B0B0C]">
       {/* Sticky Glassmorphic Navbar */}
       <Navbar />
 

@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
 import {
   Activity,
   MapPin,
@@ -26,17 +25,17 @@ export function ProductCard({ product, index, onSelect }: ProductCardProps) {
   const renderIcon = () => {
     switch (product.icon) {
       case "Activity":
-        return <Activity className="w-5 h-5 text-emerald-400" />;
+        return <Activity className="w-5 h-5 text-[#0B0B0C]" />;
       case "MapPin":
-        return <MapPin className="w-5 h-5 text-amber-400" />;
+        return <MapPin className="w-5 h-5 text-[#0B0B0C]" />;
       case "ShieldAlert":
-        return <ShieldAlert className="w-5 h-5 text-purple-400" />;
+        return <ShieldAlert className="w-5 h-5 text-[#0B0B0C]" />;
       case "BarChart3":
-        return <BarChart3 className="w-5 h-5 text-cyan-400" />;
+        return <BarChart3 className="w-5 h-5 text-[#0B0B0C]" />;
       case "HelpCircle":
-        return <HelpCircle className="w-5 h-5 text-pink-400" />;
+        return <HelpCircle className="w-5 h-5 text-[#0B0B0C]" />;
       default:
-        return <Sparkles className="w-5 h-5 text-blue-400" />;
+        return <Sparkles className="w-5 h-5 text-[#0B0B0C]" />;
     }
   };
 
@@ -54,25 +53,20 @@ export function ProductCard({ product, index, onSelect }: ProductCardProps) {
   };
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: index * 0.08 }}
-      whileHover={{ y: -6 }}
+    <div
       onClick={() => onSelect(product)}
-      className="group relative flex flex-col justify-between bg-[#161b22] border border-[#30363d] hover:border-blue-500/50 rounded-2xl p-6 cursor-pointer transition-all duration-300 shadow-lg shadow-black/40 hover:shadow-blue-500/10 overflow-hidden"
+      className="group relative flex flex-col justify-between bg-white rounded-[2.2rem] p-8 sm:p-9 cursor-pointer transition-all duration-300 hover:-translate-y-2 shadow-chic-sm hover:shadow-chic-lg overflow-hidden"
     >
-      {/* Top subtle gradient glow on hover */}
-      <div
-        className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${product.gradient} opacity-40 group-hover:opacity-100 transition-opacity`}
-      />
-
       <div>
-        {/* Header row: Icon & Status */}
-        <div className="flex items-center justify-between gap-3 mb-4">
-          <div className="w-10 h-10 rounded-xl bg-[#0d1117] border border-[#30363d] flex items-center justify-center group-hover:scale-105 transition-transform">
-            {renderIcon()}
+        {/* Header row: Index & Status */}
+        <div className="flex items-center justify-between gap-3 mb-5">
+          <div className="flex items-center gap-3">
+            <div className="w-12 h-12 rounded-2xl bg-[#ECEAE2] flex items-center justify-center group-hover:scale-105 transition-transform">
+              {renderIcon()}
+            </div>
+            <div className="text-[11px] font-mono font-bold text-[#847E72] tracking-widest uppercase">
+              0{index + 1}
+            </div>
           </div>
           <Badge variant={product.statusBadgeVariant} dot size="sm">
             {product.status}
@@ -80,43 +74,43 @@ export function ProductCard({ product, index, onSelect }: ProductCardProps) {
         </div>
 
         {/* Live URL indicator badge */}
-        <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[#0d1117] border border-[#30363d] text-[11px] text-zinc-300 font-mono mb-3">
-          <Globe className="w-3 h-3 text-blue-400 shrink-0" />
-          <span className="truncate">{getDomainLabel()}</span>
+        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl bg-[#ECEAE2] text-[11px] text-[#484B52] font-mono mb-4">
+          <Globe className="w-3.5 h-3.5 text-[#666A73] shrink-0" />
+          <span className="truncate font-medium">{getDomainLabel()}</span>
         </div>
 
         {/* Title & Tagline */}
-        <div className="space-y-1">
-          <div className="text-xs font-semibold uppercase tracking-wider text-[#8b949e]">
+        <div className="space-y-1.5">
+          <div className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#847E72]">
             {product.category}
           </div>
-          <h3 className="text-xl font-bold text-white tracking-tight flex items-baseline gap-2 group-hover:text-blue-300 transition-colors">
+          <h3 className="text-xl sm:text-2xl font-black text-[#0B0B0C] tracking-tight flex items-baseline gap-2 group-hover:text-[#666A73] transition-colors">
             <span>{product.name}</span>
             {product.subName && (
-              <span className="text-sm font-normal text-zinc-400">({product.subName})</span>
+              <span className="text-sm font-medium text-[#666A73]">({product.subName})</span>
             )}
           </h3>
-          <p className="text-sm text-zinc-300 line-clamp-2 mt-2 leading-relaxed">
+          <p className="text-sm text-[#4B5563] line-clamp-2 mt-2 leading-relaxed font-normal">
             {product.summary}
           </p>
         </div>
 
-        {/* Key Metrics snapshot */}
-        <div className="grid grid-cols-3 gap-2 my-5 py-3 px-3 rounded-xl bg-[#0d1117]/80 border border-[#30363d]/50">
+        {/* Key Metrics snapshot (Borderless clean container) */}
+        <div className="grid grid-cols-3 gap-2 my-6 py-4 px-4 rounded-2xl bg-[#ECEAE2]">
           {product.metrics.map((metric, idx) => (
             <div key={idx} className="text-left">
-              <div className="text-[10px] text-zinc-400 truncate">{metric.label}</div>
-              <div className="text-xs font-bold text-white truncate mt-0.5">{metric.value}</div>
+              <div className="text-[10px] text-[#666A73] font-semibold truncate">{metric.label}</div>
+              <div className="text-xs font-black text-[#0B0B0C] truncate mt-0.5 font-mono">{metric.value}</div>
             </div>
           ))}
         </div>
 
-        {/* Tags */}
+        {/* Tags (Borderless) */}
         <div className="flex flex-wrap gap-1.5 mb-4">
           {product.tags.map((tag, idx) => (
             <span
               key={idx}
-              className="text-[11px] px-2 py-0.5 rounded-md bg-[#21262d] text-zinc-300 border border-[#30363d]/40"
+              className="text-[11px] px-3.5 py-1 rounded-full bg-[#ECEAE2] text-[#484B52] font-medium"
             >
               #{tag}
             </span>
@@ -124,15 +118,15 @@ export function ProductCard({ product, index, onSelect }: ProductCardProps) {
         </div>
       </div>
 
-      {/* Card Action Trigger with Direct Launch Button */}
-      <div className="pt-4 border-t border-[#30363d]/60 flex items-center justify-between text-xs font-semibold">
+      {/* Card Action Trigger with Direct Launch Button (Borderless) */}
+      <div className="pt-5 flex items-center justify-between text-xs font-bold">
         <button
           type="button"
           onClick={(e) => {
             e.stopPropagation();
             onSelect(product);
           }}
-          className="flex items-center gap-1.5 text-blue-400 hover:text-blue-300 transition-colors"
+          className="flex items-center gap-1.5 text-[#0B0B0C] hover:text-[#666A73] transition-colors font-bold"
         >
           <span>문제·해결책 분석</span>
           <ArrowRight className="w-3.5 h-3.5" />
@@ -144,7 +138,7 @@ export function ProductCard({ product, index, onSelect }: ProductCardProps) {
             target="_blank"
             rel="noopener noreferrer"
             onClick={(e) => e.stopPropagation()}
-            className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs shadow-sm shadow-emerald-500/20 transition-all hover:scale-105"
+            className="inline-flex items-center gap-1.5 px-4.5 py-2 rounded-full bg-[#0B0B0C] hover:bg-[#1E1E22] text-white font-bold text-xs shadow-chic-xs transition-all hover:scale-105 active:scale-95"
           >
             <span>스토어 열기</span>
             <ExternalLink className="w-3 h-3" />
@@ -155,17 +149,17 @@ export function ProductCard({ product, index, onSelect }: ProductCardProps) {
             target="_blank"
             rel="noopener noreferrer"
             onClick={(e) => e.stopPropagation()}
-            className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-semibold text-xs shadow-sm shadow-blue-500/20 transition-all hover:scale-105"
+            className="inline-flex items-center gap-1.5 px-4.5 py-2 rounded-full bg-[#0B0B0C] hover:bg-[#1E1E22] text-white font-bold text-xs shadow-chic-xs transition-all hover:scale-105 active:scale-95"
           >
             <span>서비스 접속</span>
             <ExternalLink className="w-3 h-3" />
           </a>
         ) : (
-          <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-amber-500/15 text-amber-400 border border-amber-500/30 text-[11px] font-medium">
+          <span className="inline-flex items-center gap-1 px-3.5 py-1.5 rounded-full bg-[#ECEAE2] text-[#666A73] text-[11px] font-semibold">
             <span>비공개 테스트</span>
           </span>
         )}
       </div>
-    </motion.div>
+    </div>
   );
 }
