@@ -46,6 +46,13 @@ export const metadata: Metadata = {
     icon: "/logo-collco.png",
     apple: "/logo-collco.png",
   },
+  verification: {
+    google: "SUcXjFcXls2e3D2CjDdibyJk5oOpZkowNtWj22QZkFs",
+    other: {
+      "naver-site-verification": "0998bc4accdc75918538764cc88e2f744029ab66",
+      "msvalidate.01": "81BAE42A8920B110031D7CF60707170D",
+    },
+  },
 };
 
 export default function RootLayout({
