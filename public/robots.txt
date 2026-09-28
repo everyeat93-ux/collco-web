@@ -1,5 +1,8 @@
 User-agent: *
 Allow: /
 
+# Sitemap
+Sitemap: https://collco-web.onrender.com/sitemap.xml
+
 # Daum Webmaster Tool Verification
 #DaumWebMasterTool:db128cfc6a17dd0b40139fd819d0d7b75e826cb7d77bd7ab004c32b1b869e264:XDr1VT379Dqot/oNh7sGGw==
