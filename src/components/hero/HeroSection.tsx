@@ -112,7 +112,7 @@ export function HeroSection() {
               GOOGLE PLAY
             </div>
             <div className="text-xs text-[#666A73] leading-relaxed">
-              ditta 정식 스토어 배포 운용
+              ditta · 장날가자 정식 배포 운용
             </div>
           </div>
 

@@ -60,9 +60,9 @@ export const PRODUCTS: Product[] = [
     subName: "전국 5일장 찾기",
     tagline: "전국 전통 오일장의 날짜와 위치를 한눈에 찾는 로컬 라이프 플랫폼",
     category: "Mobile App / Local Life",
-    tags: ["Mobile App", "Local Community", "Location Based"],
-    status: "비공개 테스트 중",
-    statusBadgeVariant: "warning",
+    tags: ["Mobile App", "Local Life", "Google Play Release"],
+    status: "Google Play 정식 배포",
+    statusBadgeVariant: "success",
     summary:
       "흩어져 있던 전국 400여 개 전통 5일장의 개장 일정과 위치, 장터 먹거리 정보를 스마트폰 하나로 쉽게 탐색",
     problem: {
@@ -87,24 +87,25 @@ export const PRODUCTS: Product[] = [
       ],
     },
     impact: {
-      title: "비공개 테스트(Closed Beta) 진행 및 정식 출시 준비",
+      title: "Google Play 스토어 정식 출시 및 로컬 라이프 안착",
       description:
-        "로컬 여행자 및 시니어 테스터 집단을 대상으로 사용자 편의성과 캘린더 연산 정확도를 고도화하고 있습니다.",
+        "복잡한 장날 계산 없이 오늘 열리는 5일장과 주말 장터를 한눈에 확인하는 로컬 필수 앱으로 구글 플레이스토어에 정식 출시되었습니다.",
       highlights: [
-        "전국 450+ 전통 오일장 정밀 지오코딩 데이터베이스 구축 완료",
-        "비공개 파일럿 테스트를 통한 시니어 UX 최적화 피드백 반영 중",
-        "공식 스토어 런칭을 위한 최종 안정화 단계",
+        "Google Play Console 정식 프로덕션 배포 완료 (com.jangnal.gaja)",
+        "전국 450+ 전통 오일장 정밀 지오코딩 및 온누리상품권 가맹 정보 수록",
+        "오늘 개장 및 주말 개장 1초 필터 & 실시간 GPS 내비게이션 연동",
       ],
     },
     techStack: ["React Native", "TypeScript", "Kakao Map API", "Public Data Portal", "Zustand"],
     metrics: [
-      { label: "서비스 상태", value: "비공개 테스트 중" },
+      { label: "배포 상태", value: "Google Play 라이브" },
       { label: "등록 오일장", value: "450+ 개소" },
       { label: "위치 연산", value: "실시간 GPS" },
     ],
     icon: "MapPin",
     accentColor: "#f59e0b",
     gradient: "from-amber-500/20 via-orange-500/10 to-transparent",
+    storeUrl: "https://play.google.com/store/apps/details?id=com.jangnal.gaja",
   },
   {
     id: "reptile-log",
