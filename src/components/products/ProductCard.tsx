@@ -11,6 +11,8 @@ import {
   ExternalLink,
   Sparkles,
   Globe,
+  Crown,
+  Gamepad2,
 } from "lucide-react";
 import { Product } from "@/types";
 import { Badge } from "@/components/common/Badge";
@@ -34,6 +36,10 @@ export function ProductCard({ product, index, onSelect }: ProductCardProps) {
         return <BarChart3 className="w-5 h-5 text-[#0B0B0C]" />;
       case "HelpCircle":
         return <HelpCircle className="w-5 h-5 text-[#0B0B0C]" />;
+      case "Crown":
+        return <Crown className="w-5 h-5 text-[#0B0B0C]" />;
+      case "Gamepad2":
+        return <Gamepad2 className="w-5 h-5 text-[#0B0B0C]" />;
       default:
         return <Sparkles className="w-5 h-5 text-[#0B0B0C]" />;
     }
@@ -151,7 +157,7 @@ export function ProductCard({ product, index, onSelect }: ProductCardProps) {
             onClick={(e) => e.stopPropagation()}
             className="inline-flex items-center gap-1.5 px-4.5 py-2 rounded-full bg-[#0B0B0C] hover:bg-[#1E1E22] text-white font-bold text-xs shadow-chic-xs transition-all hover:scale-105 active:scale-95"
           >
-            <span>서비스 접속</span>
+            <span>{product.category.includes("Brand") ? "공식 사이트" : "서비스 접속"}</span>
             <ExternalLink className="w-3 h-3" />
           </a>
         ) : (

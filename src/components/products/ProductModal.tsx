@@ -262,7 +262,7 @@ export function ProductModal({ product, onClose }: ProductModalProps) {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 px-5 py-2.5 text-xs font-bold rounded-xl bg-[#0B0B0C] hover:bg-[#1E1E22] text-white transition-all shadow-chic-xs"
                 >
-                  <span>서비스 바로가기</span>
+                  <span>{product.category.includes("Brand") ? "공식 웹사이트 방문" : "서비스 바로가기"}</span>
                   <ExternalLink className="w-3.5 h-3.5" />
                 </a>
               )}

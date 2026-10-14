@@ -15,7 +15,7 @@ export const BUILDING_PILLARS: BuildingPillar[] = [
     title: "선명한 니치 문제 해결 (Niche Problem Solving)",
     enTitle: "Targeting Unmet Micro Needs",
     description:
-      "거대 플랫폼이 주목하지 않는 일상의 뾰족한 불편함(배드민턴 풋워크 훈련, 5일장 캘린더, 파충류 케어, FM 스카우팅 등)을 정확히 포착해 대체 불가능한 해결책을 제시합니다.",
+      "거대 플랫폼이 주목하지 않는 일상의 뾰족한 불편함과 장인정신(배드민턴 풋워크 훈련, 5일장 캘린더, 파충류 사육일지, 모피 아틀리에, 캐주얼 스포츠 게임 등)을 정확히 포착해 대체 불가능한 해결책을 제시합니다.",
     tags: ["Vertical Focus", "User Empathy", "Specialized Utility"],
     icon: "Target",
   },

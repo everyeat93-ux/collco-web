@@ -56,7 +56,7 @@ export function HeroSection() {
 
             <p className="mt-5 sm:mt-6 text-sm sm:text-base md:text-lg text-zinc-300 leading-relaxed max-w-xl font-normal">
               불필요한 군더더기를 덜어내고 본질에 집중합니다.
-              일상의 틈새를 파고드는 5개의 독자적 디지털 솔루션과 수집가의 안목으로 엄선한 100% 라이선스 정품 컬렉션.
+              일상의 틈새를 파고드는 7개의 독자적 디지털 솔루션과 수집가의 안목으로 엄선한 100% 라이선스 정품 컬렉션.
             </p>
 
             {/* Action Buttons */}
@@ -94,13 +94,13 @@ export function HeroSection() {
         <div className="mt-16 pt-6 grid grid-cols-2 md:grid-cols-4 gap-8 sm:gap-12 w-full">
           <div className="space-y-1 text-left">
             <div className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#0B0B0C] tracking-tight font-mono">
-              5<span className="text-[#847E72] font-normal">+</span>
+              7<span className="text-[#847E72] font-normal">+</span>
             </div>
             <div className="text-xs font-mono font-bold text-[#0B0B0C] uppercase tracking-widest pt-1">
               DIGITAL SOLUTIONS
             </div>
             <div className="text-xs text-[#666A73] leading-relaxed">
-              라이브 서비스 중인 웹 & 모바일
+              웹·모바일·게임 & 브랜드
             </div>
           </div>
 
@@ -112,7 +112,7 @@ export function HeroSection() {
               GOOGLE PLAY
             </div>
             <div className="text-xs text-[#666A73] leading-relaxed">
-              ditta · 장날가자 정식 배포 운용
+              ditta · 장날가자 · 랩티로그 정식 배포
             </div>
           </div>
 

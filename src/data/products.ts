@@ -108,57 +108,163 @@ export const PRODUCTS: Product[] = [
     storeUrl: "https://play.google.com/store/apps/details?id=com.jangnal.gaja",
   },
   {
-    id: "reptile-log",
-    name: "랩타일로그",
-    subName: "ReptileLog",
-    tagline: "파충류 온·습도, 피딩 주기, 성장 기록을 스마트하게 추적하는 데일리 케어 매니저",
-    category: "Web App / Pet Care",
-    tags: ["Web App", "Special Pet Care", "Data Tracking"],
-    status: "서비스 운영 중",
+    id: "reptilog",
+    name: "랩티로그",
+    subName: "ReptiLog",
+    tagline: "파충류·양서류 집사를 위한 스마트 사육일지 & 데일리 케어 매니저",
+    category: "Mobile App / Pet Care",
+    tags: ["Mobile App", "Pet Care", "Google Play Release"],
+    status: "Google Play 정식 출시",
     statusBadgeVariant: "success",
     summary:
-      "도마뱀, 뱀, 거북이 등 특수 반려동물의 까다로운 사육 환경과 피딩 일정을 과학적으로 관리하는 웹 솔루션",
+      "파충류·양서류 집사를 위한 원터치 1초 퀵-로깅, 사육 루틴 알림, 성장 다이어리 및 수의사용 병원 문진표를 제공하는 스마트 케어 앱",
     problem: {
-      title: "개체마다 다른 까다로운 피딩 주기와 탈피/온습도 관리",
+      title: "복잡한 피딩 주기와 수의사 문진에 필요한 사육 데이터의 파편화",
       description:
-        "파충류는 일반 반려동물과 달리 먹이 주기(3일, 7일, 격주 등), 칼슘 급여 여부, 탈피 주기, 사육장 온·습도 유지가 생명과 직결됩니다. 사육 개체가 늘어날수록 엑셀이나 수기 메모로는 누락이 잦았습니다.",
+        "파충류와 양서류는 개체마다 먹이 주기, 온·습도, UVB 램프 교체일, 탈피/배변 주기가 모두 달라 수기 기록이나 일반 메모로는 누락이 잦고, 아플 때 동물병원 수의사에게 정확한 사육 이력을 전달하기 어려웠습니다.",
       points: [
-        "사육 개체수 증가 시 먹이 급여일 및 칼슘 더스팅 혼선",
-        "탈피 부전 및 몸무게 정체 시점을 시각적으로 파악하기 어려움",
-        "사육 환경(핫존/쿨존 온도, 습도) 변화 기록의 번거로움",
+        "개체별 피딩 주기 및 칼슘 더스팅 기록의 번거로움",
+        "온·습도 유지 및 UVB 교체 등 주기적 케어 루틴 알림 부재",
+        "동물병원 방문 시 수의사용 사육 보고서(문진표) 작성 곤란",
       ],
     },
     solution: {
-      title: "개체별 타임라인 로그 & 스마트 알림 대시보드",
+      title: "1초 퀵-로깅 & 스마트 사육 루틴 & 병원 문진표 자동 생성",
       description:
-        "개체 등록 한 번으로 피딩 타이머, 몸무게 성장 곡선 차트, 탈피 및 배변 기록을 한 화면에서 체계적으로 관리할 수 있도록 설계했습니다.",
+        "터치 한 번으로 피딩/배변을 1초 만에 기록하고, 온·습도와 청소/UVB 알림, 성장 그래프, OLED 최적화 야간 다크모드 및 수의사 제출용 사육 리포트를 제공합니다.",
       features: [
-        "개체별 프로필 카드 및 다음 피딩 D-day 자동 카운트다운",
-        "몸무게(g) 추이 인터랙티브 차트를 통한 성장 정체기 조기 발견",
-        "칼슘제/비타민 급여 여부 원클릭 체크박스 로깅",
-        "탈피 주기 히스토리 및 사진 첨부 기반 비주얼 성장 일지",
+        "원터치 퀵-로깅: 피딩 / 배변 / 탈피 1초 즉시 기록",
+        "사육 루틴: 온·습도, 청소 주기, UVB 램프 교체 스마트 알림",
+        "성장 다이어리: 체중·체장 인터랙티브 그래프 및 변화 추적",
+        "야간 다크모드: 야간 피딩 시 눈부심 없는 OLED 특화 블랙 테마",
+        "병원 문진표: 수의사에게 즉시 제출 가능한 전문 사육 보고서 생성",
       ],
     },
     impact: {
-      title: "특수반려동물 집사들의 실사용 및 관리 누락 제로화",
+      title: "Google Play 정식 출시 및 파충·양서류 필수 앱 안착",
       description:
-        "기존 종이 수첩이나 복잡한 범용 메모장을 대체하며 파충류 커뮤니티에서 실용성을 인정받았습니다.",
+        "수기 메모와 엑셀을 완벽히 대체하며, 글로벌 177개국 배포 및 구글 플레이 스토어 정식 등록을 통해 특수 반려동물 케어의 새로운 기준을 세웠습니다.",
       highlights: [
-        "크레스티드 게코, 레오파드 게코 등 인기 파충류 맞춤 템플릿 제공",
-        "데이터 시각화를 통한 탈피 부전 및 식이 질환 예방 기여",
-        "모바일 웹 반응형 지원으로 사육장 앞 스마트폰 원터치 기록",
+        "Google Play Console 정식 프로덕션 배포 완료 (kr.reptilog.app)",
+        "수의사 문진표 생성으로 반려동물 질환 조기 진단 및 정확한 진료 기여",
+        "도마뱀, 뱀, 개구리, 거북이 등 파충류·양서류 전종 케어 최적화",
       ],
     },
-    techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Recharts", "Supabase", "PWA"],
+    techStack: ["React Native / Expo", "TypeScript", "Tailwind CSS", "Zustand", "Recharts", "Google Play Release"],
     metrics: [
-      { label: "서비스 상태", value: "라이브 운영 중" },
-      { label: "관리 항목", value: "피딩/무게/온습도" },
-      { label: "알림 연산", value: "D-Day 스마트 예측" },
+      { label: "배포 상태", value: "Google Play 정식 출시" },
+      { label: "기록 속도", value: "원터치 1초 로깅" },
+      { label: "케어 지원", value: "파충·양서류 전종" },
     ],
     icon: "ShieldAlert",
     accentColor: "#8b5cf6",
     gradient: "from-purple-500/20 via-indigo-500/10 to-transparent",
-    demoUrl: "https://reptilog.onrender.com",
+    storeUrl: "https://play.google.com/store/apps/details?id=kr.reptilog.app&pcampaignid=web_share",
+  },
+  {
+    id: "goldfur",
+    name: "황금모피",
+    subName: "HWANG GEUM ATELIER",
+    tagline: "35년 부부 장인이 손끝으로 짓는 단 하나의 온기, 수제 모피 아틀리에",
+    category: "Brand Web / Luxury Heritage",
+    tags: ["Brand Web", "Luxury Heritage", "Bespoke Atelier"],
+    status: "공식 사이트 운영",
+    statusBadgeVariant: "success",
+    summary:
+      "1990년부터 동대문 공방을 지켜온 35년 부부 장인의 비스포크 헤리티지와 엄선된 원피, 정밀 손바느질 테일러메이드 가치를 전하는 공식 웹사이트",
+    problem: {
+      title: "35년 장인정신의 수제 맞춤(Bespoke) 가치 온라인 전달 한계",
+      description:
+        "동대문 공방 직영으로 최상급 모피를 수제작해 온 35년의 역사와 비스포크 맞춤 가치가 기존의 획일적인 쇼핑몰 구조에서는 온전히 표현되지 못했습니다.",
+      points: [
+        "장인 부부의 35년 역사(Since 1990)와 핸드크래프트 스토리텔링 부재",
+        "100% 사전 예약제 직영 아틀리에 방문 및 맞춤 주문 프로세스 안내 부족",
+        "타임리스 럭셔리 감성을 살린 고화질 비주얼 룩북 큐레이션 필요",
+      ],
+    },
+    solution: {
+      title: "타임리스 럭셔리 아틀리에 브랜딩 & 인터랙티브 헤리티지 룩북",
+      description:
+        "엄선된 원피의 질감과 손바느질의 디테일을 전달하는 비주얼 아틀리에 룩북, 35년 공방 히스토리, 100% 사전 예약제 방문 시스템을 유려한 반응형 웹으로 구축했습니다.",
+      features: [
+        "감각적인 타이포그래피와 모션이 결합된 헤리티지 룩북 쇼룸",
+        "1990년부터 이어진 35년 부부 장인의 비스포크(Bespoke) 헤리티지 스토리텔링",
+        "동대문 공장 직영 방문 예약(100% 사전 예약제) 연동 시스템",
+        "모바일·데스크톱 최적화의 반응형 럭셔리 비주얼 인터페이스",
+      ],
+    },
+    impact: {
+      title: "브랜드 헤리티지 디지털 자산화 및 VIP 방문 예약 창구 구축",
+      description:
+        "공식 도메인 런칭을 통해 오프라인 공방의 신뢰도를 웹으로 확장하고, 프라이빗 100% 사전 예약 고객 접점을 확립했습니다.",
+      highlights: [
+        "공식 도메인 (www.goldfur.co.kr) 런칭 및 안정적 라이브 운영",
+        "35년 공방의 독보적 장인정신을 디지털 공간에 성공적으로 브랜딩",
+        "Bespoke 맞춤 제작 및 아틀리에 방문 상담 문의 활성화",
+      ],
+    },
+    techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "SEO & OpenGraph"],
+    metrics: [
+      { label: "공방 역사", value: "35년 (Since 1990)" },
+      { label: "방문 방식", value: "100% 사전 예약제" },
+      { label: "제작 공정", value: "Bespoke 테일러메이드" },
+    ],
+    icon: "Crown",
+    accentColor: "#d97706",
+    gradient: "from-amber-600/20 via-yellow-600/10 to-transparent",
+    demoUrl: "https://www.goldfur.co.kr/",
+  },
+  {
+    id: "haneul-rauni",
+    name: "하늘이 vs 라우니",
+    subName: "배드민턴 게임 대결",
+    tagline: "귀여운 다람쥐 라우니와 하늘다람쥐 하늘이의 스릴 넘치는 캐주얼 배드민턴 대결!",
+    category: "Mobile Game / Casual Sports",
+    tags: ["Mobile Game", "Casual Arcade", "Closed Beta"],
+    status: "비공개 테스트 중",
+    statusBadgeVariant: "warning",
+    summary:
+      "누구나 10초 만에 즐길 수 있는 직관적 원터치 스윙과 사랑스러운 캐릭터 모션 연출이 돋보이는 모바일 캐주얼 배드민턴 아케이드 게임",
+    problem: {
+      title: "모바일 스포츠 게임의 지나치게 복잡한 조작과 높은 진입 장벽",
+      description:
+        "배드민턴의 박진감 넘치는 랠리와 타구 쾌감을 즐기고 싶지만, 기존 스포츠 게임들은 수많은 가상 패드와 버튼으로 조작 피로도가 매우 높았습니다.",
+      points: [
+        "과도한 가상 패드 조작으로 인한 모바일 작은 화면에서의 컨트롤 미스",
+        "남녀노소 누구나 가볍고 유쾌하게 즐길 수 있는 캐주얼 스포츠 게임의 부재",
+        "셔틀콕의 타구 타이밍과 스매시 임팩트 손맛 구현의 난제",
+      ],
+    },
+    solution: {
+      title: "직관적인 타이밍 기반 원터치 스윙 엔진 & 사랑스러운 캐릭터 IP",
+      description:
+        "화면 터치 타이밍 하나로 하이클리어부터 드롭샷, 호쾌한 스매시까지 자유자재로 반응하는 셔틀콕 물리 엔진을 구축하고, 하늘이와 라우니 캐릭터의 아기자기한 모션을 결합했습니다.",
+      features: [
+        "원터치 타이밍 반응형 셔틀콕 궤적 및 다이내믹 랠리 물리 엔진",
+        "사랑스러운 하늘다람쥐 '하늘이' & 줄무늬 다람쥐 '라우니' 캐릭터 애니메이션",
+        "난이도별 AI 대전 모드 및 무한 랠리 스코어 어택 챌린지",
+        "경쾌한 타구 사운드 효과와 손끝 햅틱 피드백 시스템",
+      ],
+    },
+    impact: {
+      title: "Google Play 비공개 테스트 진행 및 유저 피드백 기반 완성도 고도화",
+      description:
+        "구글 플레이 비공개 테스트(Closed Beta) 트랙을 통해 플레이어 피드백을 수렴하며 조작감과 랠리 밸런스를 집중 담금질하고 있습니다.",
+      highlights: [
+        "Google Play 패키지 등록 완료 (com.collco.haneulrauni)",
+        "튜토리얼 없이도 10초 만에 랠리가 이어지는 직관적 조작성 입증",
+        "캐주얼 게이머 대상 비공개 테스트를 통한 밸런스 최적화 진행 중",
+      ],
+    },
+    techStack: ["React Native / Game Engine", "TypeScript", "Google Play Games API", "Haptic Feedback"],
+    metrics: [
+      { label: "개발 상태", value: "Google Play 비공개 테스트" },
+      { label: "조작 방식", value: "직관적 원터치 스윙" },
+      { label: "패키지명", value: "com.collco.haneulrauni" },
+    ],
+    icon: "Gamepad2",
+    accentColor: "#38bdf8",
+    gradient: "from-sky-500/20 via-blue-500/10 to-transparent",
   },
   {
     id: "fm-analyst",

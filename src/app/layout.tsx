@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   },
   title: "콜코 (COLLCO) 공식 홈페이지 | 1인 프로덕트 스튜디오 & 컬렉션 허브",
   description:
-    "콜코(COLLCO) 공식 사이트입니다. 일상의 니치한 문제를 해결하는 독자적 디지털 솔루션(ditta, 장날가자, 랩타일로그 등) 개발과 100% 라이선스 정품 피규어 & TCG 컬렉션 스토어를 함께 운영하는 1인 프로덕트 스튜디오입니다.",
+    "콜코(COLLCO) 공식 사이트입니다. 일상의 니치한 문제를 해결하는 독자적 디지털 솔루션(ditta, 장날가자, 랩티로그, 황금모피, 하늘이 vs 라우니 등) 개발과 100% 라이선스 정품 피규어 & TCG 컬렉션 스토어를 함께 운영하는 1인 프로덕트 스튜디오입니다.",
   keywords: [
     "콜코",
     "COLLCO",
@@ -33,8 +33,15 @@ export const metadata: Metadata = {
     "배드민턴 풋워크",
     "장날가자",
     "전국 5일장",
+    "랩티로그",
+    "ReptiLog",
+    "파충류 사육일지",
     "랩타일로그",
-    "파충류 사육",
+    "황금모피",
+    "goldfur",
+    "하늘이 vs 라우니",
+    "하늘이vs라우니",
+    "캐주얼 배드민턴 게임",
     "FM 선수 데이터 분석기",
     "1분 퀴즈",
     "피규어 스토어",
@@ -48,7 +55,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "콜코 (COLLCO) 공식 홈페이지 | 1인 프로덕트 스튜디오 & 컬렉션 허브",
     description:
-      "일상의 니치한 문제를 해결하는 5가지 디지털 솔루션과 엄선된 100% 라이선스 정품 피규어 & TCG 컬렉션을 선보이는 콜코(COLLCO) 공식 스튜디오입니다.",
+      "일상의 니치한 문제를 해결하는 7가지 디지털 솔루션과 엄선된 100% 라이선스 정품 피규어 & TCG 컬렉션을 선보이는 콜코(COLLCO) 공식 스튜디오입니다.",
     siteName: "콜코 COLLCO Official Studio",
     locale: "ko_KR",
     type: "website",
