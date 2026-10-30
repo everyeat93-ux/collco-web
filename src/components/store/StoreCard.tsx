@@ -46,7 +46,7 @@ export function StoreCard({ item }: StoreCardProps) {
       </div>
 
       {/* Content Body */}
-      <div className="p-7 flex-1 flex flex-col justify-between space-y-4">
+      <div className="p-5 sm:p-7 flex-1 flex flex-col justify-between space-y-4">
         <div>
           <div className="text-[10px] font-mono font-bold text-[#737067] uppercase tracking-wider mb-1">
             {item.tag}
@@ -54,7 +54,7 @@ export function StoreCard({ item }: StoreCardProps) {
           <h3 className="text-base font-black text-[#0B0B0C] leading-snug group-hover:text-[#484B52] transition-colors line-clamp-2">
             {item.title}
           </h3>
-          <p className="text-xs text-[#484B52] mt-2 line-clamp-2 leading-relaxed font-normal">
+          <p className="text-xs text-[#484B52] mt-2 line-clamp-2 leading-[1.75] font-normal break-keep-all">
             {item.description}
           </p>
         </div>

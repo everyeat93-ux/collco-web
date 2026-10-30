@@ -53,14 +53,14 @@ export function ContactSection() {
   return (
     <section id="contact" className="py-24 md:py-32 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto relative">
       {/* Rauno's Iconic Four-Corner Contact Frame */}
-      <div className="relative bg-[#F8F7F4] border border-[#E8E5DC] rounded-[2.5rem] p-10 sm:p-16 mb-16 shadow-rauno-card overflow-hidden">
+      <div className="relative bg-[#F8F7F4] border border-[#E8E5DC] rounded-[1.5rem] sm:rounded-[2.5rem] p-6 sm:p-16 mb-12 sm:mb-16 shadow-rauno-card overflow-hidden">
         {/* Rauno Corner Plus Accents */}
         <span className="absolute top-4 left-4 font-mono text-xs text-[#C5C0B4] select-none">+</span>
         <span className="absolute top-4 right-4 font-mono text-xs text-[#C5C0B4] select-none">+</span>
         <span className="absolute bottom-4 left-4 font-mono text-xs text-[#C5C0B4] select-none">+</span>
         <span className="absolute bottom-4 right-4 font-mono text-xs text-[#C5C0B4] select-none">+</span>
 
-        <div className="relative z-10 flex flex-col items-center justify-center text-center py-8">
+        <div className="relative z-10 flex flex-col items-center justify-center text-center py-6 sm:py-8">
           <div className="text-[10px] font-mono font-bold text-[#737067] uppercase tracking-widest mb-3">
             [GET IN TOUCH] · FAST RESOLUTION
           </div>
@@ -69,7 +69,7 @@ export function ContactSection() {
             새로운 가능성을 만듭니다.
           </h2>
 
-          <p className="text-xs sm:text-sm text-[#484B52] max-w-md mx-auto mb-8 font-normal leading-relaxed">
+          <p className="text-xs sm:text-sm text-[#484B52] max-w-md mx-auto mb-8 font-normal leading-[1.8] break-keep-all">
             새로운 디지털 프로덕트 빌딩, 기존 서비스 인수/제휴, 굿즈 바잉 및 기술 자문 등 언제든 편하게 제안해 주세요.
           </p>
 
@@ -94,7 +94,7 @@ export function ContactSection() {
         </div>
 
         {/* Four-Corner Minimal Navigation Links */}
-        <div className="pt-8 border-t border-[#E8E5DC] flex flex-wrap items-center justify-between gap-4 text-xs font-mono text-[#737067]">
+        <div className="pt-6 sm:pt-8 border-t border-[#E8E5DC] flex flex-wrap items-center justify-between gap-4 text-xs font-mono text-[#737067]">
           <a
             href="https://github.com"
             target="_blank"
@@ -122,7 +122,7 @@ export function ContactSection() {
       </div>
 
       {/* Rauno's Iconic Yellow Manifesto Banner */}
-      <div className="bg-[#FFE600] rounded-[2.5rem] p-10 sm:p-14 mb-16 text-[#0B0B0C] shadow-rauno-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+      <div className="bg-[#FFE600] rounded-[1.5rem] sm:rounded-[2.5rem] p-6 sm:p-14 mb-12 sm:mb-16 text-[#0B0B0C] shadow-rauno-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
         <div>
           <div className="text-[10px] font-mono font-black uppercase tracking-widest text-black/60 mb-2">
             THE COLLCO MANIFESTO
@@ -142,13 +142,13 @@ export function ContactSection() {
           </p>
         </div>
 
-        <div className="max-w-sm text-xs font-mono text-black/80 leading-relaxed pt-2 md:pt-0 border-t md:border-t-0 md:border-l border-black/20 md:pl-8">
+        <div className="max-w-sm text-xs font-mono text-black/80 leading-[1.8] pt-2 md:pt-0 border-t md:border-t-0 md:border-l border-black/20 md:pl-8 break-keep-all">
           &ldquo;불필요한 군더더기를 덜어내고 본질에 집중합니다. 일상의 사소한 불편을 해소하는 7개의 독자적 디지털 솔루션과 수집가의 안목으로 엄선한 100% 정품 컬렉션.&rdquo;
         </div>
       </div>
 
       {/* Direct Proposal Form */}
-      <div className="bg-white border border-[#E8E5DC] rounded-[2rem] p-8 sm:p-12 shadow-rauno-card">
+      <div className="bg-white border border-[#E8E5DC] rounded-[1.5rem] sm:rounded-[2rem] p-5 sm:p-12 shadow-rauno-card">
         <h3 className="text-xl font-black text-[#0B0B0C] tracking-tight mb-2">
           상세 제안서 보내기
         </h3>

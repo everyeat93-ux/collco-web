@@ -42,7 +42,7 @@ export function StoreSection() {
       </div>
 
       {/* Curated Store Hero Banner (Swiss Minimalist Bento Card) */}
-      <div className="mb-12 rounded-[2rem] p-8 sm:p-10 lg:p-12 bg-white border border-[#E8E5DC] shadow-swiss-sm">
+      <div className="mb-12 rounded-[1.5rem] sm:rounded-[2rem] p-5 sm:p-10 lg:p-12 bg-white border border-[#E8E5DC] shadow-swiss-sm">
         <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
           <div className="max-w-2xl space-y-4">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FAF9F5] border border-[#E8E5DC] text-[#0B0B0C] text-xs font-mono font-bold uppercase tracking-wider">
@@ -54,7 +54,7 @@ export function StoreSection() {
             <h3 className="text-2xl sm:text-3xl font-black text-[#0B0B0C] tracking-tight leading-snug">
               가품 걱정 없는 정품 애니메이션 피규어 & 프리미엄 TCG 컬렉션
             </h3>
-            <p className="text-xs sm:text-sm text-[#484B52] leading-relaxed font-normal">
+            <p className="text-xs sm:text-sm text-[#484B52] leading-[1.75] font-normal break-keep-all">
               수집가의 엄격한 시선으로 검수한 꼼꼼한 미개봉/컨디션 체크, 그리고 파손 없는 안전한 3중 에어캡 완충 포장으로 보내드립니다.
             </p>
 

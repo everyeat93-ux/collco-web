@@ -66,11 +66,11 @@ export function ProductModal({ product, onClose }: ProductModalProps) {
           className="relative w-full max-w-3xl max-h-[90vh] flex flex-col bg-white border border-[#E8E5DC] rounded-[2rem] shadow-swiss-lg overflow-hidden z-10"
         >
           {/* Header Banner */}
-          <div className="relative px-8 py-7 bg-[#FAF9F5] border-b border-[#E8E5DC]">
-            <div className="flex items-start justify-between gap-4">
-              <div className="flex items-start gap-4 sm:gap-5">
+          <div className="relative px-5 py-5 sm:px-8 sm:py-7 bg-[#FAF9F5] border-b border-[#E8E5DC]">
+            <div className="flex items-start justify-between gap-3">
+              <div className="flex items-start gap-3 sm:gap-5">
                 {product.appIcon && (
-                  <div className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-2xl overflow-hidden border border-[#E8E5DC] shrink-0 bg-white shadow-sm mt-1">
+                  <div className="relative w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl overflow-hidden border border-[#E8E5DC] shrink-0 bg-white shadow-sm mt-0.5">
                     <Image
                       src={product.appIcon}
                       alt={`${product.name} App Icon`}
@@ -81,28 +81,28 @@ export function ProductModal({ product, onClose }: ProductModalProps) {
                   </div>
                 )}
                 <div>
-                  <div className="flex flex-wrap items-center gap-2.5 mb-2.5">
+                  <div className="flex flex-wrap items-center gap-2 mb-2">
                     <Badge variant={product.statusBadgeVariant} dot size="sm">
                       {product.status}
                     </Badge>
-                    <span className="text-[11px] font-mono text-[#737067] font-bold uppercase tracking-wider">
+                    <span className="text-[10px] sm:text-[11px] font-mono text-[#737067] font-bold uppercase tracking-wider">
                       {product.category}
                     </span>
                   </div>
-                  <h3 className="text-2xl sm:text-3xl font-black text-[#0B0B0C] tracking-tight flex items-baseline gap-2">
+                  <h3 className="text-xl sm:text-3xl font-black text-[#0B0B0C] tracking-tight flex items-baseline gap-2">
                     <span>{product.name}</span>
                     {product.subName && (
-                      <span className="text-base text-[#737067] font-normal">({product.subName})</span>
+                      <span className="text-sm sm:text-base text-[#737067] font-normal">({product.subName})</span>
                     )}
                   </h3>
-                  <p className="text-xs sm:text-sm text-[#484B52] mt-1.5">{product.tagline}</p>
+                  <p className="text-xs sm:text-sm text-[#484B52] mt-1 leading-[1.6] break-keep-all">{product.tagline}</p>
                 </div>
               </div>
 
               {/* Close Button */}
               <button
                 onClick={onClose}
-                className="p-2 rounded-xl text-[#737067] hover:text-[#0B0B0C] hover:bg-white border border-transparent hover:border-[#E8E5DC] transition-all"
+                className="p-1.5 sm:p-2 rounded-xl text-[#737067] hover:text-[#0B0B0C] hover:bg-white border border-transparent hover:border-[#E8E5DC] transition-all shrink-0"
                 aria-label="Close modal"
               >
                 <X className="w-5 h-5" />
@@ -110,17 +110,17 @@ export function ProductModal({ product, onClose }: ProductModalProps) {
             </div>
 
             {/* Metrics Ribbon */}
-            <div className="grid grid-cols-3 gap-3 mt-6 pt-4 border-t border-[#E8E5DC]">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3 mt-5 pt-4 border-t border-[#E8E5DC]">
               {product.metrics.map((metric, idx) => (
-                <div key={idx} className="bg-white border border-[#E8E5DC] rounded-xl p-3 shadow-swiss-xs">
+                <div key={idx} className={`bg-white border border-[#E8E5DC] rounded-xl p-2.5 sm:p-3 shadow-swiss-xs ${idx === 2 ? "col-span-2 sm:col-span-1" : ""}`}>
                   <div className="text-[10px] font-mono text-[#737067] font-semibold">{metric.label}</div>
-                  <div className="text-sm sm:text-base font-black text-[#0B0B0C] mt-0.5 font-mono">{metric.value}</div>
+                  <div className="text-xs sm:text-base font-black text-[#0B0B0C] mt-0.5 font-mono break-keep-all">{metric.value}</div>
                 </div>
               ))}
             </div>
 
             {/* Tab navigation */}
-            <div className="flex items-center gap-1.5 mt-5 overflow-x-auto pb-1 scrollbar-none">
+            <div className="flex items-center gap-1.5 mt-4 sm:mt-5 overflow-x-auto no-scrollbar pb-1">
               <button
                 onClick={() => setActiveTab("overview")}
                 className={`px-3.5 py-1.5 text-xs font-mono rounded-lg transition-all ${
@@ -165,20 +165,20 @@ export function ProductModal({ product, onClose }: ProductModalProps) {
           </div>
 
           {/* Modal Body */}
-          <div className="px-8 py-7 overflow-y-auto space-y-6 text-sm text-[#484B52]">
+          <div className="px-5 py-6 sm:px-8 sm:py-7 overflow-y-auto space-y-6 text-sm text-[#484B52]">
             {/* Section 1: Problem Definition */}
             {(activeTab === "overview" || activeTab === "problem") && (
-              <div className="p-6 rounded-2xl bg-[#FAF9F5] border border-[#E8E5DC] space-y-3">
+              <div className="p-5 sm:p-6 rounded-2xl bg-[#FAF9F5] border border-[#E8E5DC] space-y-3">
                 <div className="flex items-center gap-2 text-[#0B0B0C] font-bold">
                   <AlertTriangle className="w-4 h-4 text-[#737067]" />
                   <span>Problem : {product.problem.title}</span>
                 </div>
-                <p className="text-[#484B52] leading-relaxed text-xs sm:text-sm">
+                <p className="text-[#484B52] leading-[1.75] break-keep-all text-xs sm:text-sm">
                   {product.problem.description}
                 </p>
                 <div className="space-y-1.5 pt-1">
                   {product.problem.points.map((pt, idx) => (
-                    <div key={idx} className="flex items-start gap-2 text-xs text-[#737067]">
+                    <div key={idx} className="flex items-start gap-2 text-xs text-[#737067] leading-relaxed">
                       <span className="w-1.5 h-1.5 rounded-full bg-[#737067] mt-1.5 shrink-0" />
                       <span>{pt}</span>
                     </div>
@@ -189,12 +189,12 @@ export function ProductModal({ product, onClose }: ProductModalProps) {
 
             {/* Section 2: Solution Engine */}
             {(activeTab === "overview" || activeTab === "solution") && (
-              <div className="p-6 rounded-2xl bg-[#FAF9F5] border border-[#E8E5DC] space-y-3">
+              <div className="p-5 sm:p-6 rounded-2xl bg-[#FAF9F5] border border-[#E8E5DC] space-y-3">
                 <div className="flex items-center gap-2 text-[#0B0B0C] font-bold">
                   <Lightbulb className="w-4 h-4 text-[#0B0B0C]" />
                   <span>Solution : {product.solution.title}</span>
                 </div>
-                <p className="text-[#484B52] leading-relaxed text-xs sm:text-sm">
+                <p className="text-[#484B52] leading-[1.75] break-keep-all text-xs sm:text-sm">
                   {product.solution.description}
                 </p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-2">
@@ -210,17 +210,17 @@ export function ProductModal({ product, onClose }: ProductModalProps) {
 
             {/* Section 3: Impact & Outcome */}
             {(activeTab === "overview" || activeTab === "impact") && (
-              <div className="p-6 rounded-2xl bg-[#FAF9F5] border border-[#E8E5DC] space-y-3">
+              <div className="p-5 sm:p-6 rounded-2xl bg-[#FAF9F5] border border-[#E8E5DC] space-y-3">
                 <div className="flex items-center gap-2 text-[#0B0B0C] font-bold">
                   <TrendingUp className="w-4 h-4 text-[#0B0B0C]" />
                   <span>Impact : {product.impact.title}</span>
                 </div>
-                <p className="text-[#484B52] leading-relaxed text-xs sm:text-sm">
+                <p className="text-[#484B52] leading-[1.75] break-keep-all text-xs sm:text-sm">
                   {product.impact.description}
                 </p>
                 <div className="space-y-1.5 pt-1">
                   {product.impact.highlights.map((high, idx) => (
-                    <div key={idx} className="flex items-start gap-2 text-xs text-[#484B52]">
+                    <div key={idx} className="flex items-start gap-2 text-xs text-[#484B52] leading-relaxed">
                       <span className="w-1.5 h-1.5 rounded-full bg-[#0B0B0C] mt-1.5 shrink-0" />
                       <span>{high}</span>
                     </div>
@@ -249,7 +249,7 @@ export function ProductModal({ product, onClose }: ProductModalProps) {
           </div>
 
           {/* Modal Footer */}
-          <div className="px-8 py-4 bg-[#FAF9F5] border-t border-[#E8E5DC] flex items-center justify-between gap-3">
+          <div className="px-5 py-4 sm:px-8 sm:py-4 bg-[#FAF9F5] border-t border-[#E8E5DC] flex flex-wrap items-center justify-between gap-3">
             <div className="text-[11px] font-mono text-[#737067] uppercase tracking-wider">
               COLLCO VERIFIED PRODUCTION
             </div>

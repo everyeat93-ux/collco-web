@@ -51,24 +51,24 @@ export function ProductsSection() {
               <br />
               <span className="text-[#737067]">7개의 독자적 소프트웨어 솔루션</span>
             </h2>
-            <p className="mt-3 text-sm sm:text-base text-[#484B52] max-w-2xl leading-relaxed font-normal">
+            <p className="mt-3 text-sm sm:text-base text-[#484B52] max-w-2xl leading-[1.8] font-normal break-keep-all">
               구글 플레이스토어 정식 출시 게임부터 로컬 라이프 GPS 툴, 35년 전통의 비스포크 아틀리에 웹까지 직접 기획하고 코딩한 1인 빌더의 릴리즈 인덱스입니다.
             </p>
           </div>
 
-          <div className="text-xs font-mono text-[#737067] px-3.5 py-1.5 rounded-full bg-white border border-[#E8E5DC] shrink-0">
+          <div className="text-[10px] sm:text-xs font-mono text-[#737067] px-3.5 py-1.5 rounded-full bg-white border border-[#E8E5DC] shrink-0 w-fit">
             [PROD 2026] · 100% LIVE
           </div>
         </div>
       </div>
 
       {/* Rauno Toolbar: Category Filter & View Mode Toggle */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8 pb-4 border-b border-[#E8E5DC]">
-        {/* Category Filters */}
-        <div className="flex flex-wrap items-center gap-1.5">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-8 pb-4 border-b border-[#E8E5DC]">
+        {/* Category Filters (Horizontal scrolling chips on mobile, wrapping on desktop) */}
+        <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-1 -mx-4 px-4 sm:mx-0 sm:px-0">
           <button
             onClick={() => setFilter("all")}
-            className={`px-3.5 py-1.5 rounded-full text-xs font-mono font-medium transition-all ${
+            className={`px-3.5 py-1.5 rounded-full text-xs font-mono font-medium whitespace-nowrap transition-all shrink-0 ${
               filter === "all"
                 ? "bg-[#0B0B0C] text-white shadow-rauno-xs"
                 : "bg-white text-[#737067] hover:text-[#0B0B0C] border border-[#E8E5DC]"
@@ -78,28 +78,28 @@ export function ProductsSection() {
           </button>
           <button
             onClick={() => setFilter("mobile")}
-            className={`px-3.5 py-1.5 rounded-full text-xs font-mono font-medium transition-all ${
+            className={`px-3.5 py-1.5 rounded-full text-xs font-mono font-medium whitespace-nowrap transition-all shrink-0 ${
               filter === "mobile"
                 ? "bg-[#0B0B0C] text-white shadow-rauno-xs"
                 : "bg-white text-[#737067] hover:text-[#0B0B0C] border border-[#E8E5DC]"
             }`}
           >
-            Mobile Apps & Games ({mobileCount})
+            Mobile Apps ({mobileCount})
           </button>
           <button
             onClick={() => setFilter("web")}
-            className={`px-3.5 py-1.5 rounded-full text-xs font-mono font-medium transition-all ${
+            className={`px-3.5 py-1.5 rounded-full text-xs font-mono font-medium whitespace-nowrap transition-all shrink-0 ${
               filter === "web"
                 ? "bg-[#0B0B0C] text-white shadow-rauno-xs"
                 : "bg-white text-[#737067] hover:text-[#0B0B0C] border border-[#E8E5DC]"
             }`}
           >
-            Web Services & Brand ({webCount})
+            Web Services ({webCount})
           </button>
         </div>
 
         {/* View Toggle */}
-        <div className="inline-flex items-center gap-1 p-1 rounded-full bg-white border border-[#E8E5DC] self-start sm:self-auto shadow-rauno-xs">
+        <div className="inline-flex items-center gap-1 p-1 rounded-full bg-white border border-[#E8E5DC] self-end sm:self-auto shrink-0 shadow-rauno-xs">
           <button
             onClick={() => setViewMode("index")}
             className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono transition-all ${

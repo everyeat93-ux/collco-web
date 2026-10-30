@@ -64,7 +64,7 @@ export function ProductCard({ product, index, onSelect }: ProductCardProps) {
   return (
     <div
       onClick={() => onSelect(product)}
-      className="group relative flex flex-col justify-between bg-white border border-[#E8E5DC] hover:border-[#0B0B0C] rounded-[1.75rem] p-7 sm:p-8 cursor-pointer transition-all duration-300 hover:-translate-y-1 shadow-swiss-xs hover:shadow-swiss-lg"
+      className="group relative flex flex-col justify-between bg-white border border-[#E8E5DC] hover:border-[#0B0B0C] rounded-[1.5rem] sm:rounded-[1.75rem] p-5 sm:p-8 cursor-pointer transition-all duration-300 hover:-translate-y-1 shadow-swiss-xs hover:shadow-swiss-lg"
     >
       <div>
         {/* Header row: Index & Status */}
@@ -111,17 +111,19 @@ export function ProductCard({ product, index, onSelect }: ProductCardProps) {
               <span className="text-sm font-medium text-[#737067]">({product.subName})</span>
             )}
           </h3>
-          <p className="text-xs sm:text-sm text-[#484B52] line-clamp-2 mt-2 leading-relaxed font-normal">
+          <p className="text-xs sm:text-sm text-[#484B52] line-clamp-2 mt-2 leading-[1.75] font-normal break-keep-all">
             {product.summary}
           </p>
         </div>
 
         {/* Key Metrics snapshot */}
-        <div className="grid grid-cols-3 gap-2 my-5 py-3 px-3.5 rounded-xl bg-[#FAF9F5] border border-[#E8E5DC]">
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 my-4 sm:my-5 py-2.5 sm:py-3 px-3 sm:px-3.5 rounded-xl bg-[#FAF9F5] border border-[#E8E5DC]">
           {product.metrics.map((metric, idx) => (
-            <div key={idx} className="text-left">
-              <div className="text-[10px] text-[#737067] font-semibold truncate font-mono">{metric.label}</div>
-              <div className="text-xs font-black text-[#0B0B0C] truncate mt-0.5 font-mono">{metric.value}</div>
+            <div key={idx} className={`text-left ${idx === 2 ? "col-span-2 sm:col-span-1" : ""}`}>
+              <div className="text-[10px] text-[#737067] font-semibold font-mono truncate">{metric.label}</div>
+              <div className="text-xs font-bold text-[#0B0B0C] mt-0.5 font-mono break-keep-all">
+                {metric.value}
+              </div>
             </div>
           ))}
         </div>

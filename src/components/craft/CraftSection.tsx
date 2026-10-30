@@ -85,7 +85,7 @@ export function CraftSection() {
               <br />
               <span className="text-[#737067]">실시간 인터랙션 & 물리 엔진 랩</span>
             </h2>
-            <p className="mt-3 text-sm sm:text-base text-[#484B52] max-w-2xl leading-relaxed font-normal">
+            <p className="mt-3 text-sm sm:text-base text-[#484B52] max-w-2xl leading-[1.8] font-normal break-keep-all">
               라우노(Rauno)의 인터랙티브 플레이그라운드 철학을 따라, 실제 COLLCO의 모바일 앱과 게임에 탑재된 핵심 물리 알고리즘을 브라우저에서 직접 테스트해 보실 수 있습니다.
             </p>
           </div>
@@ -99,7 +99,7 @@ export function CraftSection() {
       {/* 3 Interactive Craft Widgets */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Craft 1: 원터치 셔틀콕 물리 엔진 (하늘이 vs 라우니) */}
-        <div className="bg-white border border-[#E8E5DC] rounded-[2rem] p-7 shadow-rauno-card flex flex-col justify-between">
+        <div className="bg-white border border-[#E8E5DC] rounded-[1.5rem] sm:rounded-[2rem] p-5 sm:p-7 shadow-rauno-card flex flex-col justify-between">
           <div>
             <div className="flex items-center justify-between mb-4">
               <span className="text-[10px] font-mono font-bold text-[#737067] uppercase tracking-wider">
@@ -166,7 +166,7 @@ export function CraftSection() {
         </div>
 
         {/* Craft 2: ditta 6방향 반응형 풋워크 엔진 */}
-        <div className="bg-white border border-[#E8E5DC] rounded-[2rem] p-7 shadow-rauno-card flex flex-col justify-between">
+        <div className="bg-white border border-[#E8E5DC] rounded-[1.5rem] sm:rounded-[2rem] p-5 sm:p-7 shadow-rauno-card flex flex-col justify-between">
           <div>
             <div className="flex items-center justify-between mb-4">
               <span className="text-[10px] font-mono font-bold text-[#737067] uppercase tracking-wider">
@@ -239,7 +239,7 @@ export function CraftSection() {
         </div>
 
         {/* Craft 3: FM 선수 분석기 가중치 엔진 */}
-        <div className="bg-white border border-[#E8E5DC] rounded-[2rem] p-7 shadow-rauno-card flex flex-col justify-between">
+        <div className="bg-white border border-[#E8E5DC] rounded-[1.5rem] sm:rounded-[2rem] p-5 sm:p-7 shadow-rauno-card flex flex-col justify-between">
           <div>
             <div className="flex items-center justify-between mb-4">
               <span className="text-[10px] font-mono font-bold text-[#737067] uppercase tracking-wider">

@@ -45,7 +45,7 @@ export function AboutSection() {
         {BUILDING_PILLARS.map((pillar) => (
           <div
             key={pillar.number}
-            className="flex flex-col justify-between p-8 sm:p-9 rounded-[1.75rem] bg-white border border-[#E8E5DC] hover:border-[#0B0B0C] shadow-swiss-xs hover:shadow-swiss-lg transition-all duration-300 hover:-translate-y-1"
+            className="flex flex-col justify-between p-6 sm:p-9 rounded-[1.5rem] sm:rounded-[1.75rem] bg-white border border-[#E8E5DC] hover:border-[#0B0B0C] shadow-swiss-xs hover:shadow-swiss-lg transition-all duration-300 hover:-translate-y-1"
           >
             <div>
               {/* Header with Number & Icon */}
@@ -68,7 +68,7 @@ export function AboutSection() {
                 </h3>
               </div>
 
-              <p className="text-xs sm:text-sm text-[#484B52] leading-relaxed font-normal">
+              <p className="text-xs sm:text-sm text-[#484B52] leading-[1.75] font-normal break-keep-all">
                 {pillar.description}
               </p>
             </div>
