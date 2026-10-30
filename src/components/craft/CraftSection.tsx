@@ -60,6 +60,7 @@ export function CraftSection() {
 
   // Demo 3: FM Radar Preset Engine
   const [selectedRole, setSelectedRole] = useState<"winger" | "playmaker" | "targetman">("playmaker");
+  const [mobileTab, setMobileTab] = useState<number>(0);
 
   const roleScores = {
     playmaker: { pass: 95, vision: 92, stamina: 84, pace: 72, finish: 70, overall: 91 },
@@ -70,36 +71,57 @@ export function CraftSection() {
   const currentScores = roleScores[selectedRole];
 
   return (
-    <section id="craft" className="py-24 md:py-32 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto relative">
+    <section id="craft" className="py-8 sm:py-16 md:py-24 px-3 sm:px-6 lg:px-8 max-w-6xl mx-auto relative">
       {/* Section Header */}
-      <div className="mb-12">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-[#E8E5DC] text-[11px] font-mono text-[#737067] uppercase tracking-wider mb-4">
+      <div className="mb-5 sm:mb-12">
+        <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-white border border-[#E8E5DC] text-[10px] sm:text-[11px] font-mono text-[#737067] uppercase tracking-wider mb-2.5 sm:mb-4">
           <Activity className="w-3.5 h-3.5 text-[#0B0B0C]" />
           <span>02 / CRAFT LAB & INTERACTIVE ENGINES</span>
         </div>
 
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-3 sm:gap-6">
           <div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0B0B0C] tracking-tight leading-tight">
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-[#0B0B0C] tracking-tight leading-tight">
               손끝에서 반응하는,
               <br />
               <span className="text-[#737067]">실시간 인터랙션 & 물리 엔진 랩</span>
             </h2>
-            <p className="mt-3 text-sm sm:text-base text-[#484B52] max-w-2xl leading-[1.8] font-normal break-keep-all">
+            <p className="mt-2 sm:mt-3 text-xs sm:text-base text-[#484B52] max-w-2xl leading-[1.75] font-normal break-keep-all">
               라우노(Rauno)의 인터랙티브 플레이그라운드 철학을 따라, 실제 COLLCO의 모바일 앱과 게임에 탑재된 핵심 물리 알고리즘을 브라우저에서 직접 테스트해 보실 수 있습니다.
             </p>
           </div>
 
-          <div className="text-xs font-mono text-[#737067] px-3 py-1 rounded-full bg-white border border-[#E8E5DC] shrink-0">
+          <div className="text-[10px] sm:text-xs font-mono text-[#737067] px-3 py-1 sm:px-3 sm:py-1 rounded-full bg-white border border-[#E8E5DC] shrink-0 w-fit">
             PROTOTYPE TO PRODUCTION
           </div>
         </div>
       </div>
 
+      {/* Mobile Experiment Selector Tabs (drastically reduces mobile scroll height) */}
+      <div className="lg:hidden flex items-center gap-1 p-1 mb-4 rounded-full bg-[#F8F7F4] border border-[#E8E5DC]">
+        {[
+          { label: "01 랠리 물리", id: 0 },
+          { label: "02 풋워크 큐레이터", id: 1 },
+          { label: "03 선수 가중치", id: 2 },
+        ].map((tab) => (
+          <button
+            key={tab.id}
+            onClick={() => setMobileTab(tab.id)}
+            className={`flex-1 py-1.5 rounded-full text-[11px] font-mono transition-all text-center ${
+              mobileTab === tab.id
+                ? "bg-[#0B0B0C] text-white font-bold shadow-xs"
+                : "text-[#737067] hover:text-[#0B0B0C]"
+            }`}
+          >
+            {tab.label}
+          </button>
+        ))}
+      </div>
+
       {/* 3 Interactive Craft Widgets */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
         {/* Craft 1: 원터치 셔틀콕 물리 엔진 (하늘이 vs 라우니) */}
-        <div className="bg-white border border-[#E8E5DC] rounded-[1.5rem] sm:rounded-[2rem] p-5 sm:p-7 shadow-rauno-card flex flex-col justify-between">
+        <div className={`${mobileTab === 0 ? "flex" : "hidden lg:flex"} bg-white border border-[#E8E5DC] rounded-[1.5rem] sm:rounded-[2rem] p-4 sm:p-7 shadow-rauno-card flex-col justify-between`}>
           <div>
             <div className="flex items-center justify-between mb-4">
               <span className="text-[10px] font-mono font-bold text-[#737067] uppercase tracking-wider">
@@ -166,7 +188,7 @@ export function CraftSection() {
         </div>
 
         {/* Craft 2: ditta 6방향 반응형 풋워크 엔진 */}
-        <div className="bg-white border border-[#E8E5DC] rounded-[1.5rem] sm:rounded-[2rem] p-5 sm:p-7 shadow-rauno-card flex flex-col justify-between">
+        <div className={`${mobileTab === 1 ? "flex" : "hidden lg:flex"} bg-white border border-[#E8E5DC] rounded-[1.5rem] sm:rounded-[2rem] p-4 sm:p-7 shadow-rauno-card flex-col justify-between`}>
           <div>
             <div className="flex items-center justify-between mb-4">
               <span className="text-[10px] font-mono font-bold text-[#737067] uppercase tracking-wider">
@@ -239,7 +261,7 @@ export function CraftSection() {
         </div>
 
         {/* Craft 3: FM 선수 분석기 가중치 엔진 */}
-        <div className="bg-white border border-[#E8E5DC] rounded-[1.5rem] sm:rounded-[2rem] p-5 sm:p-7 shadow-rauno-card flex flex-col justify-between">
+        <div className={`${mobileTab === 2 ? "flex" : "hidden lg:flex"} bg-white border border-[#E8E5DC] rounded-[1.5rem] sm:rounded-[2rem] p-4 sm:p-7 shadow-rauno-card flex-col justify-between`}>
           <div>
             <div className="flex items-center justify-between mb-4">
               <span className="text-[10px] font-mono font-bold text-[#737067] uppercase tracking-wider">

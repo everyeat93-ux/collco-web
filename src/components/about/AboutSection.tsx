@@ -20,40 +20,40 @@ export function AboutSection() {
   };
 
   return (
-    <section id="about" className="py-24 md:py-32 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto relative">
+    <section id="about" className="py-8 sm:py-16 md:py-24 px-3 sm:px-6 lg:px-8 max-w-6xl mx-auto relative">
       {/* Section Header */}
-      <div className="mb-12">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-[#E8E5DC] text-[11px] font-mono text-[#737067] uppercase tracking-wider mb-4">
+      <div className="mb-5 sm:mb-12">
+        <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-white border border-[#E8E5DC] text-[10px] sm:text-[11px] font-mono text-[#737067] uppercase tracking-wider mb-2.5 sm:mb-4">
           <Terminal className="w-3 h-3 text-[#0B0B0C]" />
-          <span>03 / ENGINEERING & OPERATING DOCTRINE</span>
+          <span>04 / ENGINEERING & OPERATING DOCTRINE</span>
         </div>
 
         <div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0B0B0C] tracking-tight leading-tight">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-[#0B0B0C] tracking-tight leading-tight">
             빠른 실행과 집요한 문제 해결,
             <br />
             <span className="text-[#737067]">COLLCO의 빌딩 철학</span>
           </h2>
-          <p className="mt-3 text-sm sm:text-base text-[#484B52] max-w-2xl leading-relaxed font-normal">
+          <p className="mt-2 sm:mt-3 text-xs sm:text-base text-[#484B52] max-w-2xl leading-[1.75] font-normal break-keep-all">
             기획과 UI/UX 디자인, 풀스택 엔지니어링과 이커머스 운영까지 전 과정을 한 호흡으로 완주하여 불필요한 의사결정 마찰을 줄이고 확실한 프로덕트 가치를 만듭니다.
           </p>
         </div>
       </div>
 
       {/* 3 Core Building Pillars (Swiss Minimalist Bento Cards) */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-12">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-5 mb-6 sm:mb-12">
         {BUILDING_PILLARS.map((pillar) => (
           <div
             key={pillar.number}
-            className="flex flex-col justify-between p-6 sm:p-9 rounded-[1.5rem] sm:rounded-[1.75rem] bg-white border border-[#E8E5DC] hover:border-[#0B0B0C] shadow-swiss-xs hover:shadow-swiss-lg transition-all duration-300 hover:-translate-y-1"
+            className="flex flex-col justify-between p-4 sm:p-9 rounded-xl sm:rounded-[1.75rem] bg-white border border-[#E8E5DC] hover:border-[#0B0B0C] shadow-swiss-xs hover:shadow-swiss-lg transition-all duration-300 hover:-translate-y-1"
           >
             <div>
               {/* Header with Number & Icon */}
-              <div className="flex items-center justify-between mb-6">
-                <span className="font-mono text-3xl font-black text-[#737067]">
+              <div className="flex items-center justify-between mb-4 sm:mb-6">
+                <span className="font-mono text-2xl sm:text-3xl font-black text-[#737067]">
                   {pillar.number}
                 </span>
-                <div className="w-9 h-9 rounded-xl bg-[#FAF9F5] border border-[#E8E5DC] flex items-center justify-center">
+                <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-[#FAF9F5] border border-[#E8E5DC] flex items-center justify-center">
                   {getPillarIcon(pillar.icon)}
                 </div>
               </div>

@@ -36,39 +36,39 @@ export function ProductsSection() {
   ).length;
 
   return (
-    <section id="projects" className="py-24 md:py-32 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto relative">
+    <section id="projects" className="py-8 sm:py-16 md:py-24 px-3 sm:px-6 lg:px-8 max-w-6xl mx-auto relative">
       {/* Rauno-style Section Header */}
-      <div className="mb-12">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-[#E8E5DC] text-[11px] font-mono text-[#737067] uppercase tracking-wider mb-4">
+      <div className="mb-6 sm:mb-12">
+        <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-white border border-[#E8E5DC] text-[10px] sm:text-[11px] font-mono text-[#737067] uppercase tracking-wider mb-2.5 sm:mb-4">
           <Layers className="w-3.5 h-3.5 text-[#0B0B0C]" />
           <span>01 / SHIPPED WORKS & PROJECTS (7)</span>
         </div>
 
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-3 sm:gap-6">
           <div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0B0B0C] tracking-tight leading-tight">
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-[#0B0B0C] tracking-tight leading-tight">
               일상의 틈새를 해결하는,
               <br />
               <span className="text-[#737067]">7개의 독자적 소프트웨어 솔루션</span>
             </h2>
-            <p className="mt-3 text-sm sm:text-base text-[#484B52] max-w-2xl leading-[1.8] font-normal break-keep-all">
+            <p className="mt-2 sm:mt-3 text-xs sm:text-base text-[#484B52] max-w-2xl leading-[1.75] font-normal break-keep-all">
               구글 플레이스토어 정식 출시 게임부터 로컬 라이프 GPS 툴, 35년 전통의 비스포크 아틀리에 웹까지 직접 기획하고 코딩한 1인 빌더의 릴리즈 인덱스입니다.
             </p>
           </div>
 
-          <div className="text-[10px] sm:text-xs font-mono text-[#737067] px-3.5 py-1.5 rounded-full bg-white border border-[#E8E5DC] shrink-0 w-fit">
+          <div className="text-[10px] sm:text-xs font-mono text-[#737067] px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-white border border-[#E8E5DC] shrink-0 w-fit">
             [PROD 2026] · 100% LIVE
           </div>
         </div>
       </div>
 
       {/* Rauno Toolbar: Category Filter & View Mode Toggle */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-8 pb-4 border-b border-[#E8E5DC]">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 mb-5 sm:mb-8 pb-3 border-b border-[#E8E5DC]">
         {/* Category Filters (Horizontal scrolling chips on mobile, wrapping on desktop) */}
-        <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-1 -mx-4 px-4 sm:mx-0 sm:px-0">
+        <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5 -mx-3 px-3 sm:mx-0 sm:px-0">
           <button
             onClick={() => setFilter("all")}
-            className={`px-3.5 py-1.5 rounded-full text-xs font-mono font-medium whitespace-nowrap transition-all shrink-0 ${
+            className={`px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full text-[11px] sm:text-xs font-mono font-medium whitespace-nowrap transition-all shrink-0 ${
               filter === "all"
                 ? "bg-[#0B0B0C] text-white shadow-rauno-xs"
                 : "bg-white text-[#737067] hover:text-[#0B0B0C] border border-[#E8E5DC]"
@@ -78,7 +78,7 @@ export function ProductsSection() {
           </button>
           <button
             onClick={() => setFilter("mobile")}
-            className={`px-3.5 py-1.5 rounded-full text-xs font-mono font-medium whitespace-nowrap transition-all shrink-0 ${
+            className={`px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full text-[11px] sm:text-xs font-mono font-medium whitespace-nowrap transition-all shrink-0 ${
               filter === "mobile"
                 ? "bg-[#0B0B0C] text-white shadow-rauno-xs"
                 : "bg-white text-[#737067] hover:text-[#0B0B0C] border border-[#E8E5DC]"
@@ -88,7 +88,7 @@ export function ProductsSection() {
           </button>
           <button
             onClick={() => setFilter("web")}
-            className={`px-3.5 py-1.5 rounded-full text-xs font-mono font-medium whitespace-nowrap transition-all shrink-0 ${
+            className={`px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full text-[11px] sm:text-xs font-mono font-medium whitespace-nowrap transition-all shrink-0 ${
               filter === "web"
                 ? "bg-[#0B0B0C] text-white shadow-rauno-xs"
                 : "bg-white text-[#737067] hover:text-[#0B0B0C] border border-[#E8E5DC]"
@@ -99,27 +99,27 @@ export function ProductsSection() {
         </div>
 
         {/* View Toggle */}
-        <div className="inline-flex items-center gap-1 p-1 rounded-full bg-white border border-[#E8E5DC] self-end sm:self-auto shrink-0 shadow-rauno-xs">
+        <div className="inline-flex items-center gap-1 p-0.5 sm:p-1 rounded-full bg-white border border-[#E8E5DC] self-end sm:self-auto shrink-0 shadow-rauno-xs">
           <button
             onClick={() => setViewMode("index")}
-            className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono transition-all ${
+            className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] sm:text-xs font-mono transition-all ${
               viewMode === "index"
                 ? "bg-[#0B0B0C] text-white font-bold"
                 : "text-[#737067] hover:text-[#0B0B0C]"
             }`}
           >
-            <List className="w-3.5 h-3.5" />
+            <List className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
             <span>Rauno Index</span>
           </button>
           <button
             onClick={() => setViewMode("grid")}
-            className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono transition-all ${
+            className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] sm:text-xs font-mono transition-all ${
               viewMode === "grid"
                 ? "bg-[#0B0B0C] text-white font-bold"
                 : "text-[#737067] hover:text-[#0B0B0C]"
             }`}
           >
-            <LayoutGrid className="w-3.5 h-3.5" />
+            <LayoutGrid className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
             <span>Cards</span>
           </button>
         </div>
@@ -127,12 +127,12 @@ export function ProductsSection() {
 
       {/* Mode 1: Rauno Freiberg's Iconic Project Index List */}
       {viewMode === "index" && (
-        <div className="space-y-2">
+        <div className="space-y-1.5 sm:space-y-2">
           {filteredProducts.map((product, index) => (
             <div
               key={product.id}
               onClick={() => setSelectedProduct(product)}
-              className="group relative p-4 sm:p-5 rounded-2xl bg-white hover:bg-[#F8F7F4] border border-[#E8E5DC] hover:border-[#0B0B0C] transition-all duration-200 cursor-pointer flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-rauno-xs"
+              className="group relative p-3 sm:p-5 rounded-xl sm:rounded-2xl bg-white hover:bg-[#F8F7F4] border border-[#E8E5DC] hover:border-[#0B0B0C] transition-all duration-200 cursor-pointer flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 sm:gap-3 shadow-rauno-xs"
             >
               {/* Left Column: Number, Icon & Title */}
               <div className="flex items-center gap-3">
