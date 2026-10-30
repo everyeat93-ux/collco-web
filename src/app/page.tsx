@@ -2,35 +2,43 @@ import { Navbar } from "@/components/common/Navbar";
 import { Footer } from "@/components/common/Footer";
 import { HeroSection } from "@/components/hero/HeroSection";
 import { ProductsSection } from "@/components/products/ProductsSection";
+import { CraftSection } from "@/components/craft/CraftSection";
 import { StoreSection } from "@/components/store/StoreSection";
 import { AboutSection } from "@/components/about/AboutSection";
 import { ContactSection } from "@/components/contact/ContactSection";
+import { MinimapTracker } from "@/components/common/MinimapTracker";
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen bg-[#F5F4EE] text-[#0B0B0C]">
-      {/* Sticky Glassmorphic Navbar */}
+    <div className="flex flex-col min-h-screen bg-white text-[#0B0B0C] selection:bg-[#FFE600] selection:text-black">
+      {/* Sticky Minimal Navbar */}
       <Navbar />
 
       {/* Main Content Sections */}
       <main className="flex-1 w-full">
-        {/* Section 1: Hero */}
+        {/* Frame 1: Hero Opening (Rauno Typography & Statement) */}
         <HeroSection />
 
-        {/* Section 2: Core Digital Products (5 items with modal detail view) */}
+        {/* Frame 2: Projects Index (7 Shipped Works with Rauno Line Connectors) */}
         <ProductsSection />
 
-        {/* Section 3: Collection & Curated Goods Store */}
+        {/* Frame 3: Craft Lab (Interactive Physics & Algorithms Playground) */}
+        <CraftSection />
+
+        {/* Frame 4: Physical Curation Store */}
         <StoreSection />
 
-        {/* Section 4: About Solo Builder & Tech Stack */}
+        {/* Frame 5: Doctrine & Tech Architecture */}
         <AboutSection />
 
-        {/* Section 5: Contact Form & Inquiry */}
+        {/* Frame 6: Contact & Rauno Four-Corner Frame + Manifesto */}
         <ContactSection />
       </main>
 
-      {/* Global Footer */}
+      {/* Floating Bottom Minimap Tracker (Rauno Signature Scrubber) */}
+      <MinimapTracker />
+
+      {/* Minimal Footer */}
       <Footer />
     </div>
   );

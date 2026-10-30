@@ -16,37 +16,37 @@ export function Badge({
   className = "",
 }: BadgeProps) {
   const variantStyles = {
-    success: "bg-[#0B0B0C] text-white",
-    emerald: "bg-[#0B0B0C] text-white",
-    info: "bg-[#ECEAE2] text-[#0B0B0C]",
-    warning: "bg-[#E5E2D8] text-[#22211E]",
-    amber: "bg-[#E5E2D8] text-[#22211E]",
-    purple: "bg-[#ECEAE2] text-[#0B0B0C]",
-    indigo: "bg-[#ECEAE2] text-[#0B0B0C]",
-    rose: "bg-[#ECEAE2] text-[#0B0B0C]",
-    neutral: "bg-[#ECEAE2] text-[#0B0B0C]",
+    success: "bg-white border border-[#E8E5DC] text-[#0B0B0C]",
+    emerald: "bg-white border border-[#E8E5DC] text-[#0B0B0C]",
+    info: "bg-white border border-[#E8E5DC] text-[#0B0B0C]",
+    warning: "bg-[#FAF7EE] border border-[#ECD9B8] text-[#8A5B10]",
+    amber: "bg-[#FAF7EE] border border-[#ECD9B8] text-[#8A5B10]",
+    purple: "bg-white border border-[#E8E5DC] text-[#0B0B0C]",
+    indigo: "bg-white border border-[#E8E5DC] text-[#0B0B0C]",
+    rose: "bg-white border border-[#E8E5DC] text-[#0B0B0C]",
+    neutral: "bg-[#FAF9F5] border border-[#E8E5DC] text-[#484B52]",
   };
 
   const dotColors = {
-    success: "bg-emerald-400",
-    emerald: "bg-emerald-400",
-    info: "bg-[#0B0B0C]",
+    success: "bg-emerald-500",
+    emerald: "bg-emerald-500",
+    info: "bg-sky-500",
     warning: "bg-amber-500",
     amber: "bg-amber-500",
-    purple: "bg-[#0B0B0C]",
-    indigo: "bg-[#0B0B0C]",
-    rose: "bg-[#0B0B0C]",
-    neutral: "bg-[#0B0B0C]",
+    purple: "bg-purple-500",
+    indigo: "bg-indigo-500",
+    rose: "bg-rose-500",
+    neutral: "bg-[#737067]",
   };
 
   const sizeStyles = {
-    sm: "text-[11px] px-2.5 py-1 font-bold tracking-tight",
-    md: "text-xs px-3.5 py-1.5 font-bold tracking-tight",
+    sm: "text-[11px] px-2.5 py-0.5 font-mono font-medium tracking-tight",
+    md: "text-xs px-3 py-1 font-mono font-medium tracking-tight",
   };
 
   return (
     <span
-      className={`inline-flex items-center gap-1.5 rounded-full shadow-chic-xs transition-colors ${variantStyles[variant]} ${sizeStyles[size]} ${className}`}
+      className={`inline-flex items-center gap-1.5 rounded-full shadow-swiss-xs transition-colors ${variantStyles[variant]} ${sizeStyles[size]} ${className}`}
     >
       {dot && (
         <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${dotColors[variant]}`} />

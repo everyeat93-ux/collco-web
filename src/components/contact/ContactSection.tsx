@@ -8,8 +8,9 @@ import {
   Check,
   Clock,
   ShieldCheck,
+  ShoppingBag,
+  ExternalLink,
 } from "lucide-react";
-import { SectionHeader } from "@/components/common/SectionHeader";
 
 export function ContactSection() {
   const [formData, setFormData] = useState({
@@ -38,8 +39,7 @@ export function ContactSection() {
     const body = encodeURIComponent(
       `보낸 사람: ${formData.name} (${formData.email})\n문의 유형: ${formData.type}\n\n[문의 내용]\n${formData.message}`
     );
-    
-    // Automatically trigger mailto client with pre-filled subject and body
+
     window.location.href = `mailto:${contactEmail}?subject=${subject}&body=${body}`;
 
     setTimeout(() => {
@@ -51,224 +51,166 @@ export function ContactSection() {
   const inquiryTypes = ["프로덕트 협업", "스토어 & 굿즈 제휴", "기술 및 DX 자문", "기타 문의"];
 
   return (
-    <section id="contact" className="py-28 md:py-36 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto relative">
-      {/* Ambient background glow */}
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[520px] h-[520px] bg-[#EFECE6]/50 rounded-full blur-3xl pointer-events-none -z-10" />
+    <section id="contact" className="py-24 md:py-32 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto relative">
+      {/* Rauno's Iconic Four-Corner Contact Frame */}
+      <div className="relative bg-[#F8F7F4] border border-[#E8E5DC] rounded-[2.5rem] p-10 sm:p-16 mb-16 shadow-rauno-card overflow-hidden">
+        {/* Rauno Corner Plus Accents */}
+        <span className="absolute top-4 left-4 font-mono text-xs text-[#C5C0B4] select-none">+</span>
+        <span className="absolute top-4 right-4 font-mono text-xs text-[#C5C0B4] select-none">+</span>
+        <span className="absolute bottom-4 left-4 font-mono text-xs text-[#C5C0B4] select-none">+</span>
+        <span className="absolute bottom-4 right-4 font-mono text-xs text-[#C5C0B4] select-none">+</span>
 
-      {/* Section Header */}
-      <SectionHeader
-        badgeText="04 / LET'S TALK"
-        badgeVariant="neutral"
-        title={
-          <span>
-            새로운 가능성을 만듭니다,{" "}
-            <span className="text-[#0B0B0C]">
-              협업 제안 및 문의
-            </span>
-          </span>
-        }
-        subtitle="새로운 디지털 프로덕트 공동 개발, 기존 서비스 인수/제휴, 굿즈 바잉 및 협업 아이디어가 있다면 언제든 편하게 연락해 주세요."
-      />
-
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-        {/* Left Column: Direct Info & Value (Borderless) */}
-        <div className="lg:col-span-5 space-y-6">
-          <div className="p-9 sm:p-11 rounded-[2.4rem] bg-white space-y-8 shadow-chic-lg">
-            <div>
-              <div className="text-[11px] font-mono font-bold text-[#847E72] uppercase tracking-wider mb-2">
-                DIRECT COMMUNICATION
-              </div>
-              <h3 className="text-2xl font-black text-[#0B0B0C] tracking-tight">
-                빠른 소통을 위한 직접 연락처
-              </h3>
-              <p className="text-sm text-[#484B52] mt-3 leading-relaxed font-normal">
-                복잡한 절차 없이 이메일로 간단한 아이디어나 제안서를 보내주셔도 좋습니다.
-              </p>
-            </div>
-
-            {/* Email Copy Card (Borderless) */}
-            <div className="p-5 rounded-2xl bg-[#ECEAE2] flex items-center justify-between gap-3 shadow-chic-xs">
-              <div className="flex items-center gap-3.5 overflow-hidden">
-                <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center shrink-0 shadow-chic-xs">
-                  <Mail className="w-4 h-4 text-[#0B0B0C]" />
-                </div>
-                <div className="truncate">
-                  <div className="text-[10px] font-mono text-[#847E72] uppercase font-bold">Official Email</div>
-                  <a
-                    href={`mailto:${contactEmail}`}
-                    className="text-sm font-black text-[#0B0B0C] font-mono truncate transition-colors block"
-                    title="이메일 바로 보내기"
-                  >
-                    {contactEmail}
-                  </a>
-                </div>
-              </div>
-
-              <button
-                onClick={handleCopyEmail}
-                className="px-4.5 py-2 rounded-full bg-white text-xs font-bold text-[#0B0B0C] hover:bg-[#0B0B0C] hover:text-white flex items-center gap-1.5 shrink-0 transition-colors shadow-chic-xs"
-                title="이메일 주소 복사"
-              >
-                {copied ? (
-                  <>
-                    <Check className="w-3.5 h-3.5 text-emerald-600" />
-                    <span className="text-emerald-700">복사됨!</span>
-                  </>
-                ) : (
-                  <>
-                    <Copy className="w-3.5 h-3.5" />
-                    <span>복사</span>
-                  </>
-                )}
-              </button>
-            </div>
-
-            {/* Commitments (Borderless) */}
-            <div className="space-y-4 pt-2 text-xs sm:text-sm text-[#484B52]">
-              <div className="flex items-start gap-3">
-                <Clock className="w-4 h-4 text-[#0B0B0C] shrink-0 mt-0.5" />
-                <div>
-                  <span className="font-bold text-[#0B0B0C]">24시간 이내 회신 원칙:</span> 접수된
-                  모든 제안은 1영업일 이내에 검토 후 상세 회신을 드립니다.
-                </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <ShieldCheck className="w-4 h-4 text-[#0B0B0C] shrink-0 mt-0.5" />
-                <div>
-                  <span className="font-bold text-[#0B0B0C]">비밀 보장:</span> 협업 제안 시 논의되는
-                  모든 비즈니스 정보 및 아이디어는 철저히 보안을 유지합니다.
-                </div>
-              </div>
-            </div>
+        <div className="relative z-10 flex flex-col items-center justify-center text-center py-8">
+          <div className="text-[10px] font-mono font-bold text-[#737067] uppercase tracking-widest mb-3">
+            [GET IN TOUCH] · FAST RESOLUTION
           </div>
-        </div>
 
-        {/* Right Column: Contact Form (Borderless) */}
-        <div className="lg:col-span-7">
-          <div className="p-9 sm:p-11 rounded-[2.4rem] bg-white shadow-chic-lg">
-            {submitted ? (
-              <div className="py-14 text-center space-y-4">
-                <div className="w-16 h-16 rounded-full bg-[#ECEAE2] flex items-center justify-center mx-auto text-[#0B0B0C] shadow-chic-xs">
-                  <Check className="w-8 h-8" />
-                </div>
-                <h4 className="text-2xl font-black text-[#0B0B0C]">문의가 성공적으로 전달되었습니다</h4>
-                <p className="text-sm text-[#484B52] max-w-md mx-auto leading-relaxed">
-                  남겨주신 내용을 확인 후 입력하신 이메일(
-                  <span className="text-[#0B0B0C] font-mono font-bold">{formData.email}</span>)로 24시간 이내에
-                  연락드리겠습니다.
-                </p>
-                <button
-                  onClick={() => {
-                    setSubmitted(false);
-                    setFormData({ name: "", email: "", type: "프로덕트 협업", message: "" });
-                  }}
-                  className="mt-4 px-6 py-3 rounded-xl bg-[#0B0B0C] text-xs font-bold text-white transition-all shadow-chic-xs hover:bg-[#1E1E22]"
-                >
-                  새 문의 작성하기
-                </button>
-              </div>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0B0B0C] tracking-tight mb-4">
+            새로운 가능성을 만듭니다.
+          </h2>
+
+          <p className="text-xs sm:text-sm text-[#484B52] max-w-md mx-auto mb-8 font-normal leading-relaxed">
+            새로운 디지털 프로덕트 빌딩, 기존 서비스 인수/제휴, 굿즈 바잉 및 기술 자문 등 언제든 편하게 제안해 주세요.
+          </p>
+
+          {/* Center Interactive Email Copy Capsule (Rauno Signature) */}
+          <button
+            onClick={handleCopyEmail}
+            className="group relative inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-[#0B0B0C] hover:bg-[#252528] text-white font-mono font-bold text-xs uppercase tracking-wider shadow-rauno transition-all active:scale-95"
+          >
+            {copied ? (
+              <>
+                <Check className="w-4 h-4 text-emerald-400" />
+                <span>Copied to Clipboard!</span>
+              </>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-6">
-                {/* Inquiry Type selector */}
-                <div>
-                  <label className="block text-xs font-bold text-[#0B0B0C] uppercase tracking-wider mb-3">
-                    문의 유형 (Inquiry Category)
-                  </label>
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
-                    {inquiryTypes.map((type) => (
-                      <button
-                        type="button"
-                        key={type}
-                        onClick={() => setFormData({ ...formData, type })}
-                        className={`px-4 py-3 rounded-full text-xs font-bold transition-all text-center ${
-                          formData.type === type
-                            ? "bg-[#0B0B0C] text-white shadow-chic-xs"
-                            : "bg-[#ECEAE2] text-[#484B52] hover:text-[#0B0B0C] hover:bg-[#DFDCD2]"
-                        }`}
-                      >
-                        {type}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Name & Email inputs (Borderless, Tone Fill) */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label
-                      htmlFor="contact-name"
-                      className="block text-xs font-bold text-[#0B0B0C] mb-2"
-                    >
-                      성함 / 회사명 <span className="text-[#847E72]">*</span>
-                    </label>
-                    <input
-                      id="contact-name"
-                      type="text"
-                      required
-                      placeholder="홍길동 (또는 회사명)"
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-5 py-4 rounded-2xl bg-[#ECEAE2] focus:bg-white text-[#0B0B0C] text-sm placeholder:text-[#847E72] outline-none transition-all shadow-chic-xs focus:shadow-chic"
-                    />
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="contact-email"
-                      className="block text-xs font-bold text-[#0B0B0C] mb-2"
-                    >
-                      답변받으실 이메일 <span className="text-[#847E72]">*</span>
-                    </label>
-                    <input
-                      id="contact-email"
-                      type="email"
-                      required
-                      placeholder="name@company.com"
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full px-5 py-4 rounded-2xl bg-[#ECEAE2] focus:bg-white text-[#0B0B0C] text-sm placeholder:text-[#847E72] outline-none transition-all shadow-chic-xs focus:shadow-chic"
-                    />
-                  </div>
-                </div>
-
-                {/* Message Textarea (Borderless, Tone Fill) */}
-                <div>
-                  <label
-                    htmlFor="contact-message"
-                    className="block text-xs font-bold text-[#0B0B0C] mb-2"
-                  >
-                    제안 및 문의 내용 <span className="text-[#847E72]">*</span>
-                  </label>
-                  <textarea
-                    id="contact-message"
-                    required
-                    rows={4}
-                    placeholder="협업 제안의 배경, 희망하시는 일정이나 주요 내용 등을 자유롭게 적어주세요."
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full px-5 py-4 rounded-2xl bg-[#ECEAE2] focus:bg-white text-[#0B0B0C] text-sm placeholder:text-[#847E72] outline-none transition-all resize-y shadow-chic-xs focus:shadow-chic"
-                  />
-                </div>
-
-                {/* Submit button */}
-                <button
-                  type="submit"
-                  disabled={loading}
-                  className="w-full py-4.5 rounded-full bg-[#0B0B0C] hover:bg-[#1E1E22] text-white text-xs font-mono font-bold uppercase tracking-wider shadow-chic hover:shadow-chic-lg active:scale-[0.99] transition-all flex items-center justify-center gap-2.5 disabled:opacity-50"
-                >
-                  {loading ? (
-                    <span>전송 중...</span>
-                  ) : (
-                    <>
-                      <Send className="w-4 h-4 text-zinc-300" />
-                      <span>COLLCO에 문의 보내기</span>
-                    </>
-                  )}
-                </button>
-              </form>
+              <>
+                <Mail className="w-4 h-4 text-[#FFE600]" />
+                <span>{contactEmail}</span>
+                <span className="text-[#AFA99E] text-[10px]">[COPY]</span>
+              </>
             )}
-          </div>
+          </button>
         </div>
+
+        {/* Four-Corner Minimal Navigation Links */}
+        <div className="pt-8 border-t border-[#E8E5DC] flex flex-wrap items-center justify-between gap-4 text-xs font-mono text-[#737067]">
+          <a
+            href="https://github.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-[#0B0B0C] transition-colors"
+          >
+            ↗ GitHub
+          </a>
+          <a
+            href="https://smartstore.naver.com/collco"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-[#0B0B0C] transition-colors"
+          >
+            ↗ Naver SmartStore
+          </a>
+          <a
+            href="#projects"
+            className="hover:text-[#0B0B0C] transition-colors"
+          >
+            ↓ Shipped Works (7)
+          </a>
+          <span className="text-[#AFA99E]">1 Business Day Response SLA</span>
+        </div>
+      </div>
+
+      {/* Rauno's Iconic Yellow Manifesto Banner */}
+      <div className="bg-[#FFE600] rounded-[2.5rem] p-10 sm:p-14 mb-16 text-[#0B0B0C] shadow-rauno-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+        <div>
+          <div className="text-[10px] font-mono font-black uppercase tracking-widest text-black/60 mb-2">
+            THE COLLCO MANIFESTO
+          </div>
+          <p className="text-xl sm:text-2xl lg:text-3xl font-black leading-snug tracking-tight">
+            Make it fast.
+            <br />
+            Make it beautiful.
+            <br />
+            Make it consistent.
+            <br />
+            Make it timeless.
+            <br />
+            Make it soulful.
+            <br />
+            Make it.
+          </p>
+        </div>
+
+        <div className="max-w-sm text-xs font-mono text-black/80 leading-relaxed pt-2 md:pt-0 border-t md:border-t-0 md:border-l border-black/20 md:pl-8">
+          &ldquo;불필요한 군더더기를 덜어내고 본질에 집중합니다. 일상의 사소한 불편을 해소하는 7개의 독자적 디지털 솔루션과 수집가의 안목으로 엄선한 100% 정품 컬렉션.&rdquo;
+        </div>
+      </div>
+
+      {/* Direct Proposal Form */}
+      <div className="bg-white border border-[#E8E5DC] rounded-[2rem] p-8 sm:p-12 shadow-rauno-card">
+        <h3 className="text-xl font-black text-[#0B0B0C] tracking-tight mb-2">
+          상세 제안서 보내기
+        </h3>
+        <p className="text-xs sm:text-sm text-[#484B52] mb-6">
+          이메일 클라이언트를 통해 작성하신 내용이 즉시 전달됩니다.
+        </p>
+
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div className="flex flex-wrap gap-1.5 mb-2">
+            {inquiryTypes.map((type) => (
+              <button
+                key={type}
+                type="button"
+                onClick={() => setFormData({ ...formData, type })}
+                className={`px-3 py-1.5 rounded-lg text-xs font-mono transition-all ${
+                  formData.type === type
+                    ? "bg-[#0B0B0C] text-white font-bold"
+                    : "bg-[#F8F7F4] border border-[#E8E5DC] text-[#737067] hover:text-[#0B0B0C]"
+                }`}
+              >
+                {type}
+              </button>
+            ))}
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <input
+              type="text"
+              required
+              placeholder="성함 / 기업명"
+              value={formData.name}
+              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+              className="w-full px-4 py-2.5 rounded-xl bg-[#F8F7F4] border border-[#E8E5DC] focus:border-[#0B0B0C] focus:bg-white text-xs sm:text-sm text-[#0B0B0C] outline-none"
+            />
+            <input
+              type="email"
+              required
+              placeholder="회신 이메일 주소"
+              value={formData.email}
+              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+              className="w-full px-4 py-2.5 rounded-xl bg-[#F8F7F4] border border-[#E8E5DC] focus:border-[#0B0B0C] focus:bg-white text-xs sm:text-sm text-[#0B0B0C] outline-none"
+            />
+          </div>
+
+          <textarea
+            required
+            rows={4}
+            placeholder="제안 내용, 일정, 예산 등 편하신 형식으로 남겨주세요."
+            value={formData.message}
+            onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+            className="w-full px-4 py-3 rounded-xl bg-[#F8F7F4] border border-[#E8E5DC] focus:border-[#0B0B0C] focus:bg-white text-xs sm:text-sm text-[#0B0B0C] outline-none resize-none leading-relaxed"
+          />
+
+          <button
+            type="submit"
+            disabled={loading}
+            className="inline-flex items-center justify-center gap-2 w-full py-3.5 rounded-full bg-[#0B0B0C] hover:bg-[#252528] text-white font-mono font-bold text-xs uppercase tracking-wider transition-all shadow-rauno-xs active:scale-95"
+          >
+            <Send className="w-3.5 h-3.5" />
+            <span>{loading ? "전송 준비 중..." : "이메일 프로그램으로 제안서 보내기"}</span>
+          </button>
+        </form>
       </div>
     </section>
   );

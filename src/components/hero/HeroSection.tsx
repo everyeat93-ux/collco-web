@@ -1,144 +1,151 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
-import { ArrowDown, ArrowUpRight, Sparkles, Layers, ShoppingBag, Compass } from "lucide-react";
+import {
+  ArrowDown,
+  ArrowUpRight,
+  Copy,
+  Check,
+  ShoppingBag,
+  Sparkles,
+  Terminal,
+  Activity,
+  Layers,
+} from "lucide-react";
 
 export function HeroSection() {
+  const [copied, setCopied] = useState(false);
+  const email = "collcokorea@gmail.com";
+
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText(email);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
   return (
-    <section className="relative min-h-[92vh] flex flex-col justify-between pt-32 pb-24 px-4 sm:px-6 lg:px-8 overflow-hidden bg-[#F5F4EE]">
-      {/* Ambient warm light gradients - soft & subtle */}
-      <div className="absolute top-12 left-1/2 -translate-x-1/2 w-[760px] h-[440px] bg-gradient-to-b from-[#ECEAE2]/80 via-[#F5F4EE]/30 to-transparent rounded-full blur-3xl pointer-events-none -z-10" />
+    <section id="overview" className="relative pt-32 pb-16 md:pt-40 md:pb-24 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+      {/* Rauno-style Framed Canvas Container with Corner Crosshairs (+) */}
+      <div className="relative bg-white border border-[#E8E5DC] rounded-[2.5rem] p-8 sm:p-14 lg:p-16 overflow-hidden shadow-rauno-card">
+        {/* Rauno Corner Plus Accents */}
+        <span className="absolute top-4 left-4 font-mono text-xs text-[#C5C0B4] select-none">+</span>
+        <span className="absolute top-4 right-4 font-mono text-xs text-[#C5C0B4] select-none">+</span>
+        <span className="absolute bottom-4 left-4 font-mono text-xs text-[#C5C0B4] select-none">+</span>
+        <span className="absolute bottom-4 right-4 font-mono text-xs text-[#C5C0B4] select-none">+</span>
 
-      <div className="max-w-6xl mx-auto w-full flex-1 flex flex-col justify-center">
-        {/* Top Studio Monogram / Tag (Borderless) */}
-        <div className="flex justify-center mb-8">
-          <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/80 backdrop-blur-md shadow-chic-xs text-xs font-mono font-bold text-[#0B0B0C]">
-            <div className="relative w-4 h-4 rounded-full overflow-hidden shrink-0">
-              <Image src="/logo-collco.png" alt="COLLCO" fill sizes="16px" className="object-cover" />
-            </div>
-            <span>COLLCO STUDIO</span>
+        {/* Top Status & Meta Header */}
+        <div className="flex flex-wrap items-center justify-between gap-4 mb-10 pb-6 border-b border-[#F2EFE8]">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F8F7F4] border border-[#E8E5DC] text-[11px] font-mono text-[#484B52]">
+            <span className="w-2 h-2 rounded-full bg-[#FFE600] border border-black/40" />
+            <span className="font-semibold text-[#0B0B0C]">COLLCO STUDIO</span>
             <span className="text-[#AFA99E]">/</span>
-            <span className="text-[#666A73] font-normal">DIGITAL EXPERIENCES & CURATION</span>
+            <span>SOLO PRODUCT BUILDER</span>
+          </div>
+
+          <div className="text-[11px] font-mono text-[#737067] flex items-center gap-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+            <span>SEOUL · 7 PRODUCTS SHIPPED & LIVE</span>
           </div>
         </div>
 
-        {/* Cinematic Hero Billboard Card (Borderless, Bold Depth) */}
-        <div className="relative w-full rounded-[2.2rem] sm:rounded-[3rem] overflow-hidden shadow-chic-xl bg-[#09090B] min-h-[520px] sm:min-h-[580px] md:min-h-[640px] flex items-end">
-          {/* Background Cinematic Image */}
-          <div className="absolute inset-0">
-            <Image
-              src="/hero-architecture.jpg"
-              alt="COLLCO Minimal Architecture"
-              fill
-              priority
-              className="object-cover object-center transform scale-100 hover:scale-105 transition-transform duration-1000 ease-out"
-            />
-            {/* Multi-layered cinematic gradient overlays for high legibility */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
-            <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/45 to-transparent" />
+        {/* Rauno's Iconic Typography Opening */}
+        <div className="relative mb-12">
+          {/* Decorative geometric circle shape inspired by rauno.me */}
+          <div
+            className="hidden sm:block absolute -top-4 right-0 w-36 h-36 lg:w-44 lg:h-44 rounded-full bg-[#FFE600]/80 blur-2xl pointer-events-none -z-0"
+            aria-hidden="true"
+          />
+
+          <h1 className="relative z-10 text-3xl sm:text-5xl lg:text-6xl font-black text-[#0B0B0C] tracking-tight leading-[1.12]">
+            <span>COLLCO</span>
+            <br />
+            <span className="text-[#737067]">is a product studio</span>
+            <br />
+            <span>& solo builder</span>
+            <br />
+            <span className="text-[#737067]">crafting 7 digital solutions</span>
+            <br />
+            <span>and physical commerce.</span>
+          </h1>
+
+          <p className="mt-8 text-sm sm:text-base text-[#484B52] leading-relaxed max-w-2xl font-normal">
+            거대 플랫폼이 주목하지 않는 일상의 뾰족한 불편함을 기획하고, 모바일 네이티브 물리 엔진부터 브라우저 데이터 시각화, 그리고 일본 정품 수집품 공급망까지 엔드투엔드로 직접 책임집니다.
+          </p>
+        </div>
+
+        {/* Live Metrics Row (Rauno Minimalist Line) */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 py-6 border-y border-[#F2EFE8] my-10 font-mono">
+          <div>
+            <div className="text-3xl sm:text-4xl font-black text-[#0B0B0C]">7+</div>
+            <div className="text-[11px] font-bold text-[#737067] uppercase mt-1">Shipped Solutions</div>
+            <div className="text-[11px] text-[#AFA99E]">앱 · 웹 · 게임 · 브랜드</div>
           </div>
-
-          {/* Foreground Hero Copy */}
-          <div className="relative z-10 p-8 sm:p-14 md:p-20 max-w-3xl text-left">
-            <div className="inline-flex items-center gap-2 text-zinc-300 text-xs font-mono font-bold tracking-widest uppercase mb-4">
-              <span className="w-1.5 h-1.5 rounded-full bg-white/80" />
-              <span>Experiences. / Solo Product Studio</span>
-            </div>
-
-            <h1 className="text-4xl sm:text-6xl md:text-7xl font-black text-white tracking-tighter leading-[1.05]">
-              함께하는 일상에,
-              <br />
-              <span className="text-zinc-200">
-                새로운 가치를 더하다.
-              </span>
-            </h1>
-
-            <p className="mt-5 sm:mt-6 text-sm sm:text-base md:text-lg text-zinc-300 leading-relaxed max-w-xl font-normal">
-              불필요한 군더더기를 덜어내고 본질에 집중합니다.
-              일상의 틈새를 파고드는 7개의 독자적 디지털 솔루션과 수집가의 안목으로 엄선한 100% 라이선스 정품 컬렉션.
-            </p>
-
-            {/* Action Buttons */}
-            <div className="mt-10 flex flex-wrap items-center gap-3.5 sm:gap-4">
-              <a
-                href="#products"
-                className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-white text-[#0B0B0C] font-black text-xs uppercase tracking-wider shadow-chic hover:bg-zinc-100 hover:scale-[1.02] active:scale-[0.98] transition-all"
-              >
-                <Layers className="w-4 h-4 text-[#0B0B0C]" />
-                <span>WORKS & SOLUTIONS</span>
-                <ArrowDown className="w-4 h-4 text-zinc-400" />
-              </a>
-
-              <a
-                href="#store"
-                className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-white/10 hover:bg-white/20 text-white font-bold text-xs uppercase tracking-wider backdrop-blur-md hover:scale-[1.02] active:scale-[0.98] transition-all"
-              >
-                <ShoppingBag className="w-4 h-4 text-zinc-200" />
-                <span>CURATED STORE</span>
-                <ArrowUpRight className="w-4 h-4 text-zinc-400" />
-              </a>
-
-              <a
-                href="#about"
-                className="hidden sm:inline-flex items-center gap-1.5 px-4 py-4 rounded-full text-zinc-300 hover:text-white text-xs font-mono font-bold uppercase tracking-wider transition-all"
-              >
-                <Compass className="w-4 h-4" />
-                <span>THE PHILOSOPHY</span>
-              </a>
-            </div>
+          <div>
+            <div className="text-3xl sm:text-4xl font-black text-[#0B0B0C]">4</div>
+            <div className="text-[11px] font-bold text-[#737067] uppercase mt-1">Google Play</div>
+            <div className="text-[11px] text-[#AFA99E]">정식 출시/배포</div>
+          </div>
+          <div>
+            <div className="text-3xl sm:text-4xl font-black text-[#0B0B0C]">177</div>
+            <div className="text-[11px] font-bold text-[#737067] uppercase mt-1">Countries</div>
+            <div className="text-[11px] text-[#AFA99E]">랩티로그 글로벌 출시</div>
+          </div>
+          <div>
+            <div className="text-3xl sm:text-4xl font-black text-[#0B0B0C]">100%</div>
+            <div className="text-[11px] font-bold text-[#737067] uppercase mt-1">Solo Ownership</div>
+            <div className="text-[11px] text-[#AFA99E]">기획·디자인·엔지니어링</div>
           </div>
         </div>
 
-        {/* Editorial Floating Stats Row (Reference: Experiences 2m+ / 11+ / 58% / 19k+) */}
-        <div className="mt-16 pt-6 grid grid-cols-2 md:grid-cols-4 gap-8 sm:gap-12 w-full">
-          <div className="space-y-1 text-left">
-            <div className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#0B0B0C] tracking-tight font-mono">
-              7<span className="text-[#847E72] font-normal">+</span>
-            </div>
-            <div className="text-xs font-mono font-bold text-[#0B0B0C] uppercase tracking-widest pt-1">
-              DIGITAL SOLUTIONS
-            </div>
-            <div className="text-xs text-[#666A73] leading-relaxed">
-              웹·모바일·게임 & 브랜드
-            </div>
+        {/* Rauno Direct Trigger Bar */}
+        <div className="flex flex-wrap items-center justify-between gap-4 pt-2">
+          <div className="flex flex-wrap items-center gap-2.5">
+            <a
+              href="#projects"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#0B0B0C] hover:bg-[#252528] text-white text-xs font-mono font-bold uppercase tracking-wider transition-all"
+            >
+              <Layers className="w-3.5 h-3.5" />
+              <span>View Projects (7)</span>
+              <ArrowDown className="w-3.5 h-3.5 text-zinc-400" />
+            </a>
+
+            <a
+              href="#craft"
+              className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-full bg-[#F8F7F4] hover:bg-white text-[#0B0B0C] border border-[#E8E5DC] hover:border-[#0B0B0C] text-xs font-mono font-bold uppercase tracking-wider transition-all"
+            >
+              <Activity className="w-3.5 h-3.5 text-[#0B0B0C]" />
+              <span>Craft Lab</span>
+              <ArrowUpRight className="w-3.5 h-3.5 text-[#737067]" />
+            </a>
+
+            <a
+              href="#store"
+              className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-full bg-[#F8F7F4] hover:bg-white text-[#0B0B0C] border border-[#E8E5DC] hover:border-[#0B0B0C] text-xs font-mono font-bold uppercase tracking-wider transition-all"
+            >
+              <ShoppingBag className="w-3.5 h-3.5 text-[#0B0B0C]" />
+              <span>Curated Store</span>
+              <ArrowUpRight className="w-3.5 h-3.5 text-[#737067]" />
+            </a>
           </div>
 
-          <div className="space-y-1 text-left">
-            <div className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#0B0B0C] tracking-tight font-mono">
-              Live
-            </div>
-            <div className="text-xs font-mono font-bold text-[#0B0B0C] uppercase tracking-widest pt-1">
-              GOOGLE PLAY
-            </div>
-            <div className="text-xs text-[#666A73] leading-relaxed">
-              ditta · 장날가자 · 랩티로그 정식 배포
-            </div>
-          </div>
-
-          <div className="space-y-1 text-left">
-            <div className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#0B0B0C] tracking-tight font-mono">
-              100<span className="text-[#847E72] font-normal">%</span>
-            </div>
-            <div className="text-xs font-mono font-bold text-[#0B0B0C] uppercase tracking-widest pt-1">
-              SOLO OWNERSHIP
-            </div>
-            <div className="text-xs text-[#666A73] leading-relaxed">
-              기획·디자인·엔지니어링 일원화
-            </div>
-          </div>
-
-          <div className="space-y-1 text-left">
-            <div className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#0B0B0C] tracking-tight font-mono">
-              Curated
-            </div>
-            <div className="text-xs font-mono font-bold text-[#0B0B0C] uppercase tracking-widest pt-1">
-              OFFICIAL GOODS
-            </div>
-            <div className="text-xs text-[#666A73] leading-relaxed">
-              100% 라이선스 정품 보증 쇼룸
-            </div>
-          </div>
+          {/* Email Copy Pill */}
+          <button
+            onClick={handleCopyEmail}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#F8F7F4] hover:bg-white border border-[#E8E5DC] text-xs font-mono text-[#0B0B0C] transition-all"
+          >
+            {copied ? (
+              <>
+                <Check className="w-3.5 h-3.5 text-emerald-600" />
+                <span className="text-emerald-700 font-bold">Copied: {email}</span>
+              </>
+            ) : (
+              <>
+                <Copy className="w-3.5 h-3.5 text-[#737067]" />
+                <span>{email}</span>
+              </>
+            )}
+          </button>
         </div>
       </div>
     </section>

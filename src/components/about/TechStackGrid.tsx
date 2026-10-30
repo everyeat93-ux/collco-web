@@ -21,9 +21,9 @@ export function TechStackGrid() {
       : TECH_ITEMS.filter((item) => item.category === selectedCategory);
 
   return (
-    <div className="space-y-7">
-      {/* Category Filter Pills (Borderless, Chic Masculine Tone) */}
-      <div className="flex flex-wrap items-center gap-2">
+    <div className="space-y-6">
+      {/* Category Filter Pills */}
+      <div className="flex flex-wrap items-center gap-1.5">
         {categories.map((cat) => {
           const Icon = cat.icon;
           const isActive = selectedCategory === cat.name;
@@ -31,35 +31,37 @@ export function TechStackGrid() {
             <button
               key={cat.name}
               onClick={() => setSelectedCategory(cat.name)}
-              className={`inline-flex items-center gap-2 px-4.5 py-2.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider transition-all ${
+              className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-mono font-medium transition-all ${
                 isActive
-                  ? "bg-[#0B0B0C] text-white shadow-chic-xs"
-                  : "bg-[#ECEAE2] text-[#484B52] hover:text-[#0B0B0C] hover:bg-[#DFDCD2]"
+                  ? "bg-[#0B0B0C] text-white shadow-swiss-xs"
+                  : "bg-[#FAF9F5] text-[#737067] hover:text-[#0B0B0C] border border-[#E8E5DC] hover:border-[#0B0B0C]"
               }`}
             >
-              <Icon className="w-3.5 h-3.5" />
+              <Icon className="w-3 h-3" />
               <span>{cat.name}</span>
             </button>
           );
         })}
       </div>
 
-      {/* Badges Grid (Borderless, High Contrast Hover) */}
-      <div className="flex flex-wrap gap-2.5">
+      {/* Badges Grid */}
+      <div className="flex flex-wrap gap-2">
         {filteredItems.map((item, idx) => (
           <div
             key={idx}
-            className={`group inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-xs font-bold transition-all duration-200 cursor-default ${
+            className={`group inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-mono transition-all duration-200 cursor-default border ${
               item.highlight
-                ? "bg-[#ECEAE2] text-[#0B0B0C] hover:bg-[#0B0B0C] hover:text-white shadow-chic-xs"
-                : "bg-[#ECEAE2] text-[#484B52] hover:bg-[#0B0B0C] hover:text-white"
+                ? "bg-white border-[#0B0B0C] text-[#0B0B0C] shadow-swiss-xs"
+                : "bg-[#FAF9F5] border-[#E8E5DC] text-[#484B52] hover:border-[#0B0B0C] hover:bg-white"
             }`}
           >
             {item.highlight && (
-              <span className="w-1.5 h-1.5 rounded-full bg-[#0B0B0C] group-hover:bg-white transition-colors" />
+              <span className="w-1.5 h-1.5 rounded-full bg-[#0B0B0C]" />
             )}
-            <span>{item.name}</span>
-            <span className="text-[10px] text-[#847E72] group-hover:text-zinc-400 font-mono">[{item.category.split(" ")[0]}]</span>
+            <span className="font-bold">{item.name}</span>
+            <span className="text-[10px] text-[#737067] font-mono">
+              [{item.category.split(" ")[0]}]
+            </span>
           </div>
         ))}
       </div>

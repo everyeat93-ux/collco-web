@@ -31,11 +31,14 @@ export interface Product {
   techStack: string[];
   metrics: ProductMetric[];
   icon: string;
+  appIcon?: string;
   accentColor: string;
   gradient: string;
   storeUrl?: string;
   demoUrl?: string;
   githubUrl?: string;
+  domainLabel?: string;
+  actionLabel?: string;
 }
 
 export interface StoreItem {

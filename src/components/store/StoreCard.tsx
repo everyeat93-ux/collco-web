@@ -13,10 +13,10 @@ interface StoreCardProps {
 export function StoreCard({ item }: StoreCardProps) {
   return (
     <div
-      className="group flex flex-col justify-between bg-white rounded-[2.2rem] overflow-hidden shadow-chic-sm hover:shadow-chic-lg transition-all duration-300 hover:-translate-y-2"
+      className="group flex flex-col justify-between bg-white border border-[#E8E5DC] hover:border-[#0B0B0C] rounded-[1.75rem] overflow-hidden shadow-swiss-xs hover:shadow-swiss-lg transition-all duration-300 hover:-translate-y-1"
     >
       {/* Visual Image Header */}
-      <div className="relative h-64 w-full overflow-hidden bg-[#ECEAE2]">
+      <div className="relative h-60 w-full overflow-hidden bg-[#FAF9F5] border-b border-[#E8E5DC]">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={item.imageUrl}
@@ -28,41 +28,41 @@ export function StoreCard({ item }: StoreCardProps) {
         <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-black/20" />
 
         {/* Top Badges */}
-        <div className="absolute top-4 left-4 right-4 flex items-center justify-between">
-          <Badge variant={item.badgeVariant} dot size="sm" className="bg-white/95 backdrop-blur-md shadow-chic-xs font-bold text-[#0B0B0C]">
+        <div className="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between">
+          <Badge variant={item.badgeVariant} dot size="sm" className="bg-white/95 backdrop-blur-md shadow-swiss-xs text-[#0B0B0C]">
             {item.badge}
           </Badge>
-          <span className="text-[10px] font-mono font-bold px-3 py-1 rounded-full bg-white/95 text-[#0B0B0C] shadow-chic-xs backdrop-blur-md uppercase tracking-wider">
+          <span className="text-[10px] font-mono font-bold px-2.5 py-0.5 rounded-full bg-white/95 text-[#0B0B0C] shadow-swiss-xs backdrop-blur-md uppercase tracking-wider">
             {item.category}
           </span>
         </div>
 
         {/* Price Tag pill */}
-        <div className="absolute bottom-4 right-4">
-          <span className="px-4 py-1.5 rounded-full bg-[#0B0B0C] text-white font-black text-sm tracking-tight shadow-chic-sm font-mono">
+        <div className="absolute bottom-3.5 right-3.5">
+          <span className="px-3.5 py-1 rounded-full bg-[#0B0B0C] text-white font-black text-xs tracking-tight shadow-swiss-xs font-mono">
             {item.price}
           </span>
         </div>
       </div>
 
       {/* Content Body */}
-      <div className="p-8 flex-1 flex flex-col justify-between space-y-4">
+      <div className="p-7 flex-1 flex flex-col justify-between space-y-4">
         <div>
-          <div className="text-[11px] font-mono font-bold text-[#847E72] uppercase tracking-wider mb-1.5">
+          <div className="text-[10px] font-mono font-bold text-[#737067] uppercase tracking-wider mb-1">
             {item.tag}
           </div>
-          <h3 className="text-base sm:text-lg font-bold text-[#0B0B0C] leading-snug group-hover:text-[#666A73] transition-colors line-clamp-2">
+          <h3 className="text-base font-black text-[#0B0B0C] leading-snug group-hover:text-[#484B52] transition-colors line-clamp-2">
             {item.title}
           </h3>
-          <p className="text-xs sm:text-sm text-[#484B52] mt-2 line-clamp-2 leading-relaxed font-normal">
+          <p className="text-xs text-[#484B52] mt-2 line-clamp-2 leading-relaxed font-normal">
             {item.description}
           </p>
         </div>
 
-        {/* Condition & Authenticity Guarantee (Borderless Tone Block) */}
-        <div className="bg-[#ECEAE2] p-3.5 rounded-2xl space-y-1.5 text-xs text-[#484B52]">
+        {/* Condition & Authenticity Guarantee */}
+        <div className="bg-[#FAF9F5] border border-[#E8E5DC] p-3 rounded-xl space-y-1 text-xs text-[#484B52] font-mono">
           <div className="flex items-center gap-1.5 truncate">
-            <span className="text-[#847E72] font-semibold text-[11px]">상태 :</span>
+            <span className="text-[#737067] font-semibold text-[11px]">상태 :</span>
             <span className="text-[#0B0B0C] font-bold">{item.condition}</span>
           </div>
           <div className="flex items-center gap-1.5 text-[#0B0B0C] truncate font-bold">
@@ -77,7 +77,7 @@ export function StoreCard({ item }: StoreCardProps) {
             href={item.smartStoreUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center gap-2 w-full py-3.5 rounded-full bg-[#0B0B0C] hover:bg-[#1E1E22] text-white text-xs font-bold shadow-chic-xs transition-all duration-200 active:scale-98"
+            className="flex items-center justify-center gap-2 w-full py-2.5 rounded-full bg-[#0B0B0C] hover:bg-[#252528] text-white text-xs font-mono font-bold shadow-swiss-xs transition-all active:scale-95"
           >
             <ShoppingBag className="w-3.5 h-3.5 text-zinc-300" />
             <span>스마트스토어에서 보기</span>
