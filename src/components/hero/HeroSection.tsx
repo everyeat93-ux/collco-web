@@ -45,7 +45,7 @@ export function HeroSection() {
 
           <div className="text-[10px] sm:text-[11px] font-mono text-[#737067] flex items-center gap-1.5 sm:gap-2">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse shrink-0" />
-            <span className="whitespace-nowrap">SEOUL · 7 PRODUCTS LIVE</span>
+            <span className="whitespace-nowrap">SEOUL · 8 PRODUCTS</span>
           </div>
         </div>
 
@@ -64,20 +64,20 @@ export function HeroSection() {
             <br />
             <span>& solo builder</span>
             <br />
-            <span className="text-[#737067]">crafting 7 digital solutions</span>
+            <span className="text-[#737067]">crafting 8 digital solutions</span>
             <br />
             <span>and physical commerce.</span>
           </h1>
 
           <p className="mt-3.5 sm:mt-8 text-xs sm:text-base text-[#484B52] leading-[1.75] max-w-2xl font-normal break-keep-all">
-            거대 플랫폼이 주목하지 않는 일상의 뾰족한 불편함을 기획하고, 모바일 네이티브 물리 엔진부터 브라우저 데이터 시각화, 그리고 일본 정품 수집품 공급망까지 엔드투엔드로 직접 책임집니다.
+            거대 플랫폼이 주목하지 않는 일상의 뾰족한 불편함을 기획하고, 모바일 네이티브 물리 엔진부터 브라우저 데이터 시각화, 엔드투엔드로 직접 만들고, 애정하는 카드와 피규어 컬렉션도 함께 나눕니다.
           </p>
         </div>
 
         {/* Live Metrics Row (Rauno Minimalist Line) */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 py-4 sm:py-6 border-y border-[#F2EFE8] my-5 sm:my-10 font-mono">
           <div>
-            <div className="text-2xl sm:text-4xl font-black text-[#0B0B0C]">7+</div>
+            <div className="text-2xl sm:text-4xl font-black text-[#0B0B0C]">8</div>
             <div className="text-[10px] sm:text-[11px] font-bold text-[#737067] uppercase mt-0.5 sm:mt-1">Shipped Solutions</div>
             <div className="text-[10px] sm:text-[11px] text-[#AFA99E]">앱 · 웹 · 게임 · 브랜드</div>
           </div>
@@ -107,7 +107,7 @@ export function HeroSection() {
               className="col-span-2 sm:col-span-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 sm:py-2.5 rounded-full bg-[#0B0B0C] hover:bg-[#252528] text-white text-xs font-mono font-bold uppercase tracking-wider transition-all shadow-rauno-xs active:scale-95"
             >
               <Layers className="w-3.5 h-3.5" />
-              <span>View Projects (7)</span>
+              <span>View Projects (8)</span>
               <ArrowDown className="w-3.5 h-3.5 text-zinc-400" />
             </a>
 
@@ -125,7 +125,7 @@ export function HeroSection() {
               className="inline-flex items-center justify-center gap-1.5 px-3 py-2 sm:px-3.5 sm:py-2.5 rounded-full bg-[#F8F7F4] hover:bg-white text-[#0B0B0C] border border-[#E8E5DC] hover:border-[#0B0B0C] text-[11px] sm:text-xs font-mono font-bold uppercase tracking-wider transition-all active:scale-95"
             >
               <ShoppingBag className="w-3 h-3 text-[#0B0B0C]" />
-              <span>Curated Store</span>
+              <span>Collector&apos;s Shelf</span>
               <ArrowUpRight className="w-3 h-3 text-[#737067]" />
             </a>
           </div>

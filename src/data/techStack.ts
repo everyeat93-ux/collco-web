@@ -15,7 +15,7 @@ export const BUILDING_PILLARS: BuildingPillar[] = [
     title: "선명한 니치 문제 해결 (Niche Problem Solving)",
     enTitle: "Targeting Unmet Micro Needs",
     description:
-      "거대 플랫폼이 주목하지 않는 일상의 뾰족한 불편함과 장인정신(배드민턴 풋워크 훈련, 5일장 캘린더, 파충류 사육일지, 모피 아틀리에, 캐주얼 스포츠 게임 등)을 정확히 포착해 대체 불가능한 해결책을 제시합니다.",
+      "거대 플랫폼이 주목하지 않는 일상의 뾰족한 불편함과 장인정신(배드민턴 풋워크 훈련, 5일장 캘린더, 파충류 사육일지, 모피 아틀리에, 캐주얼 스포츠 게임, 3초 가계부 등)을 정확히 포착해 대체 불가능한 해결책을 제시합니다.",
     tags: ["Vertical Focus", "User Empathy", "Specialized Utility"],
     icon: "Target",
   },
@@ -24,7 +24,7 @@ export const BUILDING_PILLARS: BuildingPillar[] = [
     title: "엔드투엔드 오너십 (End-to-End Ownership)",
     enTitle: "Design, Code & Commercial Operations",
     description:
-      "기획, UI/UX 디자인, 풀스택 개발, 앱스토어 배포뿐만 아니라 스마트스토어 이커머스 큐레이션 및 공급망 운영까지 전 과정을 한 사람이 유기적으로 책임집니다.",
+      "기획, UI/UX 디자인, 풀스택 개발, 앱스토어 배포, 그리고 좋아하는 카드·피규어를 나누는 컬렉션 스토어 운영까지 전 과정을 한 사람이 유기적으로 책임집니다.",
     tags: ["Full-Stack", "UI/UX Craft", "E-commerce Ops"],
     icon: "Layers",
   },

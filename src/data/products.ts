@@ -382,4 +382,59 @@ export const PRODUCTS: Product[] = [
     gradient: "from-pink-500/20 via-rose-500/10 to-transparent",
     demoUrl: "https://1bun-quiz.kr/",
   },
+  {
+    id: "cashbook",
+    name: "초간편 가계부",
+    subName: "3초 입력 & 부부 공유 가계부",
+    tagline: "복잡한 금융 연동 없이 3초 안에 입력을 끝내는 직관적인 오프라인 퍼스트 가계부",
+    category: "Mobile App / Personal Finance",
+    tags: ["Mobile App", "Personal Finance", "Closed Testing"],
+    status: "비공개 테스트 중",
+    statusBadgeVariant: "warning",
+    domainLabel: "Google Play Console",
+    actionLabel: "Closed Test",
+    summary:
+      "계산기 일체형 퀵 입력 모달, 급여일 기준 월간 예산 바, 아이콘·스탬프 중심 캘린더로 매일의 지출을 가장 가볍게 기록하는 가계부 앱",
+    problem: {
+      title: "금융 연동과 복잡한 분류에 지쳐 결국 포기하게 되는 가계부",
+      description:
+        "기존 가계부 앱들은 계좌·카드 연동 설정이 번거롭고, 지출 하나를 적으려 해도 여러 단계를 거쳐야 해 며칠 쓰다 그만두기 쉬웠습니다.",
+      points: [
+        "공인인증·마이데이터 등 무거운 금융 연동 과정의 피로감",
+        "지출 한 건 기록에 많은 화면 전환과 입력이 필요한 번거로움",
+        "1일 시작 고정 달력으로는 급여일 기준 한 달 예산을 파악하기 어려움",
+      ],
+    },
+    solution: {
+      title: "계산기 일체형 3초 퀵 입력 & 급여일 예산 바 & 스탬프 캘린더",
+      description:
+        "앱을 열자마자 계산기 일체형 모달로 3초 안에 입력을 끝내고, 내 급여일에 맞춘 월간 예산 바와 아이콘·감정 스탬프 캘린더로 한 달 흐름을 한눈에 보여줍니다.",
+      features: [
+        "계산기 일체형 퀵 입력 모달로 3초 안에 지출·수입 기록",
+        "급여일 기준 월간 예산 진행 바와 잔여 예산 한눈에 확인",
+        "아이콘·지출 감정 스탬프 중심의 직관적인 월간 캘린더",
+        "고품질 3D·픽셀 아이콘 팩 및 감정 스탬프 테마 커스터마이징",
+      ],
+    },
+    impact: {
+      title: "Google Play 정식 출시 전 비공개 테스트 진행 중",
+      description:
+        "실제 사용자 테스트를 통해 3초 입력 흐름과 급여일 예산 바의 사용성을 다듬으며 정식 출시를 준비하고 있습니다.",
+      highlights: [
+        "Google Play Console 비공개 테스트 트랙 운영 중 (com.collco.cashbook)",
+        "복잡한 연동 없이 즉시 시작하는 오프라인 퍼스트 구조",
+        "기본 플랫 아이콘 + 3D·픽셀 아이콘 팩 및 감정 스탬프 테마 구조",
+      ],
+    },
+    techStack: ["React Native / Expo", "TypeScript", "Offline-First Storage", "Google Play Console"],
+    metrics: [
+      { label: "배포 상태", value: "비공개 테스트 중" },
+      { label: "입력 속도", value: "3초 퀵 입력" },
+      { label: "패키지명", value: "com.collco.cashbook" },
+    ],
+    icon: "Sparkles",
+    appIcon: "/apps/icon-cashbook.png",
+    accentColor: "#10b981",
+    gradient: "from-emerald-500/20 via-teal-500/10 to-transparent",
+  },
 ];

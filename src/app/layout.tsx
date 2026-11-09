@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   },
   title: "콜코 (COLLCO) 공식 홈페이지 | 1인 프로덕트 스튜디오 & 컬렉션 허브",
   description:
-    "콜코(COLLCO) 공식 사이트입니다. 일상의 니치한 문제를 해결하는 독자적 디지털 솔루션(ditta, 장날가자, 랩티로그, 황금모피, 하늘이 vs 라우니 등) 개발과 100% 라이선스 정품 피규어 & TCG 컬렉션 스토어를 함께 운영하는 1인 프로덕트 스튜디오입니다.",
+    "콜코(COLLCO) 공식 사이트입니다. 일상의 니치한 문제를 해결하는 독자적 디지털 솔루션(ditta, 장날가자, 랩티로그, 황금모피, 하늘이 vs 라우니, 초간편 가계부 등) 개발과, 카드와 피규어를 애정하는 마음으로 꾸려가는 컬렉션 스토어를 함께 운영하는 1인 프로덕트 스튜디오입니다.",
   keywords: [
     "콜코",
     "COLLCO",
@@ -44,9 +44,12 @@ export const metadata: Metadata = {
     "캐주얼 배드민턴 게임",
     "FM 선수 데이터 분석기",
     "1분 퀴즈",
+    "초간편 가계부",
+    "3초 가계부",
+    "부부 공유 가계부",
     "피규어 스토어",
-    "정품 피규어",
-    "일본 정품 피규어",
+    "피규어",
+    "피규어 컬렉션",
     "포켓몬 카드",
     "TCG 카드",
     "키덜트 컬렉션",
@@ -55,7 +58,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "콜코 (COLLCO) 공식 홈페이지 | 1인 프로덕트 스튜디오 & 컬렉션 허브",
     description:
-      "일상의 니치한 문제를 해결하는 7가지 디지털 솔루션과 엄선된 100% 라이선스 정품 피규어 & TCG 컬렉션을 선보이는 콜코(COLLCO) 공식 스튜디오입니다.",
+      "일상의 니치한 문제를 해결하는 8가지 디지털 솔루션을 만들고, 애정하는 피규어 & TCG 카드 컬렉션을 나누는 콜코(COLLCO) 공식 스튜디오입니다.",
     siteName: "콜코 COLLCO Official Studio",
     locale: "ko_KR",
     type: "website",
@@ -72,7 +75,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "콜코 (COLLCO) 공식 홈페이지 | 1인 프로덕트 스튜디오",
     description:
-      "일상의 니치한 문제를 해결하는 독자적 디지털 솔루션과 엄선된 정품 피규어 & TCG 컬렉션.",
+      "일상의 니치한 문제를 해결하는 독자적 디지털 솔루션과 애정하는 피규어 & TCG 카드 컬렉션.",
     images: ["/logo-collco.png"],
   },
   icons: {
@@ -94,7 +97,7 @@ const jsonLd = {
   name: "콜코",
   alternateName: ["COLLCO", "콜코 스튜디오", "COLLCO Studio", "콜코 공식 홈페이지"],
   description:
-    "일상의 니치한 문제를 해결하는 독자적 디지털 솔루션과 100% 라이선스 정품 피규어 & TCG 컬렉션을 선보이는 1인 프로덕트 스튜디오",
+    "일상의 니치한 문제를 해결하는 독자적 디지털 솔루션을 만들고, 애정하는 피규어 & TCG 카드 컬렉션을 나누는 1인 프로덕트 스튜디오",
   inLanguage: "ko-KR",
 };
 

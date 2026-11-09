@@ -115,7 +115,7 @@ export function ContactSection() {
             href="#projects"
             className="hover:text-[#0B0B0C] transition-colors"
           >
-            ↓ Shipped Works (7)
+            ↓ Shipped Works (8)
           </a>
           <span className="text-[#AFA99E]">1 Business Day Response SLA</span>
         </div>
@@ -143,7 +143,7 @@ export function ContactSection() {
         </div>
 
         <div className="max-w-sm text-xs font-mono text-black/80 leading-[1.75] pt-2 md:pt-0 border-t md:border-t-0 md:border-l border-black/20 md:pl-8 break-keep-all">
-          &ldquo;불필요한 군더더기를 덜어내고 본질에 집중합니다. 일상의 사소한 불편을 해소하는 7개의 독자적 디지털 솔루션과 수집가의 안목으로 엄선한 100% 정품 컬렉션.&rdquo;
+          &ldquo;불필요한 군더더기를 덜어내고 본질에 집중합니다. 일상의 사소한 불편을 해소하는 8개의 독자적 디지털 솔루션과, 좋아하는 마음으로 하나씩 골라 담은 카드·피규어 컬렉션.&rdquo;
         </div>
       </div>
 

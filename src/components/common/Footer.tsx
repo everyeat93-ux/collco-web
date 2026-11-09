@@ -49,12 +49,12 @@ export function Footer() {
               </li>
               <li>
                 <a href="#products" className="hover:text-[#0B0B0C] transition-colors">
-                  01 / Shipped Works (7)
+                  01 / Shipped Works (8)
                 </a>
               </li>
               <li>
                 <a href="#store" className="hover:text-[#0B0B0C] transition-colors">
-                  02 / Curated Store
+                  02 / Collector&apos;s Shelf
                 </a>
               </li>
               <li>
