@@ -96,12 +96,12 @@ export function ContactSection() {
         {/* Four-Corner Minimal Navigation Links */}
         <div className="pt-4 sm:pt-8 border-t border-[#E8E5DC] flex flex-wrap items-center justify-between gap-3 sm:gap-4 text-xs font-mono text-[#737067]">
           <a
-            href="https://github.com"
+            href="https://blog.naver.com/collco_kr"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-[#0B0B0C] transition-colors"
           >
-            ↗ GitHub
+            ↗ Naver Blog
           </a>
           <a
             href="https://smartstore.naver.com/collco"
@@ -115,7 +115,7 @@ export function ContactSection() {
             href="#projects"
             className="hover:text-[#0B0B0C] transition-colors"
           >
-            ↓ Shipped Works (8)
+            ↑ Shipped Works (8)
           </a>
           <span className="text-[#AFA99E]">1 Business Day Response SLA</span>
         </div>
