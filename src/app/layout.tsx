@@ -64,7 +64,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/logo-collco.png",
+        url: "/logo-collco-og.png",
         width: 512,
         height: 512,
         alt: "콜코 COLLCO 공식 로고",
@@ -76,11 +76,11 @@ export const metadata: Metadata = {
     title: "콜코 (COLLCO) 공식 홈페이지 | 1인 프로덕트 스튜디오",
     description:
       "일상의 니치한 문제를 해결하는 독자적 디지털 솔루션과 애정하는 피규어 & TCG 카드 컬렉션.",
-    images: ["/logo-collco.png"],
+    images: ["/logo-collco-og.png"],
   },
   icons: {
-    icon: "/logo-collco.png",
-    apple: "/logo-collco.png",
+    icon: "/logo-collco-square.png",
+    apple: "/logo-collco-square.png",
   },
   verification: {
     google: "SUcXjFcXls2e3D2CjDdibyJk5oOpZkowNtWj22QZkFs",

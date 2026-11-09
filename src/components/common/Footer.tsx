@@ -10,18 +10,14 @@ export function Footer() {
           {/* Brand & Slogan */}
           <div className="md:col-span-2 space-y-4">
             <div className="flex items-center gap-2.5">
-              <div className="relative w-7 h-7 rounded-full overflow-hidden border border-[#E8E5DC]">
+              <div className="relative h-8 w-[85px]">
                 <Image
-                  src="/logo-collco.png"
-                  alt="COLLCO Logo"
+                  src="/logo-collco-studio.png"
+                  alt="COLLCO STUDIO"
                   fill
-                  sizes="28px"
-                  className="object-cover"
+                  className="object-contain object-left"
                 />
               </div>
-              <span className="font-mono font-black text-[#0B0B0C] text-sm tracking-widest uppercase">
-                COLLCO
-              </span>
             </div>
             <p className="text-xs sm:text-sm text-[#484B52] max-w-md leading-relaxed font-normal">
               Everyday Life, Elevated by Technology & Thoughtful Curation.

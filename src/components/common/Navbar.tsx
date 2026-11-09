@@ -46,19 +46,18 @@ export function Navbar() {
         <div className="flex items-center gap-3">
           <a
             href="#"
-            className="group flex items-center gap-2.5 text-sm font-mono font-bold tracking-tight text-[#0B0B0C]"
+            className="group flex items-center gap-2 tracking-tight text-[#0B0B0C] transition-opacity hover:opacity-80"
+            aria-label="COLLCO Home"
           >
-            <div className="relative w-6 h-6 rounded-full overflow-hidden border border-[#E8E5DC] group-hover:border-[#0B0B0C] transition-all">
+            <div className="relative h-5 w-[109px] shrink-0">
               <Image
-                src="/logo-collco.png"
-                alt="COLLCO Logo"
+                src="/logo-collco-wordmark.png"
+                alt="COLLCO"
                 fill
-                sizes="24px"
                 priority
-                className="object-cover"
+                className="object-contain"
               />
             </div>
-            <span className="font-mono font-black text-sm tracking-widest uppercase">COLLCO</span>
             <span className="w-2 h-2 rounded-full bg-[#FFE600] border border-black/40" />
           </a>
 
