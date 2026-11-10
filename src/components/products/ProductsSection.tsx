@@ -41,7 +41,7 @@ export function ProductsSection() {
       <div className="mb-6 sm:mb-12">
         <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-white border border-[#E8E5DC] text-[10px] sm:text-[11px] font-mono text-[#737067] uppercase tracking-wider mb-2.5 sm:mb-4">
           <Layers className="w-3.5 h-3.5 text-[#0B0B0C]" />
-          <span>01 / SHIPPED WORKS & PROJECTS (8)</span>
+          <span>01 / SHIPPED WORKS & PROJECTS (10)</span>
         </div>
 
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-3 sm:gap-6">
@@ -49,15 +49,15 @@ export function ProductsSection() {
             <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-[#0B0B0C] tracking-tight leading-tight">
               일상의 틈새를 해결하는,
               <br />
-              <span className="text-[#737067]">8개의 독자적 소프트웨어 솔루션</span>
+              <span className="text-[#737067]">10개의 독자적 소프트웨어 솔루션</span>
             </h2>
             <p className="mt-2 sm:mt-3 text-xs sm:text-base text-[#484B52] max-w-2xl leading-[1.75] font-normal break-keep-all">
-              구글 플레이스토어 정식 출시 게임부터 로컬 라이프 GPS 툴, 35년 전통의 비스포크 아틀리에 웹까지 직접 기획하고 코딩한 1인 빌더의 릴리즈 인덱스입니다.
+              구글 플레이스토어 정식 출시 게임부터 로컬 라이프 GPS 툴, 글로벌 스포츠 분석 및 급여 계산기 유틸리티까지 직접 기획하고 코딩한 1인 빌더의 릴리즈 인덱스입니다.
             </p>
           </div>
 
           <div className="text-[10px] sm:text-xs font-mono text-[#737067] px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-white border border-[#E8E5DC] shrink-0 w-fit">
-            [PROD 2026] · 7 LIVE · 1 TESTING
+            [PROD 2026] · 9 LIVE · 1 TESTING
           </div>
         </div>
       </div>

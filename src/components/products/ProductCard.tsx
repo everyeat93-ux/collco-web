@@ -15,6 +15,8 @@ import {
   Crown,
   Gamepad2,
   Clock,
+  TrendingUp,
+  Calculator,
 } from "lucide-react";
 import { Product } from "@/types";
 import { Badge } from "@/components/common/Badge";
@@ -42,6 +44,10 @@ export function ProductCard({ product, index, onSelect }: ProductCardProps) {
         return <Crown className="w-4 h-4 text-[#0B0B0C]" />;
       case "Gamepad2":
         return <Gamepad2 className="w-4 h-4 text-[#0B0B0C]" />;
+      case "TrendingUp":
+        return <TrendingUp className="w-4 h-4 text-[#0B0B0C]" />;
+      case "Calculator":
+        return <Calculator className="w-4 h-4 text-[#0B0B0C]" />;
       default:
         return <Sparkles className="w-4 h-4 text-[#0B0B0C]" />;
     }

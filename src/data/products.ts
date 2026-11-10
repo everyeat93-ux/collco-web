@@ -437,4 +437,110 @@ export const PRODUCTS: Product[] = [
     accentColor: "#10b981",
     gradient: "from-emerald-500/20 via-teal-500/10 to-transparent",
   },
+  {
+    id: "soccer-data-insights",
+    name: "사커 데이터 인사이트",
+    subName: "Soccer Data Insights",
+    tagline: "트랜스퍼마크트 & 카폴로지 공식 데이터 기반 글로벌 축구선수 시장가치 순위 및 세후 주급 계산기",
+    category: "Web Service / Sports Analytics",
+    tags: ["Web Service", "Football Data", "Transfermarkt", "Salary Calculator"],
+    status: "공식 도메인 운영",
+    statusBadgeVariant: "info",
+    summary:
+      "트랜스퍼마크트(Transfermarkt)와 카폴로지(Capology) 공식 데이터를 바탕으로 해외파 및 유럽 5대 리그 선수들의 실시간 시장가치(몸값) 순위와 리그별 세후 주급·연봉을 비교 계산하는 축구 데이터 인사이트 포털",
+    problem: {
+      title: "해외 축구선수의 파편화된 이적료, 주급, 국가별 세후 실수령액 정보",
+      description:
+        "유럽 리그별로 주급(Weekly Wage) 표기 방식과 세율, 보너스 조항이 제각각이고 파운드(£)·유로(€)·원화(₩) 환율 변동으로 인해 축구 팬과 미디어가 실제 선수의 몸값과 연봉 규모를 직관적으로 비교하기 어려웠습니다.",
+      points: [
+        "트랜스퍼마크트와 카폴로지 등 해외 전문 사이트 간 데이터 파편화",
+        "영국/스페인/독일/프랑스 등 국가별 복잡한 소득세율 반영 세후 실수령액 산출 불가",
+        "이강인, 손흥민, 김민재 등 주요 해외파 선수의 실시간 몸값 랭킹 비교 한계",
+      ],
+    },
+    solution: {
+      title: "공식 데이터 파이프라인 & 다국적 세후 주급 실시간 환산 엔진",
+      description:
+        "트랜스퍼마크트의 공인 시장가치 순위와 카폴로지의 정밀 주급 데이터를 통합 연동하여, 실시간 환율과 리그별 세율을 반영한 주급·연봉·세후 실수령액 자동 계산 시스템을 구축했습니다.",
+      features: [
+        "손흥민, 이강인, 김민재 등 유럽 5대 리그 주요 선수 실시간 시장가치(몸값) 순위",
+        "유럽 리그별 소득세율을 반영한 세전/세후 주급 및 연봉 원화(KRW) 환산 계산기",
+        "구단별 선수단 총 급여 규모 및 포지션별 시장가치 데이터 큐레이션",
+        "반응형 웹 최적화로 모바일에서도 즉시 확인 가능한 가벼운 인터페이스",
+      ],
+    },
+    impact: {
+      title: "글로벌 축구 팬과 커뮤니티가 애용하는 데이터 포털 안착",
+      description:
+        "해외 축구 이적 시장과 주급 이슈가 발생할 때마다 국내 축구 커뮤니티에서 가장 빠르고 정확한 데이터 레퍼런스로 활용되고 있습니다.",
+      highlights: [
+        "공식 도메인 (soccerdatainsights.com) 라이브 운영",
+        "트랜스퍼마크트 & 카폴로지 공식 데이터 기반 공신력 확보",
+        "해외파 축구선수 실시간 몸값 & 세후 실수령액 원클릭 계산 제공",
+      ],
+    },
+    techStack: ["Next.js", "WordPress / Headless", "Data Scraping", "SEO & OpenGraph", "Tailwind CSS"],
+    metrics: [
+      { label: "서비스 상태", value: "공식 도메인 운영" },
+      { label: "데이터 출처", value: "Transfermarkt & Capology" },
+      { label: "환산 속도", value: "실시간 세후 주급 계산" },
+    ],
+    icon: "TrendingUp",
+    accentColor: "#10b981",
+    gradient: "from-emerald-500/20 via-teal-500/10 to-transparent",
+    demoUrl: "https://soccerdatainsights.com/",
+  },
+  {
+    id: "datawriter",
+    name: "데이터라이터",
+    subName: "DataWriter",
+    tagline: "2026년 최신 4대보험 요율과 간이세액표를 완벽 반영한 연봉 실수령액 계산기",
+    category: "Web Service / Financial Utility",
+    tags: ["Web Service", "Salary Calculator", "Tax & 4대보험", "SEO Utility"],
+    status: "공식 도메인 운영",
+    statusBadgeVariant: "success",
+    summary:
+      "2026년 인상된 국민연금 요율(4.75%)과 최신 건강보험·소득세 간이세액표를 정밀 반영하여, 비과세 식대부터 내 통장에 찍히는 실제 월급까지 1초 만에 산출하는 급여 계산 플랫폼",
+    problem: {
+      title: "매년 바뀌는 4대보험 요율과 비과세 공제로 헷갈리는 내 실제 월급",
+      description:
+        "계약 연봉과 실제로 통장에 입금되는 금액 사이에는 국민연금, 건강보험, 장기요양보험, 고용보험 및 근로소득세와 지방소득세가 복잡하게 얽혀 있어 근로자나 구직자가 자신의 실수령액을 정확히 알기 어려웠습니다.",
+      points: [
+        "2026년 변동된 4대보험 요율(국민연금 등)이 반영되지 않은 부정확한 기존 계산기들",
+        "비과세 식대(20만원 등)와 부양가족 수에 따른 공제액 계산의 번거로움",
+        "불필요한 광고와 무거운 UI로 출퇴근길이나 모바일에서 조회하기 힘든 불편함",
+      ],
+    },
+    solution: {
+      title: "2026년 최신 세법 정밀 반영 & 제로 딜레이 1초 실수령액 연산기",
+      description:
+        "연봉이나 월급을 입력하는 즉시 4대보험 공제액과 소득세를 세목별로 투명하게 분리해 보여주고, 2026년 연봉 구간별 실수령액 표까지 깔끔한 표와 인터페이스로 제공합니다.",
+      features: [
+        "2026년 최신 국민연금(4.75%)·건강보험 요율 및 근로소득 간이세액표 자동 적용",
+        "연봉 및 월급 기준 비과세 식대, 부양가족 수 맞춤형 실시간 공제액 산출",
+        "연봉 2,000만원부터 1억원 이상까지 한눈에 비교하는 연봉별 실수령액 표 제공",
+        "복잡한 로그인 없는 1초 즉시 계산 및 검색엔진(SEO) 최적화",
+      ],
+    },
+    impact: {
+      title: "연봉 협상 및 취업 시즌 근로자들의 필수 조회 유틸리티",
+      description:
+        "깔끔하고 신뢰할 수 있는 데이터 산출 방식으로 직장인 커뮤니티와 구직자들 사이에서 즐겨찾기 유틸리티로 자리 잡았습니다.",
+      highlights: [
+        "공식 도메인 (www.datawriter.co.kr) 정식 라이브 운영",
+        "2026년 최신 4대보험 세제 개편안 100% 정밀 적용",
+        "광고 피로도 없는 깔끔하고 신속한 세후 월급 시각화",
+      ],
+    },
+    techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Tax Calculation Engine", "SEO & OpenGraph"],
+    metrics: [
+      { label: "서비스 상태", value: "공식 도메인 운영" },
+      { label: "세법 기준", value: "2026 최신 4대보험" },
+      { label: "계산 속도", value: "입력 즉시 1초 산출" },
+    ],
+    icon: "Calculator",
+    accentColor: "#3b82f6",
+    gradient: "from-blue-500/20 via-indigo-500/10 to-transparent",
+    demoUrl: "https://www.datawriter.co.kr/",
+  },
 ];

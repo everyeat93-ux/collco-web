@@ -45,7 +45,7 @@ export function Footer() {
               </li>
               <li>
                 <a href="#products" className="hover:text-[#0B0B0C] transition-colors">
-                  01 / Shipped Works (8)
+                  01 / Shipped Works (10)
                 </a>
               </li>
               <li>

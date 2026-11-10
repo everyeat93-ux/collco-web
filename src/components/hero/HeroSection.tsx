@@ -45,7 +45,7 @@ export function HeroSection() {
 
           <div className="text-[10px] sm:text-[11px] font-mono text-[#737067] flex items-center gap-1.5 sm:gap-2">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse shrink-0" />
-            <span className="whitespace-nowrap">SEOUL · 8 PRODUCTS</span>
+            <span className="whitespace-nowrap">SEOUL · 10 PRODUCTS</span>
           </div>
         </div>
 
@@ -64,7 +64,7 @@ export function HeroSection() {
             <br />
             <span>& solo builder</span>
             <br />
-            <span className="text-[#737067]">crafting 8 digital solutions</span>
+            <span className="text-[#737067]">crafting 10 digital solutions</span>
             <br />
             <span>and physical commerce.</span>
           </h1>
@@ -77,7 +77,7 @@ export function HeroSection() {
         {/* Live Metrics Row (Rauno Minimalist Line) */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 py-4 sm:py-6 border-y border-[#F2EFE8] my-5 sm:my-10 font-mono">
           <div>
-            <div className="text-2xl sm:text-4xl font-black text-[#0B0B0C]">8</div>
+            <div className="text-2xl sm:text-4xl font-black text-[#0B0B0C]">10</div>
             <div className="text-[10px] sm:text-[11px] font-bold text-[#737067] uppercase mt-0.5 sm:mt-1">Shipped Solutions</div>
             <div className="text-[10px] sm:text-[11px] text-[#AFA99E]">앱 · 웹 · 게임 · 브랜드</div>
           </div>
@@ -107,7 +107,7 @@ export function HeroSection() {
               className="col-span-2 sm:col-span-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 sm:py-2.5 rounded-full bg-[#0B0B0C] hover:bg-[#252528] text-white text-xs font-mono font-bold uppercase tracking-wider transition-all shadow-rauno-xs active:scale-95"
             >
               <Layers className="w-3.5 h-3.5" />
-              <span>View Projects (8)</span>
+              <span>View Projects (10)</span>
               <ArrowDown className="w-3.5 h-3.5 text-zinc-400" />
             </a>
 
