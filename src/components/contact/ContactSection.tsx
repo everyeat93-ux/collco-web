@@ -4,19 +4,14 @@ import React, { useState } from "react";
 import {
   Mail,
   Send,
-  Copy,
   Check,
-  Clock,
-  ShieldCheck,
-  ShoppingBag,
-  ExternalLink,
 } from "lucide-react";
 
 export function ContactSection() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    type: "프로덕트 협업",
+    type: "프로덕트 제작·협업 제안",
     message: "",
   });
   const [copied, setCopied] = useState(false);
@@ -35,9 +30,9 @@ export function ContactSection() {
     e.preventDefault();
     setLoading(true);
 
-    const subject = encodeURIComponent(`[COLLCO 협업 제안] ${formData.type} - ${formData.name}`);
+    const subject = encodeURIComponent(`[COLLCO 프로덕트 협업 문의] ${formData.name}`);
     const body = encodeURIComponent(
-      `보낸 사람: ${formData.name} (${formData.email})\n문의 유형: ${formData.type}\n\n[문의 내용]\n${formData.message}`
+      `보낸 사람: ${formData.name} (${formData.email})\n문의 구분: ${formData.type}\n\n[문의 내용]\n${formData.message}`
     );
 
     window.location.href = `mailto:${contactEmail}?subject=${subject}&body=${body}`;
@@ -47,8 +42,6 @@ export function ContactSection() {
       setSubmitted(true);
     }, 600);
   };
-
-  const inquiryTypes = ["프로덕트 협업", "스토어 & 굿즈 제휴", "기술 및 DX 자문", "기타 문의"];
 
   return (
     <section id="contact" className="py-8 sm:py-16 md:py-24 px-3 sm:px-6 lg:px-8 max-w-6xl mx-auto relative">
@@ -62,18 +55,19 @@ export function ContactSection() {
 
         <div className="relative z-10 flex flex-col items-center justify-center text-center py-4 sm:py-8">
           <div className="text-[10px] font-mono font-bold text-[#737067] uppercase tracking-widest mb-2 sm:mb-3">
-            [GET IN TOUCH] · FAST RESOLUTION
+            [PRIMARY INQUIRY] · PRODUCT COLLABORATION
           </div>
 
-          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-[#0B0B0C] tracking-tight mb-3 sm:mb-4">
-            새로운 가능성을 만듭니다.
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-[#0B0B0C] tracking-tight mb-3 sm:mb-4 break-keep-all">
+            함께 만들 프로덕트가 있으신가요?
           </h2>
 
-          <p className="text-xs sm:text-sm text-[#484B52] max-w-md mx-auto mb-5 sm:mb-8 font-normal leading-[1.75] break-keep-all">
-            새로운 디지털 프로덕트 빌딩, 기존 서비스 인수/제휴, 굿즈 바잉 및 기술 자문 등 언제든 편하게 제안해 주세요.
+          <p className="text-xs sm:text-sm text-[#484B52] max-w-lg mx-auto mb-5 sm:mb-8 font-normal leading-[1.75] break-keep-all">
+            일상의 구체적인 문제를 해결하는 <strong>신규 앱·웹 프로덕트 제작 및 서비스 협업 제안</strong>을 기다립니다.
+            이메일 주소를 복사해 직접 보내주시거나 아래 양식으로 메일 초안을 작성하실 수 있습니다.
           </p>
 
-          {/* Center Interactive Email Copy Capsule (Rauno Signature) */}
+          {/* Center Interactive Email Copy Capsule */}
           <button
             onClick={handleCopyEmail}
             className="group relative inline-flex items-center gap-2 px-5 py-2.5 sm:px-6 sm:py-3 rounded-full bg-[#0B0B0C] hover:bg-[#252528] text-white font-mono font-bold text-xs uppercase tracking-wider shadow-rauno transition-all active:scale-95"
@@ -81,13 +75,13 @@ export function ContactSection() {
             {copied ? (
               <>
                 <Check className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-400" />
-                <span>Copied to Clipboard!</span>
+                <span>이메일 주소 복사 완료!</span>
               </>
             ) : (
               <>
                 <Mail className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#FFE600]" />
                 <span>{contactEmail}</span>
-                <span className="text-[#AFA99E] text-[10px]">[COPY]</span>
+                <span className="text-[#AFA99E] text-[10px]">[주소 복사]</span>
               </>
             )}
           </button>
@@ -117,7 +111,7 @@ export function ContactSection() {
           >
             ↑ Shipped Works (10)
           </a>
-          <span className="text-[#AFA99E]">1 Business Day Response SLA</span>
+          <span className="text-[#AFA99E]">영업일 기준 1일 내 회신</span>
         </div>
       </div>
 
@@ -147,38 +141,21 @@ export function ContactSection() {
         </div>
       </div>
 
-      {/* Direct Proposal Form */}
+      {/* Mail Draft Form */}
       <div className="bg-white border border-[#E8E5DC] rounded-[1.5rem] sm:rounded-[2rem] p-4 sm:p-12 shadow-rauno-card">
         <h3 className="text-xl font-black text-[#0B0B0C] tracking-tight mb-2">
-          상세 제안서 보내기
+          프로덕트 협업 문의 메일 작성하기
         </h3>
-        <p className="text-xs sm:text-sm text-[#484B52] mb-6">
-          이메일 클라이언트를 통해 작성하신 내용이 즉시 전달됩니다.
+        <p className="text-xs sm:text-sm text-[#484B52] mb-6 leading-[1.7] break-keep-all">
+          아래 내용을 입력하고 버튼을 누르면 <strong>사용 중인 기기의 기본 메일 앱이 열리며 제목과 본문이 자동으로 채워집니다.</strong> 열린 메일 앱에서 내용을 확인하신 뒤 <strong>‘보내기(전송)’</strong>를 눌러야 최종 발송이 완료됩니다.
         </p>
 
         <form onSubmit={handleSubmit} className="space-y-4">
-          <div className="flex flex-wrap gap-1.5 mb-2">
-            {inquiryTypes.map((type) => (
-              <button
-                key={type}
-                type="button"
-                onClick={() => setFormData({ ...formData, type })}
-                className={`px-3 py-1.5 rounded-lg text-xs font-mono transition-all ${
-                  formData.type === type
-                    ? "bg-[#0B0B0C] text-white font-bold"
-                    : "bg-[#F8F7F4] border border-[#E8E5DC] text-[#737067] hover:text-[#0B0B0C]"
-                }`}
-              >
-                {type}
-              </button>
-            ))}
-          </div>
-
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <input
               type="text"
               required
-              placeholder="성함 / 기업명"
+              placeholder="성함 / 팀·기업명"
               value={formData.name}
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
               className="w-full px-4 py-2.5 rounded-xl bg-[#F8F7F4] border border-[#E8E5DC] focus:border-[#0B0B0C] focus:bg-white text-xs sm:text-sm text-[#0B0B0C] outline-none"
@@ -186,7 +163,7 @@ export function ContactSection() {
             <input
               type="email"
               required
-              placeholder="회신 이메일 주소"
+              placeholder="회신받을 이메일 주소"
               value={formData.email}
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
               className="w-full px-4 py-2.5 rounded-xl bg-[#F8F7F4] border border-[#E8E5DC] focus:border-[#0B0B0C] focus:bg-white text-xs sm:text-sm text-[#0B0B0C] outline-none"
@@ -196,7 +173,7 @@ export function ContactSection() {
           <textarea
             required
             rows={4}
-            placeholder="제안 내용, 일정, 예산 등 편하신 형식으로 남겨주세요."
+            placeholder="해결하고 싶은 문제나 함께 만들고 싶은 프로덕트, 협업 제안 내용을 편하게 적어주세요."
             value={formData.message}
             onChange={(e) => setFormData({ ...formData, message: e.target.value })}
             className="w-full px-4 py-3 rounded-xl bg-[#F8F7F4] border border-[#E8E5DC] focus:border-[#0B0B0C] focus:bg-white text-xs sm:text-sm text-[#0B0B0C] outline-none resize-none leading-relaxed"
@@ -208,8 +185,14 @@ export function ContactSection() {
             className="inline-flex items-center justify-center gap-2 w-full py-3.5 rounded-full bg-[#0B0B0C] hover:bg-[#252528] text-white font-mono font-bold text-xs uppercase tracking-wider transition-all shadow-rauno-xs active:scale-95"
           >
             <Send className="w-3.5 h-3.5" />
-            <span>{loading ? "전송 준비 중..." : "이메일 프로그램으로 제안서 보내기"}</span>
+            <span>{loading ? "메일 앱 여는 중..." : "작성 내용으로 메일 앱 열기 (메일 앱에서 최종 전송)"}</span>
           </button>
+
+          {submitted && (
+            <div className="p-3.5 rounded-xl bg-[#FAF9F5] border border-[#E8E5DC] text-xs text-[#484B52] leading-relaxed break-keep-all">
+              기본 메일 앱이 실행되었습니다. <strong>메일 앱 창에서 ‘보내기’ 버튼을 눌러 최종 발송을 완료해 주세요.</strong> 만약 PC·모바일에 연결된 메일 앱이 없다면 위에서 복사한 <strong>{contactEmail}</strong> 주소로 웹메일(네이버·지메일 등)에서 직접 보내주시면 됩니다.
+            </div>
+          )}
         </form>
       </div>
     </section>

@@ -57,7 +57,7 @@ export function ProductsSection() {
           </div>
 
           <div className="text-[10px] sm:text-xs font-mono text-[#737067] px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-white border border-[#E8E5DC] shrink-0 w-fit">
-            [PROD 2026] · 9 LIVE · 1 TESTING
+            [2026.11 기준] · 9 LIVE · 1 TESTING
           </div>
         </div>
       </div>

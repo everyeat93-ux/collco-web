@@ -34,13 +34,13 @@ export const PRODUCTS: Product[] = [
       ],
     },
     impact: {
-      title: "Google Play 스토어 런칭 및 실사용자 호평",
+      title: "Google Play 스토어 정식 출시 및 웹 데모 동시 운영",
       description:
-        "배드민턴 동호회 및 클럽 코치진 사이에서 입소문을 타며 실전 연습 필수 도구로 안착했습니다.",
+        "파트너 없이 혼자 코트에 서는 동호인이 스마트폰 거치대 하나로 랜덤 스텝 훈련을 진행할 수 있도록 모바일 앱과 웹 버전을 함께 제공하고 있습니다.",
       highlights: [
-        "Google Play Console 정식 프로덕션 배포 완료 (com.collco.ditta)",
-        "전국 배드민턴 동호인 실사용 트레이닝 세션 누적 기록",
-        "스마트폰 거치대 하나로 완성되는 무인 개인 레슨 경험 제공",
+        "Google Play 스토어 정식 출시 및 배포 중 (패키지명: com.collco.ditta)",
+        "설치 없이 브라우저에서 바로 체험 가능한 웹 데모(ditda.co.kr) 동시 운영",
+        "세션별 스텝 횟수 및 운동 시간 로컬 기록 기능 제공",
       ],
     },
     techStack: ["React Native / Expo", "TypeScript", "Web Audio API", "AsyncStorage", "Tailwind"],
@@ -89,13 +89,13 @@ export const PRODUCTS: Product[] = [
       ],
     },
     impact: {
-      title: "Google Play 스토어 정식 출시 및 로컬 라이프 안착",
+      title: "Google Play 스토어 정식 출시 및 전국 오일장 데이터 수록",
       description:
-        "복잡한 장날 계산 없이 오늘 열리는 5일장과 주말 장터를 한눈에 확인하는 로컬 필수 앱으로 구글 플레이스토어에 정식 출시되었습니다.",
+        "복잡한 끝자리 장날 계산 없이 오늘 열리는 5일장과 주말 장터를 바로 확인할 수 있도록 Google Play 스토어와 웹 데모로 배포되어 운영 중입니다.",
       highlights: [
-        "Google Play Console 정식 프로덕션 배포 완료 (com.jangnal.gaja)",
-        "전국 450+ 전통 오일장 정밀 지오코딩 및 온누리상품권 가맹 정보 수록",
-        "오늘 개장 및 주말 개장 1초 필터 & 실시간 GPS 내비게이션 연동",
+        "Google Play 스토어 정식 출시 및 배포 중 (패키지명: com.jangnal.gaja)",
+        "전국 450여 개 전통 오일장 위치 좌표 및 장날 주기 데이터 수록",
+        "오늘 개장·주말 개장 필터 및 지도 앱 길찾기 연동 제공",
       ],
     },
     techStack: ["React Native", "TypeScript", "Kakao Map API", "Public Data Portal", "Zustand"],
@@ -145,13 +145,13 @@ export const PRODUCTS: Product[] = [
       ],
     },
     impact: {
-      title: "Google Play 정식 출시 및 파충·양서류 필수 앱 안착",
+      title: "Google Play 정식 출시 및 글로벌 스토어 배포 범위 설정",
       description:
-        "수기 메모와 엑셀을 완벽히 대체하며, 글로벌 177개국 배포 및 구글 플레이 스토어 정식 등록을 통해 특수 반려동물 케어의 새로운 기준을 세웠습니다.",
+        "수기 메모나 엑셀 대신 스마트폰으로 사육 이력을 기록·관리할 수 있도록 Google Play 스토어에 정식 출시(글로벌 스토어 배포 국가 포함)되어 운영 중입니다.",
       highlights: [
-        "Google Play Console 정식 프로덕션 배포 완료 (kr.reptilog.app)",
-        "수의사 문진표 생성으로 반려동물 질환 조기 진단 및 정확한 진료 기여",
-        "도마뱀, 뱀, 개구리, 거북이 등 파충류·양서류 전종 케어 최적화",
+        "Google Play 스토어 정식 출시 (패키지명: kr.reptilog.app, 글로벌 스토어 배포 설정)",
+        "동물병원 방문 시 사육 이력을 정리해 보여줄 수 있는 문진표 생성 기능 제공",
+        "도마뱀, 뱀, 개구리, 거북이 등 파충류·양서류 주요 종 기록 항목 지원",
       ],
     },
     techStack: ["React Native / Expo", "TypeScript", "Tailwind CSS", "Zustand", "Recharts", "Google Play Release"],
@@ -309,20 +309,20 @@ export const PRODUCTS: Product[] = [
       ],
     },
     impact: {
-      title: "FM 게이머 커뮤니티 호평 및 스카우팅 시간 70% 단축",
+      title: "전술 역할별 적합도 자동 계산 및 비교 차트 웹 제공",
       description:
-        "데이터 기반 스쿼드 빌딩을 즐기는 전략 게이머들에게 필수 서포트 유틸리티로 환영받았습니다.",
+        "선수 능력치를 일일이 대조하는 대신 전술 역할(Role)별 가중치 점수와 다각형 차트로 한눈에 비교할 수 있도록 웹 서비스로 운영 중입니다.",
       highlights: [
-        "복잡한 계산 없이 3초 만에 롤 적합도 수치화",
-        "SVG/Canvas 기반 고성능 반응형 다각형 차트 구현",
-        "전술 빌더들이 애용하는 스카우팅 보조 도구로 자리매김",
+        "공식 서브도메인 (scout.soccerdatainsights.com) 라이브 웹 운영",
+        "40여 개 전술 역할별 능력치 가중치 계산 및 즉시 점수화",
+        "SVG/Canvas 기반 다각형 오버레이 레이더 차트 비교 제공",
       ],
     },
     techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Chart.js / Canvas", "Zustand"],
     metrics: [
       { label: "서비스 상태", value: "공식 도메인 운영" },
       { label: "지원 롤(Roles)", value: "40+ 개 전술 역할" },
-      { label: "소요 시간", value: "스카우팅 70% 단축" },
+      { label: "비교 방식", value: "다각형 레이더 차트" },
     ],
     icon: "BarChart3",
     accentColor: "#06b6d4",
@@ -362,20 +362,20 @@ export const PRODUCTS: Product[] = [
       ],
     },
     impact: {
-      title: "완료율(Completion Rate) 88% 달성과 자연스러운 바이럴",
+      title: "무설치·무로그인 데일리 상식 퀴즈 웹 운영",
       description:
-        "가벼운 진입 장벽과 깔끔한 인터페이스 덕분에 스낵 컬처를 선호하는 2030 직장인/학생층의 높은 리텐션을 확보했습니다.",
+        "앱 설치나 회원가입 과정 없이 링크 접속만으로 5문항 상식 퀴즈와 해설 카드를 바로 풀어볼 수 있도록 가벼운 웹 서비스로 운영하고 있습니다.",
       highlights: [
-        "첫 진입 후 퀴즈 완료율 88% 기록 (업계 평균 대비 2배 이상)",
-        "친구 대결 공유 링크를 통한 자발적 유저 유입 루프 구축",
-        "초경량 번들링으로 모바일 저사양 네트워크 환경에서도 100% 쾌적",
+        "공식 도메인 (1bun-quiz.kr) 정식 웹 서비스 운영 중",
+        "매일 5문항 상식 문제와 1줄 핵심 배경지식 해설 제공",
+        "결과 점수 카드 및 친구 공유 링크 생성 기능 지원",
       ],
     },
     techStack: ["React", "TypeScript", "Tailwind CSS", "Framer Motion", "Web Share API", "Vercel Edge"],
     metrics: [
       { label: "서비스 상태", value: "공식 도메인 운영" },
-      { label: "플레이 타임", value: "단 60초 소요" },
-      { label: "완료율", value: "88% 이상 달성" },
+      { label: "플레이 타임", value: "약 60초 소요" },
+      { label: "접근 방식", value: "무설치 · 무로그인" },
     ],
     icon: "HelpCircle",
     accentColor: "#ec4899",
@@ -470,13 +470,13 @@ export const PRODUCTS: Product[] = [
       ],
     },
     impact: {
-      title: "글로벌 축구 팬과 커뮤니티가 애용하는 데이터 포털 안착",
+      title: "공식 도메인 운영 및 유럽 리그 선수단 아카이브 연동",
       description:
-        "해외 축구 이적 시장과 주급 이슈가 발생할 때마다 국내 축구 커뮤니티에서 가장 빠르고 정확한 데이터 레퍼런스로 활용되고 있습니다.",
+        "해외 축구 선수의 시장가치와 세후 주급을 원화(KRW) 기준으로 비교 계산할 수 있도록 공식 도메인에서 운영 중이며, 유럽 7개 리그 선수단 아카이브와 연동되어 있습니다.",
       highlights: [
-        "공식 도메인 (soccerdatainsights.com) 라이브 운영",
-        "트랜스퍼마크트 & 카폴로지 공식 데이터 기반 공신력 확보",
-        "해외파 축구선수 실시간 몸값 & 세후 실수령액 원클릭 계산 제공",
+        "공식 도메인 (soccerdatainsights.com) 라이브 웹 운영",
+        "트랜스퍼마크트 & 카폴로지 데이터 기반 주급·시장가치 환산 제공",
+        "유럽 7개 리그 · 132개 팀 선수단 조회 아카이브 메뉴 연동",
       ],
     },
     techStack: ["Next.js", "WordPress / Headless", "Data Scraping", "SEO & OpenGraph", "Tailwind CSS"],
@@ -523,13 +523,13 @@ export const PRODUCTS: Product[] = [
       ],
     },
     impact: {
-      title: "연봉 협상 및 취업 시즌 근로자들의 필수 조회 유틸리티",
+      title: "공식 도메인 운영 및 2026년 4대보험·간이세액표 반영",
       description:
-        "깔끔하고 신뢰할 수 있는 데이터 산출 방식으로 직장인 커뮤니티와 구직자들 사이에서 즐겨찾기 유틸리티로 자리 잡았습니다.",
+        "연봉 계약이나 이직 준비 시 세후 월 실수령액과 4대보험 공제 내역을 로그인 없이 바로 계산하고 구간별 표로 비교할 수 있도록 웹 서비스로 운영 중입니다.",
       highlights: [
-        "공식 도메인 (www.datawriter.co.kr) 정식 라이브 운영",
-        "2026년 최신 4대보험 세제 개편안 100% 정밀 적용",
-        "광고 피로도 없는 깔끔하고 신속한 세후 월급 시각화",
+        "공식 도메인 (www.datawriter.co.kr) 라이브 웹 운영",
+        "2026년 국민연금(4.75%)·건강보험 요율 및 간이세액표 계산식 적용",
+        "비과세 식대·부양가족 수 설정 및 연봉 구간별 실수령액 비교표 제공",
       ],
     },
     techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Tax Calculation Engine", "SEO & OpenGraph"],

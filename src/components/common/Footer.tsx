@@ -28,7 +28,7 @@ export function Footer() {
             {/* Live status badge */}
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-[#E8E5DC] text-[#0B0B0C] text-xs font-mono">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-              <span>Available for Select Advisory & Ventures</span>
+              <span>프로덕트 제작 · 협업 제안 열림</span>
             </div>
           </div>
 

@@ -1,18 +1,42 @@
 "use client";
 
 import React, { useState } from "react";
-import Image from "next/image";
 import {
   ArrowDown,
   ArrowUpRight,
   Copy,
   Check,
   ShoppingBag,
-  Sparkles,
-  Terminal,
   Activity,
   Layers,
 } from "lucide-react";
+
+const FEATURED_PROBLEMS = [
+  {
+    target: "배드민턴 동호인",
+    product: "ditta (딛다)",
+    problem: "혼자서도 실전처럼 반응하는 코트 6방향 랜덤 풋워크 훈련",
+    status: "Google Play 출시",
+  },
+  {
+    target: "전통시장 방문객 · 여행자",
+    product: "장날가자",
+    problem: "내 위치 주변에서 오늘 열리는 전국 5일장 일정과 길찾기 확인",
+    status: "Google Play 출시",
+  },
+  {
+    target: "파충류 · 양서류 집사",
+    product: "랩티로그 (ReptiLog)",
+    problem: "원터치 피딩·탈피 기록과 동물병원 진료용 사육 문진표 정리",
+    status: "Google Play 출시",
+  },
+  {
+    target: "직장인 · 생활자",
+    product: "데이터라이터 & 초간편 가계부",
+    problem: "2026년 세후 실수령액 1초 계산과 금융 연동 없는 3초 지출 기록",
+    status: "웹 운영 · 앱 비공개 테스트",
+  },
+];
 
 export function HeroSection() {
   const [copied, setCopied] = useState(false);
@@ -40,65 +64,65 @@ export function HeroSection() {
             <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-[#FFE600] border border-black/40 shrink-0" />
             <span className="font-semibold text-[#0B0B0C] whitespace-nowrap">COLLCO STUDIO</span>
             <span className="text-[#AFA99E]">/</span>
-            <span className="whitespace-nowrap">SOLO BUILDER</span>
+            <span className="whitespace-nowrap">1인 프로덕트 스튜디오</span>
           </div>
 
           <div className="text-[10px] sm:text-[11px] font-mono text-[#737067] flex items-center gap-1.5 sm:gap-2">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse shrink-0" />
-            <span className="whitespace-nowrap">SEOUL · 10 PRODUCTS</span>
+            <span className="whitespace-nowrap">2026.11 기준 · 10개 프로덕트 운영</span>
           </div>
         </div>
 
-        {/* Rauno's Iconic Typography Opening */}
-        <div className="relative mb-6 sm:mb-12">
-          {/* Decorative geometric circle shape inspired by rauno.me */}
+        {/* Problem-first Opening */}
+        <div className="relative mb-6 sm:mb-10">
           <div
             className="hidden sm:block absolute -top-4 right-0 w-36 h-36 lg:w-44 lg:h-44 rounded-full bg-[#FFE600]/80 blur-2xl pointer-events-none -z-0"
             aria-hidden="true"
           />
 
-          <h1 className="relative z-10 text-[23px] sm:text-5xl lg:text-6xl font-black text-[#0B0B0C] tracking-tight leading-[1.22] sm:leading-[1.12]">
-            <span>COLLCO</span>
+          <h1 className="relative z-10 text-[22px] sm:text-4xl lg:text-5xl font-black text-[#0B0B0C] tracking-tight leading-[1.28] sm:leading-[1.18] break-keep-all">
+            <span>일상의 작은 불편을</span>
             <br />
-            <span className="text-[#737067]">is a product studio</span>
+            <span className="text-[#737067]">발견하고 해결하는</span>
             <br />
-            <span>& solo builder</span>
+            <span>1인 프로덕트 스튜디오,</span>
             <br />
-            <span className="text-[#737067]">crafting 10 digital solutions</span>
-            <br />
-            <span>and physical commerce.</span>
+            <span className="text-[#737067]">콜코(COLLCO)입니다.</span>
           </h1>
 
-          <p className="mt-3.5 sm:mt-8 text-xs sm:text-base text-[#484B52] leading-[1.75] max-w-2xl font-normal break-keep-all">
-            거대 플랫폼이 주목하지 않는 일상의 뾰족한 불편함을 기획하고, 모바일 네이티브 물리 엔진부터 브라우저 데이터 시각화, 엔드투엔드로 직접 만들고, 애정하는 카드와 피규어 컬렉션도 함께 나눕니다.
+          <p className="mt-3.5 sm:mt-6 text-xs sm:text-base text-[#484B52] leading-[1.75] max-w-2xl font-normal break-keep-all">
+            큰 플랫폼이 지나치는 구체적인 일상의 문제를 찾아, 그 문제를 겪는 사람에게 꼭 맞는 앱과 웹 도구를 만듭니다.
+            배드민턴 코트 위 스텝 훈련부터 오늘 열리는 5일장 찾기, 파충류 사육일지, 세후 월급 계산까지 실제로 쓰이는 도구를 직접 기획·개발·운영합니다.
           </p>
         </div>
 
-        {/* Live Metrics Row (Rauno Minimalist Line) */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 py-4 sm:py-6 border-y border-[#F2EFE8] my-5 sm:my-10 font-mono">
-          <div>
-            <div className="text-2xl sm:text-4xl font-black text-[#0B0B0C]">10</div>
-            <div className="text-[10px] sm:text-[11px] font-bold text-[#737067] uppercase mt-0.5 sm:mt-1">Shipped Solutions</div>
-            <div className="text-[10px] sm:text-[11px] text-[#AFA99E]">앱 · 웹 · 게임 · 브랜드</div>
-          </div>
-          <div>
-            <div className="text-2xl sm:text-4xl font-black text-[#0B0B0C]">4</div>
-            <div className="text-[10px] sm:text-[11px] font-bold text-[#737067] uppercase mt-0.5 sm:mt-1">Google Play</div>
-            <div className="text-[10px] sm:text-[11px] text-[#AFA99E]">정식 출시/배포</div>
-          </div>
-          <div>
-            <div className="text-2xl sm:text-4xl font-black text-[#0B0B0C]">177</div>
-            <div className="text-[10px] sm:text-[11px] font-bold text-[#737067] uppercase mt-0.5 sm:mt-1">Countries</div>
-            <div className="text-[10px] sm:text-[11px] text-[#AFA99E]">랩티로그 글로벌 출시</div>
-          </div>
-          <div>
-            <div className="text-2xl sm:text-4xl font-black text-[#0B0B0C]">100%</div>
-            <div className="text-[10px] sm:text-[11px] font-bold text-[#737067] uppercase mt-0.5 sm:mt-1">Solo Ownership</div>
-            <div className="text-[10px] sm:text-[11px] text-[#AFA99E]">기획·디자인·엔지니어링</div>
-          </div>
+        {/* Representative Problem-Solving Cards (Who & What Problem We Solve First) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-3.5 py-4 sm:py-6 border-y border-[#F2EFE8] my-5 sm:my-8">
+          {FEATURED_PROBLEMS.map((item) => (
+            <a
+              key={item.product}
+              href="#projects"
+              className="group rounded-2xl bg-[#FAF9F5] hover:bg-white border border-[#E8E5DC] hover:border-[#0B0B0C] p-3.5 sm:p-4 transition-all flex flex-col justify-between gap-2"
+            >
+              <div>
+                <div className="text-[10px] font-mono font-bold text-[#737067] mb-1">
+                  FOR · {item.target}
+                </div>
+                <div className="text-sm sm:text-base font-black text-[#0B0B0C] tracking-tight mb-1">
+                  {item.product}
+                </div>
+                <p className="text-xs text-[#484B52] leading-[1.6] break-keep-all">
+                  {item.problem}
+                </p>
+              </div>
+              <div className="text-[10px] font-mono text-[#AFA99E] pt-1 border-t border-[#E8E5DC]/70">
+                {item.status}
+              </div>
+            </a>
+          ))}
         </div>
 
-        {/* Rauno Direct Trigger Bar */}
+        {/* Direct Trigger Bar */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 pt-1 sm:pt-2">
           {/* Action buttons */}
           <div className="grid grid-cols-2 sm:flex sm:flex-wrap items-center gap-2 sm:gap-2.5">
@@ -107,7 +131,7 @@ export function HeroSection() {
               className="col-span-2 sm:col-span-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 sm:py-2.5 rounded-full bg-[#0B0B0C] hover:bg-[#252528] text-white text-xs font-mono font-bold uppercase tracking-wider transition-all shadow-rauno-xs active:scale-95"
             >
               <Layers className="w-3.5 h-3.5" />
-              <span>View Projects (10)</span>
+              <span>전체 프로덕트 보기 (10)</span>
               <ArrowDown className="w-3.5 h-3.5 text-zinc-400" />
             </a>
 

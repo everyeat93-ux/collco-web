@@ -159,7 +159,7 @@ export function ProductModal({ product, onClose }: ProductModalProps) {
                     : "text-[#737067] hover:text-[#0B0B0C] hover:bg-white"
                 }`}
               >
-                3. 결과 & 성과
+                3. 배포 범위 & 제공 가치
               </button>
             </div>
           </div>
@@ -213,7 +213,7 @@ export function ProductModal({ product, onClose }: ProductModalProps) {
               <div className="p-5 sm:p-6 rounded-2xl bg-[#FAF9F5] border border-[#E8E5DC] space-y-3">
                 <div className="flex items-center gap-2 text-[#0B0B0C] font-bold">
                   <TrendingUp className="w-4 h-4 text-[#0B0B0C]" />
-                  <span>Impact : {product.impact.title}</span>
+                  <span>배포 범위 & 제공 가치 : {product.impact.title}</span>
                 </div>
                 <p className="text-[#484B52] leading-[1.75] break-keep-all text-xs sm:text-sm">
                   {product.impact.description}
