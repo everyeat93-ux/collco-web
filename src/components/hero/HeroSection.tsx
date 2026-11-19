@@ -13,6 +13,12 @@ import {
 
 const FEATURED_PROBLEMS = [
   {
+    target: "유산의 아픔을 겪은 엄마 · 아빠",
+    product: "두둥 (작은 별의 이야기)",
+    problem: "첫 심장 박동과 아빠가 쓴 노래, ‘별의 정원’으로 자책 대신 위로를 전하는 15분 무료 웹 게임",
+    status: "무료 웹 공개 (KO·EN·JA)",
+  },
+  {
     target: "배드민턴 동호인",
     product: "ditta (딛다)",
     problem: "혼자서도 실전처럼 반응하는 코트 6방향 랜덤 풋워크 훈련",
@@ -29,12 +35,6 @@ const FEATURED_PROBLEMS = [
     product: "랩티로그 (ReptiLog)",
     problem: "원터치 피딩·탈피 기록과 동물병원 진료용 사육 문진표 정리",
     status: "Google Play 출시",
-  },
-  {
-    target: "직장인 · 생활자",
-    product: "데이터라이터 & 초간편 가계부",
-    problem: "2026년 세후 실수령액 1초 계산과 금융 연동 없는 3초 지출 기록",
-    status: "웹 운영 · 앱 비공개 테스트",
   },
 ];
 
@@ -69,7 +69,7 @@ export function HeroSection() {
 
           <div className="text-[10px] sm:text-[11px] font-mono text-[#737067] flex items-center gap-1.5 sm:gap-2">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse shrink-0" />
-            <span className="whitespace-nowrap">2026.11 기준 · 10개 프로덕트 운영</span>
+            <span className="whitespace-nowrap">2026.11 기준 · 11개 프로덕트 운영</span>
           </div>
         </div>
 
@@ -91,8 +91,8 @@ export function HeroSection() {
           </h1>
 
           <p className="mt-3.5 sm:mt-6 text-xs sm:text-base text-[#484B52] leading-[1.75] max-w-2xl font-normal break-keep-all">
-            큰 플랫폼이 지나치는 구체적인 일상의 문제를 찾아, 그 문제를 겪는 사람에게 꼭 맞는 앱과 웹 도구를 만듭니다.
-            배드민턴 코트 위 스텝 훈련부터 오늘 열리는 5일장 찾기, 파충류 사육일지, 세후 월급 계산까지 실제로 쓰이는 도구를 직접 기획·개발·운영합니다.
+            큰 플랫폼이 지나치는 구체적인 일상의 문제와 마음의 이야기를 찾아, 그 순간을 겪는 사람에게 꼭 필요한 앱과 웹을 만듭니다.
+            유산의 아픔을 위로하는 인터랙티브 웹 게임부터 배드민턴 스텝 훈련, 오늘 열리는 5일장 찾기, 파충류 사육일지까지 직접 기획·개발·운영합니다.
           </p>
         </div>
 
@@ -131,7 +131,7 @@ export function HeroSection() {
               className="col-span-2 sm:col-span-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 sm:py-2.5 rounded-full bg-[#0B0B0C] hover:bg-[#252528] text-white text-xs font-mono font-bold uppercase tracking-wider transition-all shadow-rauno-xs active:scale-95"
             >
               <Layers className="w-3.5 h-3.5" />
-              <span>전체 프로덕트 보기 (10)</span>
+              <span>전체 프로덕트 보기 (11)</span>
               <ArrowDown className="w-3.5 h-3.5 text-zinc-400" />
             </a>
 

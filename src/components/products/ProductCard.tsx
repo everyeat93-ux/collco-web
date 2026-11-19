@@ -17,6 +17,7 @@ import {
   Clock,
   TrendingUp,
   Calculator,
+  Heart,
 } from "lucide-react";
 import { Product } from "@/types";
 import { Badge } from "@/components/common/Badge";
@@ -48,6 +49,8 @@ export function ProductCard({ product, index, onSelect }: ProductCardProps) {
         return <TrendingUp className="w-4 h-4 text-[#0B0B0C]" />;
       case "Calculator":
         return <Calculator className="w-4 h-4 text-[#0B0B0C]" />;
+      case "Heart":
+        return <Heart className="w-4 h-4 text-[#0B0B0C]" />;
       default:
         return <Sparkles className="w-4 h-4 text-[#0B0B0C]" />;
     }
