@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import {
   Activity,
   MapPin,
@@ -56,151 +57,120 @@ export function ProductCard({ product, index, onSelect }: ProductCardProps) {
     }
   };
 
-  const getDomainLabel = () => {
-    if (product.demoUrl) {
-      try {
-        const url = new URL(product.demoUrl);
-        return url.hostname;
-      } catch {
-        return product.demoUrl;
-      }
-    }
-    if (product.domainLabel) return product.domainLabel;
-    if (product.storeUrl) return "Google Play Store";
-    return "라이브 서비스";
-  };
+  const indexNumber = String(index + 1).padStart(2, "0");
+  const hasDetailPage = Boolean(product.detailSlug);
+  const isTesting = product.releaseState === "testing";
+  const oneLiner = product.shortDescription || product.tagline;
 
   return (
-    <div
-      onClick={() => onSelect(product)}
-      className="group relative flex flex-col justify-between bg-white border border-[#E8E5DC] hover:border-[#0B0B0C] rounded-[1.5rem] sm:rounded-[1.75rem] p-5 sm:p-8 cursor-pointer transition-all duration-300 hover:-translate-y-1 shadow-swiss-xs hover:shadow-swiss-lg"
-    >
+    <article className="group relative flex flex-col justify-between bg-white border border-[#E8E5DC] hover:border-[#0B0B0C] rounded-[1.5rem] p-5 sm:p-6 transition-all duration-200 shadow-rauno-xs hover:shadow-rauno-sm">
       <div>
-        {/* Header row: Index & Status */}
-        <div className="flex items-center justify-between gap-3 mb-5">
-          <div className="flex items-center gap-3">
+        {/* Header row: Icon, Index & Status */}
+        <div className="flex items-center justify-between gap-2 mb-4">
+          <div className="flex items-center gap-2.5">
             {product.appIcon ? (
-              <div className="relative w-10 h-10 rounded-xl overflow-hidden border border-[#E8E5DC] group-hover:border-[#0B0B0C] group-hover:scale-105 shadow-sm transition-all bg-white shrink-0">
+              <div className="relative w-10 h-10 rounded-xl overflow-hidden border border-[#E8E5DC] bg-white shrink-0 shadow-xs">
                 <Image
                   src={product.appIcon}
-                  alt={`${product.name} App Icon`}
+                  alt={`${product.name} 아이콘`}
                   fill
                   sizes="40px"
                   className="object-cover"
                 />
               </div>
             ) : (
-              <div className="w-10 h-10 rounded-xl bg-[#FAF9F5] border border-[#E8E5DC] flex items-center justify-center group-hover:border-[#0B0B0C] transition-colors shrink-0">
+              <div className="w-10 h-10 rounded-xl bg-[#FAF9F5] border border-[#E8E5DC] flex items-center justify-center shrink-0">
                 {renderIcon()}
               </div>
             )}
-            <div className="text-[11px] font-mono font-bold text-[#737067] tracking-widest">
-              0{index + 1}
-            </div>
+            <span className="text-xs font-mono font-bold text-[#737067]">{indexNumber}</span>
           </div>
+
           <Badge variant={product.statusBadgeVariant} dot size="sm">
             {product.status}
           </Badge>
         </div>
 
-        {/* Live URL / Status Indicator Pill */}
-        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FAF9F5] border border-[#E8E5DC] text-[11px] text-[#484B52] font-mono mb-4">
-          <Globe className="w-3 h-3 text-[#737067] shrink-0" />
-          <span className="truncate font-medium">{getDomainLabel()}</span>
-        </div>
+        {/* Title & One-line Description */}
+        <div className="mb-4">
+          {hasDetailPage ? (
+            <Link
+              href={`/projects/${product.detailSlug}`}
+              className="text-lg font-black text-[#0B0B0C] hover:underline underline-offset-4 tracking-tight"
+            >
+              {product.name}
+            </Link>
+          ) : (
+            <button
+              type="button"
+              onClick={() => onSelect(product)}
+              className="text-left text-lg font-black text-[#0B0B0C] hover:underline underline-offset-4 tracking-tight cursor-pointer"
+            >
+              {product.name}
+            </button>
+          )}
 
-        {/* Title & Tagline */}
-        <div className="space-y-1.5">
-          <div className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#737067]">
-            {product.category}
-          </div>
-          <h3 className="text-xl sm:text-2xl font-black text-[#0B0B0C] tracking-tight flex items-baseline gap-2 group-hover:text-[#484B52] transition-colors">
-            <span>{product.name}</span>
-            {product.subName && (
-              <span className="text-sm font-medium text-[#737067]">({product.subName})</span>
-            )}
-          </h3>
-          <p className="text-xs sm:text-sm text-[#484B52] line-clamp-2 mt-2 leading-[1.75] font-normal break-keep-all">
-            {product.summary}
+          {product.subName && (
+            <div className="text-xs text-[#737067] mt-0.5">{product.subName}</div>
+          )}
+
+          <p className="mt-2.5 text-sm text-[#484B52] leading-relaxed break-keep-all">
+            {oneLiner}
           </p>
         </div>
-
-        {/* Key Metrics snapshot */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 my-4 sm:my-5 py-2.5 sm:py-3 px-3 sm:px-3.5 rounded-xl bg-[#FAF9F5] border border-[#E8E5DC]">
-          {product.metrics.map((metric, idx) => (
-            <div key={idx} className={`text-left ${idx === 2 ? "col-span-2 sm:col-span-1" : ""}`}>
-              <div className="text-[10px] text-[#737067] font-semibold font-mono truncate">{metric.label}</div>
-              <div className="text-xs font-bold text-[#0B0B0C] mt-0.5 font-mono break-keep-all">
-                {metric.value}
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Tech / Tags */}
-        <div className="flex flex-wrap gap-1.5 mb-4">
-          {product.tags.map((tag, idx) => (
-            <span
-              key={idx}
-              className="text-[10px] font-mono px-2.5 py-0.5 rounded-md bg-[#FAF9F5] border border-[#E8E5DC] text-[#484B52]"
-            >
-              #{tag}
-            </span>
-          ))}
-        </div>
       </div>
 
-      {/* Card Action Trigger */}
-      <div className="pt-4 border-t border-[#F2EFE8] flex items-center justify-between text-xs font-mono font-bold">
-        <button
-          type="button"
-          onClick={(e) => {
-            e.stopPropagation();
-            onSelect(product);
-          }}
-          className="flex items-center gap-1 text-[#0B0B0C] hover:text-[#737067] transition-colors"
-        >
-          <span>상세 분석</span>
-          <ArrowRight className="w-3.5 h-3.5" />
-        </button>
+      {/* Explicit Action Buttons (No nested links) */}
+      <div className="pt-4 border-t border-[#F2EFE8] flex flex-wrap items-center gap-2">
+        {hasDetailPage ? (
+          <Link
+            href={`/projects/${product.detailSlug}`}
+            className="inline-flex items-center gap-1 px-3.5 py-2 min-h-[38px] rounded-full bg-[#0B0B0C] hover:bg-[#252528] text-white text-xs font-bold transition-all"
+          >
+            <span>상세 보기</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </Link>
+        ) : (
+          <button
+            type="button"
+            onClick={() => onSelect(product)}
+            className="inline-flex items-center gap-1 px-3.5 py-2 min-h-[38px] rounded-full bg-[#FAF9F5] hover:bg-[#0B0B0C] text-[#0B0B0C] hover:text-white border border-[#E8E5DC] hover:border-[#0B0B0C] text-xs font-bold transition-all cursor-pointer"
+          >
+            {isTesting ? (
+              <>
+                <Clock className="w-3.5 h-3.5" />
+                <span>{product.actionLabel || "개발 현황 보기"}</span>
+              </>
+            ) : (
+              <span>상세 보기</span>
+            )}
+          </button>
+        )}
 
-        <div className="flex items-center gap-1.5">
-          {product.demoUrl && (
-            <a
-              href={product.demoUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={(e) => e.stopPropagation()}
-              className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-full bg-white hover:bg-[#F8F7F4] text-[#0B0B0C] border border-[#E8E5DC] font-mono text-[11px] transition-all hover:scale-105 active:scale-95 shadow-xs"
-              title="공식 웹사이트 바로가기"
-            >
-              <span>웹사이트</span>
-              <ExternalLink className="w-2.5 h-2.5 text-[#737067]" />
-            </a>
-          )}
+        {product.demoUrl && (
+          <a
+            href={product.demoUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1 px-3 py-2 min-h-[38px] rounded-full bg-white hover:bg-[#F8F7F4] text-[#0B0B0C] border border-[#E8E5DC] hover:border-[#0B0B0C] text-xs font-medium transition-all"
+          >
+            <Globe className="w-3 h-3 text-[#484B52]" />
+            <span>웹에서 열기</span>
+          </a>
+        )}
 
-          {product.storeUrl && (
-            <a
-              href={product.storeUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={(e) => e.stopPropagation()}
-              className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-[#0B0B0C] hover:bg-[#252528] text-white font-mono text-[11px] shadow-swiss-xs transition-all hover:scale-105 active:scale-95"
-              title="Google Play 스토어"
-            >
-              <span>스토어</span>
-              <ExternalLink className="w-2.5 h-2.5" />
-            </a>
-          )}
-
-          {!product.storeUrl && !product.demoUrl && (
-            <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-[#FAF9F5] border border-[#E8E5DC] text-[#484B52] text-[11px] font-mono">
-              <Clock className="w-3 h-3 text-[#737067]" />
-              <span>{product.actionLabel || product.status}</span>
-            </span>
-          )}
-        </div>
+        {product.storeUrl && (
+          <a
+            href={product.storeUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1 px-3 py-2 min-h-[38px] rounded-full bg-white hover:bg-[#F8F7F4] text-[#0B0B0C] border border-[#E8E5DC] hover:border-[#0B0B0C] text-xs font-medium transition-all"
+          >
+            <span>Google Play</span>
+            <ExternalLink className="w-3 h-3 text-[#484B52]" />
+          </a>
+        )}
       </div>
-    </div>
+    </article>
   );
 }

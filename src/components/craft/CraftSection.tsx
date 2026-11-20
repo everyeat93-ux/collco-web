@@ -2,7 +2,8 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import { Activity, Play, RotateCcw, Zap, Target, Gauge, Sparkles, ArrowRight } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight, ExternalLink } from "lucide-react";
 
 export function CraftSection() {
   // Demo 1: Shuttlecock Rally Timing (하늘이 vs 라우니)
@@ -18,7 +19,6 @@ export function CraftSection() {
   }, []);
 
   const handleSwing = () => {
-    // Perfect zone is between 75 and 90
     if (shuttlePosition >= 78 && shuttlePosition <= 92) {
       setHitFeedback("🔥 호쾌한 스매시! (PERFECT)");
       setRallyScore((s) => s + 1);
@@ -71,46 +71,46 @@ export function CraftSection() {
   const currentScores = roleScores[selectedRole];
 
   return (
-    <section id="craft" className="py-8 sm:py-16 md:py-24 px-3 sm:px-6 lg:px-8 max-w-6xl mx-auto relative">
+    <section
+      id="craft"
+      aria-labelledby="craft-heading"
+      className="py-8 sm:py-14 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto relative"
+    >
       {/* Section Header */}
-      <div className="mb-5 sm:mb-12">
-        <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-white border border-[#E8E5DC] text-[10px] sm:text-[11px] font-mono text-[#737067] uppercase tracking-wider mb-2.5 sm:mb-4">
-          <Activity className="w-3.5 h-3.5 text-[#0B0B0C]" />
-          <span>02 / CRAFT LAB & INTERACTIVE ENGINES</span>
-        </div>
-
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-3 sm:gap-6">
-          <div>
-            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-[#0B0B0C] tracking-tight leading-tight">
-              손끝에서 반응하는,
-              <br />
-              <span className="text-[#737067]">실시간 인터랙션 & 물리 엔진 랩</span>
-            </h2>
-            <p className="mt-2 sm:mt-3 text-xs sm:text-base text-[#484B52] max-w-2xl leading-[1.75] font-normal break-keep-all">
-              라우노(Rauno)의 인터랙티브 플레이그라운드 철학을 따라, 실제 COLLCO의 모바일 앱과 게임에 탑재된 핵심 물리 알고리즘을 브라우저에서 직접 테스트해 보실 수 있습니다.
-            </p>
-          </div>
-
-          <div className="text-[10px] sm:text-xs font-mono text-[#737067] px-3 py-1 sm:px-3 sm:py-1 rounded-full bg-white border border-[#E8E5DC] shrink-0 w-fit">
-            PROTOTYPE TO PRODUCTION
-          </div>
-        </div>
+      <div className="mb-8 sm:mb-10 max-w-2xl">
+        <p className="text-xs font-mono text-[#737067] mb-2">CRAFT LAB</p>
+        <h1
+          id="craft-heading"
+          className="text-2xl sm:text-4xl lg:text-5xl font-black text-[#0B0B0C] tracking-tight leading-tight"
+        >
+          직접 눌러보며 써보는 작은 실험들
+        </h1>
+        <p className="mt-2.5 text-sm sm:text-base text-[#484B52] leading-[1.8] break-keep-all">
+          콜코가 만든 앱의 핵심 기능을 여기서 바로 써보세요. 스윙 타이밍, 6방향 스텝 신호, 전술 역할별 능력치 계산을 설치 없이 체험할 수 있습니다.
+        </p>
       </div>
 
-      {/* Mobile Experiment Selector Tabs (drastically reduces mobile scroll height) */}
-      <div className="lg:hidden flex items-center gap-1 p-1 mb-4 rounded-full bg-[#F8F7F4] border border-[#E8E5DC]">
+      {/* Mobile Experiment Selector Tabs */}
+      <div
+        role="tablist"
+        aria-label="체험 데모 선택"
+        className="lg:hidden flex items-center gap-1 p-1 mb-4 rounded-full bg-[#F8F7F4] border border-[#E8E5DC]"
+      >
         {[
-          { label: "01 랠리 물리", id: 0 },
-          { label: "02 풋워크 큐레이터", id: 1 },
-          { label: "03 선수 가중치", id: 2 },
+          { label: "01 랠리 타이밍", id: 0 },
+          { label: "02 딛다 6방향", id: 1 },
+          { label: "03 FM 가중치", id: 2 },
         ].map((tab) => (
           <button
             key={tab.id}
+            type="button"
+            role="tab"
+            aria-selected={mobileTab === tab.id}
             onClick={() => setMobileTab(tab.id)}
-            className={`flex-1 py-1.5 rounded-full text-[11px] font-mono transition-all text-center ${
+            className={`flex-1 py-2.5 min-h-[40px] rounded-full text-xs font-medium transition-all text-center ${
               mobileTab === tab.id
                 ? "bg-[#0B0B0C] text-white font-bold shadow-xs"
-                : "text-[#737067] hover:text-[#0B0B0C]"
+                : "text-[#484B52] hover:text-[#0B0B0C]"
             }`}
           >
             {tab.label}
@@ -120,21 +120,24 @@ export function CraftSection() {
 
       {/* 3 Interactive Craft Widgets */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
-        {/* Craft 1: 원터치 셔틀콕 물리 엔진 (하늘이 vs 라우니) */}
-        <div className={`${mobileTab === 0 ? "flex" : "hidden lg:flex"} bg-white border border-[#E8E5DC] rounded-[1.5rem] sm:rounded-[2rem] p-4 sm:p-7 shadow-rauno-card flex-col justify-between`}>
+        {/* Craft 1: 하늘이 vs 라우니 랠리 타이밍 */}
+        <div
+          id="craft-rally"
+          className={`${
+            mobileTab === 0 ? "flex" : "hidden lg:flex"
+          } bg-white border border-[#E8E5DC] rounded-[1.5rem] sm:rounded-[2rem] p-5 sm:p-7 shadow-rauno-card flex-col justify-between`}
+        >
           <div>
             <div className="flex items-center justify-between mb-4">
-              <span className="text-[10px] font-mono font-bold text-[#737067] uppercase tracking-wider">
-                [EXPERIMENT 01] · GAME PHYSICS
-              </span>
-              <span className="text-xs font-mono font-bold text-[#0B0B0C]">Rally: {rallyScore}</span>
+              <span className="text-[11px] font-mono font-bold text-[#737067]">DEMO 01</span>
+              <span className="text-xs font-mono font-bold text-[#0B0B0C]">연속 랠리: {rallyScore}</span>
             </div>
 
-            <div className="flex items-center gap-2.5 mb-1">
+            <div className="flex items-center gap-2.5 mb-1.5">
               <div className="relative w-8 h-8 rounded-lg overflow-hidden border border-[#E8E5DC] shrink-0 shadow-xs">
                 <Image
                   src="/apps/icon-haneul-rauni.jpg"
-                  alt="하늘이와 라우니"
+                  alt="하늘이 vs 라우니 앱 아이콘"
                   fill
                   sizes="32px"
                   className="object-cover"
@@ -144,155 +147,189 @@ export function CraftSection() {
                 하늘이 vs 라우니 랠리 타이밍
               </h3>
             </div>
-            <p className="text-xs text-[#484B52] mt-1 leading-relaxed">
-              초록색 히트 존(Zone)에 셔틀콕이 들어왔을 때 스윙 버튼을 눌러보세요.
+            <p className="text-xs sm:text-sm text-[#484B52] mt-1 leading-relaxed break-keep-all">
+              초록색 구간에 공이 들어왔을 때 아래 스윙 버튼을 눌러 타이밍을 맞춰보세요.
             </p>
 
             {/* Timing Rail Track */}
-            <div className="my-6 p-4 rounded-xl bg-[#F8F7F4] border border-[#E8E5DC] relative">
+            <div className="my-5 p-4 rounded-xl bg-[#F8F7F4] border border-[#E8E5DC] relative">
               <div className="h-6 w-full bg-[#E8E5DC] rounded-full overflow-hidden relative">
-                {/* Hit Zone Highlight */}
                 <div
                   className="absolute top-0 bottom-0 bg-emerald-400/40 border-x border-emerald-600"
                   style={{ left: "75%", width: "20%" }}
-                  title="Sweet Spot (Hit Zone)"
+                  title="타격 구간"
                 />
-                {/* Shuttlecock Dot */}
                 <div
                   className="absolute top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-[#0B0B0C] border-2 border-[#FFE600] shadow-sm transition-all"
                   style={{ left: `${Math.min(shuttlePosition, 95)}%` }}
                 />
               </div>
 
-              <div className="flex justify-between text-[10px] font-mono text-[#737067] mt-2">
-                <span>서브 준비</span>
-                <span className="text-emerald-700 font-bold">타격 포인트 (Hit!)</span>
+              <div className="flex justify-between text-[11px] font-mono text-[#484B52] mt-2">
+                <span>준비</span>
+                <span className="text-emerald-700 font-bold">타격 구간</span>
                 <span>아웃</span>
               </div>
             </div>
 
-            {/* Feedback Message */}
-            <div className="h-6 text-center text-xs font-mono font-bold text-[#0B0B0C]">
+            <div className="min-h-[24px] text-center text-xs font-mono font-bold text-[#0B0B0C]">
               {hitFeedback || "버튼을 눌러 랠리를 시작하세요"}
             </div>
           </div>
 
-          <div className="pt-4 mt-4 border-t border-[#F2EFE8]">
+          <div className="pt-4 mt-4 border-t border-[#F2EFE8] space-y-3">
             <button
+              type="button"
               onClick={handleSwing}
-              className="w-full py-3 rounded-full bg-[#0B0B0C] hover:bg-[#252528] active:scale-95 text-white font-mono font-bold text-xs uppercase tracking-wider transition-all shadow-rauno-xs"
+              className="w-full py-3 min-h-[44px] rounded-full bg-[#0B0B0C] hover:bg-[#252528] active:scale-95 text-white font-bold text-xs sm:text-sm transition-all shadow-rauno-xs"
             >
-              🏸 스윙 터치 (SWING)
+              🏸 스윙 터치
             </button>
+
+            <div className="flex items-center justify-between gap-2 text-xs">
+              <span className="text-[11px] font-mono text-[#737067]">원터치 타이밍 판정</span>
+              <a
+                href="https://play.google.com/store/apps/details?id=com.collco.haneulrauni"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 font-bold text-[#0B0B0C] hover:underline underline-offset-4"
+              >
+                <span>관련 프로젝트 보기</span>
+                <ExternalLink className="w-3 h-3" />
+              </a>
+            </div>
           </div>
         </div>
 
-        {/* Craft 2: ditta 6방향 반응형 풋워크 엔진 */}
-        <div className={`${mobileTab === 1 ? "flex" : "hidden lg:flex"} bg-white border border-[#E8E5DC] rounded-[1.5rem] sm:rounded-[2rem] p-4 sm:p-7 shadow-rauno-card flex-col justify-between`}>
+        {/* Craft 2: 딛다 6방향 풋워크 훈련 */}
+        <div
+          id="craft-ditta"
+          className={`${
+            mobileTab === 1 ? "flex" : "hidden lg:flex"
+          } bg-white border border-[#E8E5DC] rounded-[1.5rem] sm:rounded-[2rem] p-5 sm:p-7 shadow-rauno-card flex-col justify-between`}
+        >
           <div>
             <div className="flex items-center justify-between mb-4">
-              <span className="text-[10px] font-mono font-bold text-[#737067] uppercase tracking-wider">
-                [EXPERIMENT 02] · REACTIVE ALGORITHM
-              </span>
-              <span className="text-xs font-mono font-bold text-emerald-600">Delay: {delaySpeed}s</span>
+              <span className="text-[11px] font-mono font-bold text-[#737067]">DEMO 02</span>
+              <span className="text-xs font-mono font-bold text-emerald-700">간격: {delaySpeed}초</span>
             </div>
 
-            <div className="flex items-center gap-2.5 mb-1">
+            <div className="flex items-center gap-2.5 mb-1.5">
               <div className="relative w-8 h-8 rounded-lg overflow-hidden border border-[#E8E5DC] shrink-0 shadow-xs">
                 <Image
                   src="/apps/icon-ditta.png"
-                  alt="ditta"
+                  alt="딛다 앱 아이콘"
                   fill
                   sizes="32px"
                   className="object-cover"
                 />
               </div>
               <h3 className="text-base sm:text-lg font-black text-[#0B0B0C] tracking-tight">
-                ditta 6구역 랜덤 시각 큐레이터
+                딛다(ditta) 6방향 풋워크 훈련
               </h3>
             </div>
-            <p className="text-xs text-[#484B52] mt-1 leading-relaxed">
-              무작위로 활성화되는 코트 6방향에 즉각 스텝으로 반응하는 트레이닝 엔진입니다.
+            <p className="text-xs sm:text-sm text-[#484B52] mt-1 leading-relaxed break-keep-all">
+              노란 불이 켜지는 코트 구역에 맞춰 스텝을 밟아보세요. 아래에서 속도를 조절할 수 있습니다.
             </p>
 
             {/* 6-Zone Badminton Court Grid */}
-            <div className="my-6 grid grid-cols-2 gap-2">
+            <div className="my-5 grid grid-cols-2 gap-2">
               {zoneNames.map((name, idx) => (
                 <div
                   key={idx}
                   className={`p-3 rounded-xl text-center text-xs font-mono font-bold transition-all duration-150 border ${
                     activeZone === idx
-                      ? "bg-[#FFE600] border-black text-black scale-105 shadow-sm"
-                      : "bg-[#F8F7F4] border-[#E8E5DC] text-[#737067]"
+                      ? "bg-[#FFE600] border-black text-black scale-[1.03] shadow-sm"
+                      : "bg-[#F8F7F4] border-[#E8E5DC] text-[#484B52]"
                   }`}
                 >
-                  <div className="text-[10px] opacity-60">ZONE 0{idx + 1}</div>
+                  <div className="text-[10px] opacity-70">ZONE 0{idx + 1}</div>
                   <div className="text-[11px] truncate mt-0.5">{name}</div>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Speed Adjuster */}
-          <div className="pt-4 border-t border-[#F2EFE8] flex items-center justify-between gap-3">
-            <button
-              onClick={() => setIsTraining(!isTraining)}
-              className="px-4 py-2 rounded-full bg-[#FAF9F5] border border-[#E8E5DC] hover:border-[#0B0B0C] text-xs font-mono font-bold text-[#0B0B0C] transition-all"
-            >
-              {isTraining ? "일시 정지" : "재개"}
-            </button>
+          <div className="pt-4 border-t border-[#F2EFE8] space-y-3">
+            <div className="flex items-center justify-between gap-2">
+              <button
+                type="button"
+                onClick={() => setIsTraining(!isTraining)}
+                className="px-4 py-2 min-h-[40px] rounded-full bg-[#FAF9F5] border border-[#E8E5DC] hover:border-[#0B0B0C] text-xs font-bold text-[#0B0B0C] transition-all"
+              >
+                {isTraining ? "일시 정지" : "다시 시작"}
+              </button>
 
-            <div className="flex items-center gap-1.5">
-              {[0.8, 1.2, 1.8].map((s) => (
-                <button
-                  key={s}
-                  onClick={() => setDelaySpeed(s)}
-                  className={`px-2.5 py-1 rounded-lg text-xs font-mono transition-all ${
-                    delaySpeed === s
-                      ? "bg-[#0B0B0C] text-white font-bold"
-                      : "bg-[#F8F7F4] text-[#737067] hover:text-[#0B0B0C]"
-                  }`}
-                >
-                  {s}s
-                </button>
-              ))}
+              <div className="flex items-center gap-1.5" role="group" aria-label="신호 간격 선택">
+                {[0.8, 1.2, 1.8].map((s) => (
+                  <button
+                    key={s}
+                    type="button"
+                    onClick={() => setDelaySpeed(s)}
+                    className={`px-2.5 py-2 min-h-[38px] rounded-lg text-xs font-mono transition-all ${
+                      delaySpeed === s
+                        ? "bg-[#0B0B0C] text-white font-bold"
+                        : "bg-[#F8F7F4] text-[#484B52] hover:text-[#0B0B0C]"
+                    }`}
+                  >
+                    {s}s
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div className="flex items-center justify-between gap-2 text-xs">
+              <span className="text-[11px] font-mono text-[#737067]">6구역 랜덤 신호 알고리즘</span>
+              <Link
+                href="/projects/ditta"
+                className="inline-flex items-center gap-1 font-bold text-[#0B0B0C] hover:underline underline-offset-4"
+              >
+                <span>관련 프로젝트 보기</span>
+                <ArrowRight className="w-3 h-3" />
+              </Link>
             </div>
           </div>
         </div>
 
-        {/* Craft 3: FM 선수 분석기 가중치 엔진 */}
-        <div className={`${mobileTab === 2 ? "flex" : "hidden lg:flex"} bg-white border border-[#E8E5DC] rounded-[1.5rem] sm:rounded-[2rem] p-4 sm:p-7 shadow-rauno-card flex-col justify-between`}>
+        {/* Craft 3: FM 역할별 가중치 계산 */}
+        <div
+          id="craft-fm"
+          className={`${
+            mobileTab === 2 ? "flex" : "hidden lg:flex"
+          } bg-white border border-[#E8E5DC] rounded-[1.5rem] sm:rounded-[2rem] p-5 sm:p-7 shadow-rauno-card flex-col justify-between`}
+        >
           <div>
             <div className="flex items-center justify-between mb-4">
-              <span className="text-[10px] font-mono font-bold text-[#737067] uppercase tracking-wider">
-                [EXPERIMENT 03] · DATA WEIGHTING
-              </span>
+              <span className="text-[11px] font-mono font-bold text-[#737067]">DEMO 03</span>
               <span className="text-xs font-mono font-bold text-[#0B0B0C]">
-                Score: {currentScores.overall}점
+                적합도: {currentScores.overall}점
               </span>
             </div>
 
-            <h3 className="text-lg font-black text-[#0B0B0C] tracking-tight">
-              FM 선수 분석기 롤별 가중치 연산
+            <h3 className="text-base sm:text-lg font-black text-[#0B0B0C] tracking-tight">
+              FM 역할별 가중치 계산
             </h3>
-            <p className="text-xs text-[#484B52] mt-1 leading-relaxed">
-              전술 역할에 따라 요구되는 능력치 가중치와 적합도 스코어를 실시간 계산합니다.
+            <p className="text-xs sm:text-sm text-[#484B52] mt-1 leading-relaxed break-keep-all">
+              원하는 전술 역할을 눌러보세요. 역할마다 중요하게 보는 능력치 비중과 적합도 점수가 바로 바뀝니다.
             </p>
 
             {/* Role Select Pills */}
-            <div className="flex items-center gap-1.5 my-4">
-              {[
-                { key: "playmaker", label: "딥라잉 플메" },
-                { key: "winger", label: "인버티드 윙" },
-                { key: "targetman", label: "타깃 포워드" },
-              ].map((r) => (
+            <div className="flex flex-wrap items-center gap-1.5 my-4">
+              {(
+                [
+                  { key: "playmaker", label: "딥라잉 플메" },
+                  { key: "winger", label: "인버티드 윙" },
+                  { key: "targetman", label: "타깃 포워드" },
+                ] as const
+              ).map((r) => (
                 <button
                   key={r.key}
-                  onClick={() => setSelectedRole(r.key as any)}
-                  className={`px-2.5 py-1 rounded-lg text-xs font-mono transition-all ${
+                  type="button"
+                  onClick={() => setSelectedRole(r.key)}
+                  className={`px-3 py-2 min-h-[38px] rounded-lg text-xs font-medium transition-all ${
                     selectedRole === r.key
                       ? "bg-[#0B0B0C] text-white font-bold"
-                      : "bg-[#F8F7F4] border border-[#E8E5DC] text-[#737067]"
+                      : "bg-[#F8F7F4] border border-[#E8E5DC] text-[#484B52] hover:text-[#0B0B0C]"
                   }`}
                 >
                   {r.label}
@@ -301,12 +338,12 @@ export function CraftSection() {
             </div>
 
             {/* Metric Bars */}
-            <div className="space-y-2 py-2 font-mono text-xs">
+            <div className="space-y-2.5 py-2 font-mono text-xs">
               <div className="flex items-center justify-between text-[#484B52]">
-                <span>패스 & 시야:</span>
+                <span>패스 &amp; 시야</span>
                 <span className="font-bold text-[#0B0B0C]">{currentScores.pass} / 100</span>
               </div>
-              <div className="w-full h-1.5 bg-[#F2EFE8] rounded-full overflow-hidden">
+              <div className="w-full h-2 bg-[#F2EFE8] rounded-full overflow-hidden">
                 <div
                   className="h-full bg-[#0B0B0C] transition-all duration-300"
                   style={{ width: `${currentScores.pass}%` }}
@@ -314,10 +351,10 @@ export function CraftSection() {
               </div>
 
               <div className="flex items-center justify-between text-[#484B52] pt-1">
-                <span>주력 & 가속:</span>
+                <span>주력 &amp; 가속</span>
                 <span className="font-bold text-[#0B0B0C]">{currentScores.pace} / 100</span>
               </div>
-              <div className="w-full h-1.5 bg-[#F2EFE8] rounded-full overflow-hidden">
+              <div className="w-full h-2 bg-[#F2EFE8] rounded-full overflow-hidden">
                 <div
                   className="h-full bg-[#0B0B0C] transition-all duration-300"
                   style={{ width: `${currentScores.pace}%` }}
@@ -325,10 +362,10 @@ export function CraftSection() {
               </div>
 
               <div className="flex items-center justify-between text-[#484B52] pt-1">
-                <span>골 결정력:</span>
+                <span>골 결정력</span>
                 <span className="font-bold text-[#0B0B0C]">{currentScores.finish} / 100</span>
               </div>
-              <div className="w-full h-1.5 bg-[#F2EFE8] rounded-full overflow-hidden">
+              <div className="w-full h-2 bg-[#F2EFE8] rounded-full overflow-hidden">
                 <div
                   className="h-full bg-[#0B0B0C] transition-all duration-300"
                   style={{ width: `${currentScores.finish}%` }}
@@ -337,9 +374,17 @@ export function CraftSection() {
             </div>
           </div>
 
-          <div className="pt-4 mt-4 border-t border-[#F2EFE8] flex items-center justify-between text-xs font-mono text-[#737067]">
-            <span>Algorithm: Polynomial Weighted</span>
-            <span className="text-[#0B0B0C] font-bold">100% Client-Side</span>
+          <div className="pt-4 mt-4 border-t border-[#F2EFE8] flex items-center justify-between gap-2 text-xs">
+            <span className="text-[11px] font-mono text-[#737067]">브라우저 가중치 연산</span>
+            <a
+              href="https://scout.soccerdatainsights.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 font-bold text-[#0B0B0C] hover:underline underline-offset-4"
+            >
+              <span>관련 프로젝트 보기</span>
+              <ExternalLink className="w-3 h-3" />
+            </a>
           </div>
         </div>
       </div>

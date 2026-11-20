@@ -143,10 +143,10 @@ export function StoreSection() {
               href="https://smartstore.naver.com/collco"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-1.5 py-2 px-3 sm:py-2.5 sm:px-4 rounded-full bg-[#0B0B0C] hover:bg-[#252528] text-white font-mono font-bold text-xs shadow-swiss-xs transition-all shrink-0"
+              className="inline-flex items-center justify-center gap-1.5 py-2.5 px-4 min-h-[44px] rounded-full bg-[#0B0B0C] hover:bg-[#252528] text-white font-bold text-xs shadow-rauno-xs transition-all shrink-0"
             >
-              <span>스마트스토어</span>
-              <ArrowUpRight className="w-3 h-3" />
+              <span>스마트스토어에서 보기</span>
+              <ArrowUpRight className="w-3.5 h-3.5" />
             </a>
           </div>
         </div>

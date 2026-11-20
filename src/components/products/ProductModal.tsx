@@ -26,10 +26,6 @@ export function ProductModal({ product, onClose }: ProductModalProps) {
   const [activeTab, setActiveTab] = useState<"overview" | "problem" | "solution" | "impact">("overview");
 
   useEffect(() => {
-    setActiveTab("overview");
-  }, [product]);
-
-  useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
     };
@@ -166,6 +162,13 @@ export function ProductModal({ product, onClose }: ProductModalProps) {
 
           {/* Modal Body */}
           <div className="px-5 py-6 sm:px-8 sm:py-7 overflow-y-auto space-y-6 text-sm text-[#484B52]">
+            {product.contentNotice && (
+              <div className="p-4 rounded-2xl bg-[#FAF7EE] border border-[#ECD9B8] text-xs sm:text-sm text-[#5C4314] leading-relaxed break-keep-all">
+                <strong className="block font-bold mb-1">작품 안내</strong>
+                {product.contentNotice}
+              </div>
+            )}
+
             {/* Section 1: Problem Definition */}
             {(activeTab === "overview" || activeTab === "problem") && (
               <div className="p-5 sm:p-6 rounded-2xl bg-[#FAF9F5] border border-[#E8E5DC] space-y-3">

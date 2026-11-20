@@ -3,29 +3,32 @@ import { BuildingPillar, TechItem } from "@/types";
 export const BUILDING_PILLARS: BuildingPillar[] = [
   {
     number: "01",
-    title: "빠른 실행과 검증 (Rapid Execution)",
-    enTitle: "Rapid Prototyping & Live Deployment",
+    title: "작게 만들고 바로 써봅니다",
+    enTitle: "Fast Iteration",
     description:
-      "완벽을 기다리기보다 가장 가치 있는 핵심 기능을 정의하고 빠르게 프로덕트로 빌드하여 실제 사용자 피드백을 통해 기민하게 진화시킵니다.",
-    tags: ["MVP First", "Fast Iteration", "Agile DX"],
+      "거창한 계획보다 꼭 필요한 기능 하나를 먼저 만들어 꺼내놓습니다. 직접 써보고, 사용자 이야기를 들으며 조금씩 고쳐 나갑니다.",
+    example: "초간편 가계부는 금융 연동 없이 3초 입력 흐름부터 만들어 비공개 테스트로 다듬고 있습니다.",
+    tags: [],
     icon: "Zap",
   },
   {
     number: "02",
-    title: "선명한 니치 문제 해결 (Niche Problem Solving)",
-    enTitle: "Targeting Unmet Micro Needs",
+    title: "직접 겪은 불편에서 시작합니다",
+    enTitle: "Real Problems",
     description:
-      "거대 플랫폼이 주목하지 않는 일상의 뾰족한 불편함과 장인정신(배드민턴 풋워크 훈련, 5일장 캘린더, 파충류 사육일지, 모피 아틀리에, 캐주얼 스포츠 게임, 3초 가계부, 축구 데이터 인사이트, 연봉 계산기 등)을 정확히 포착해 대체 불가능한 해결책을 제시합니다.",
-    tags: ["Vertical Focus", "User Empathy", "Specialized Utility"],
+      "큰 서비스가 신경 쓰지 않는 생활 속 작은 불편에 집중합니다. 사용자가 많지 않아도 그 사람에게 꼭 필요한 도구라면 만들 이유가 충분합니다.",
+    example: "장날가자는 ‘오늘 실제로 열리는 전통시장을 내 주변에서 확인하는 문제’ 하나에 집중했습니다.",
+    tags: [],
     icon: "Target",
   },
   {
     number: "03",
-    title: "엔드투엔드 오너십 (End-to-End Ownership)",
-    enTitle: "Design, Code & Commercial Operations",
+    title: "처음부터 끝까지 직접 챙깁니다",
+    enTitle: "Direct Ownership",
     description:
-      "기획, UI/UX 디자인, 풀스택 개발, 앱스토어 배포, 그리고 좋아하는 카드·피규어를 나누는 컬렉션 스토어 운영까지 전 과정을 한 사람이 유기적으로 책임집니다.",
-    tags: ["Full-Stack", "UI/UX Craft", "E-commerce Ops"],
+      "아이디어 정리부터 화면 구성, 개발, 스토어 출시, 출시 후 수정까지 한 사람이 끝까지 맡습니다. 중간 전달 과정이 없어 빠르고 일관됩니다.",
+    example: "황금모피는 브랜드 이야기 정리부터 반응형 웹 구현, 도메인 운영까지 직접 챙겼습니다.",
+    tags: [],
     icon: "Layers",
   },
 ];

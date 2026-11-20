@@ -2,26 +2,21 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import { PRODUCTS } from "@/data/products";
+import Link from "next/link";
+import { PRODUCTS, getProductCounts } from "@/data/products";
+import { CATALOG_UPDATED_LABEL } from "@/data/siteConfig";
 import { Product } from "@/types";
 import { ProductCard } from "./ProductCard";
 import { ProductModal } from "./ProductModal";
 import { Badge } from "@/components/common/Badge";
-import {
-  LayoutGrid,
-  List,
-  ExternalLink,
-  Globe,
-  ArrowRight,
-  Clock,
-  Layers,
-  Sparkles,
-} from "lucide-react";
+import { LayoutGrid, List, ArrowRight } from "lucide-react";
 
 export function ProductsSection() {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [filter, setFilter] = useState<"all" | "mobile" | "web">("all");
   const [viewMode, setViewMode] = useState<"index" | "grid">("index");
+
+  const counts = getProductCounts();
 
   const filteredProducts = PRODUCTS.filter((product) => {
     if (filter === "mobile") return product.category.includes("Mobile");
@@ -30,191 +25,198 @@ export function ProductsSection() {
     return true;
   });
 
-  const mobileCount = PRODUCTS.filter((p) => p.category.includes("Mobile")).length;
-  const webCount = PRODUCTS.filter(
-    (p) => p.category.includes("Web") || p.category.includes("Brand")
-  ).length;
-
   return (
-    <section id="projects" className="py-8 sm:py-16 md:py-24 px-3 sm:px-6 lg:px-8 max-w-6xl mx-auto relative">
-      {/* Rauno-style Section Header */}
-      <div className="mb-6 sm:mb-12">
-        <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-white border border-[#E8E5DC] text-[10px] sm:text-[11px] font-mono text-[#737067] uppercase tracking-wider mb-2.5 sm:mb-4">
-          <Layers className="w-3.5 h-3.5 text-[#0B0B0C]" />
-          <span>01 / SHIPPED WORKS & PROJECTS (11)</span>
+    <section
+      id="projects"
+      aria-labelledby="projects-heading"
+      className="py-8 sm:py-14 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto relative"
+    >
+      {/* Section Header */}
+      <div className="mb-8 sm:mb-10 flex flex-col lg:flex-row lg:items-end justify-between gap-4">
+        <div>
+          <h1
+            id="projects-heading"
+            className="text-2xl sm:text-4xl lg:text-5xl font-black text-[#0B0B0C] tracking-tight leading-tight"
+          >
+            콜코가 만든 앱과 웹
+          </h1>
+          <p className="mt-2.5 text-sm sm:text-base text-[#484B52] max-w-2xl leading-[1.75] break-keep-all">
+            직접 기획하고 운영하는 {counts.total}개의 프로젝트입니다. 항목을 눌러 상세 설명과 이용 링크를 확인해 보세요.
+          </p>
         </div>
 
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-3 sm:gap-6">
-          <div>
-            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-[#0B0B0C] tracking-tight leading-tight">
-              일상의 틈새와 마음을 잇는,
-              <br />
-              <span className="text-[#737067]">11개의 독자적 소프트웨어 솔루션</span>
-            </h2>
-            <p className="mt-2 sm:mt-3 text-xs sm:text-base text-[#484B52] max-w-2xl leading-[1.75] font-normal break-keep-all">
-              실제 이야기를 담은 인터랙티브 웹 게임부터 구글 플레이 출시 앱, 로컬 라이프 GPS 툴, 글로벌 스포츠 분석 및 급여 계산기 유틸리티까지 직접 기획하고 코딩한 1인 빌더의 릴리즈 인덱스입니다.
-            </p>
-          </div>
-
-          <div className="text-[10px] sm:text-xs font-mono text-[#737067] px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-white border border-[#E8E5DC] shrink-0 w-fit">
-            [2026.11 기준] · 10 LIVE · 1 TESTING
-          </div>
-        </div>
+        <p className="text-xs font-mono text-[#484B52] bg-[#FAF9F5] border border-[#E8E5DC] px-3.5 py-2 rounded-full shrink-0 w-fit">
+          {CATALOG_UPDATED_LABEL} · 전체 {counts.total} · 공개 {counts.live} · 테스트 {counts.testing}
+        </p>
       </div>
 
-      {/* Rauno Toolbar: Category Filter & View Mode Toggle */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 mb-5 sm:mb-8 pb-3 border-b border-[#E8E5DC]">
-        {/* Category Filters (Horizontal scrolling chips on mobile, wrapping on desktop) */}
-        <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5 -mx-3 px-3 sm:mx-0 sm:px-0">
+      {/* Toolbar: Category Filter & View Mode Toggle */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-5 sm:mb-6">
+        <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5">
           <button
+            type="button"
             onClick={() => setFilter("all")}
-            className={`px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full text-[11px] sm:text-xs font-mono font-medium whitespace-nowrap transition-all shrink-0 ${
+            className={`px-3.5 py-2 min-h-[40px] rounded-full text-xs font-medium whitespace-nowrap transition-colors shrink-0 cursor-pointer ${
               filter === "all"
-                ? "bg-[#0B0B0C] text-white shadow-rauno-xs"
-                : "bg-white text-[#737067] hover:text-[#0B0B0C] border border-[#E8E5DC]"
+                ? "bg-[#0B0B0C] text-white font-bold"
+                : "bg-[#F8F7F4] text-[#484B52] hover:text-[#0B0B0C]"
             }`}
           >
-            All Works ({PRODUCTS.length})
+            전체 ({counts.total})
           </button>
           <button
+            type="button"
             onClick={() => setFilter("mobile")}
-            className={`px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full text-[11px] sm:text-xs font-mono font-medium whitespace-nowrap transition-all shrink-0 ${
+            className={`px-3.5 py-2 min-h-[40px] rounded-full text-xs font-medium whitespace-nowrap transition-colors shrink-0 cursor-pointer ${
               filter === "mobile"
-                ? "bg-[#0B0B0C] text-white shadow-rauno-xs"
-                : "bg-white text-[#737067] hover:text-[#0B0B0C] border border-[#E8E5DC]"
+                ? "bg-[#0B0B0C] text-white font-bold"
+                : "bg-[#F8F7F4] text-[#484B52] hover:text-[#0B0B0C]"
             }`}
           >
-            Mobile Apps ({mobileCount})
+            모바일 앱 ({counts.mobile})
           </button>
           <button
+            type="button"
             onClick={() => setFilter("web")}
-            className={`px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full text-[11px] sm:text-xs font-mono font-medium whitespace-nowrap transition-all shrink-0 ${
+            className={`px-3.5 py-2 min-h-[40px] rounded-full text-xs font-medium whitespace-nowrap transition-colors shrink-0 cursor-pointer ${
               filter === "web"
-                ? "bg-[#0B0B0C] text-white shadow-rauno-xs"
-                : "bg-white text-[#737067] hover:text-[#0B0B0C] border border-[#E8E5DC]"
+                ? "bg-[#0B0B0C] text-white font-bold"
+                : "bg-[#F8F7F4] text-[#484B52] hover:text-[#0B0B0C]"
             }`}
           >
-            Web Services ({webCount})
+            웹 서비스 ({counts.web})
           </button>
         </div>
 
-        {/* View Toggle */}
-        <div className="inline-flex items-center gap-1 p-0.5 sm:p-1 rounded-full bg-white border border-[#E8E5DC] self-end sm:self-auto shrink-0 shadow-rauno-xs">
+        <div
+          role="group"
+          aria-label="보기 방식 선택"
+          className="inline-flex items-center gap-1 p-1 rounded-full bg-[#F8F7F4] border border-[#E8E5DC] self-start sm:self-auto shrink-0"
+        >
           <button
+            type="button"
             onClick={() => setViewMode("index")}
-            className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] sm:text-xs font-mono transition-all ${
+            aria-pressed={viewMode === "index"}
+            className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs transition-colors cursor-pointer ${
               viewMode === "index"
-                ? "bg-[#0B0B0C] text-white font-bold"
+                ? "bg-white text-[#0B0B0C] font-bold shadow-xs"
                 : "text-[#737067] hover:text-[#0B0B0C]"
             }`}
           >
-            <List className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
-            <span>Rauno Index</span>
+            <List className="w-3.5 h-3.5" />
+            <span>목록</span>
           </button>
           <button
+            type="button"
             onClick={() => setViewMode("grid")}
-            className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] sm:text-xs font-mono transition-all ${
+            aria-pressed={viewMode === "grid"}
+            className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs transition-colors cursor-pointer ${
               viewMode === "grid"
-                ? "bg-[#0B0B0C] text-white font-bold"
+                ? "bg-white text-[#0B0B0C] font-bold shadow-xs"
                 : "text-[#737067] hover:text-[#0B0B0C]"
             }`}
           >
-            <LayoutGrid className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
-            <span>Cards</span>
+            <LayoutGrid className="w-3.5 h-3.5" />
+            <span>카드</span>
           </button>
         </div>
       </div>
 
-      {/* Mode 1: Rauno Freiberg's Iconic Project Index List */}
+      {/* Mode 1: Scannable Editorial Index List (Name + 1-line utility + Status + Primary Entry) */}
       {viewMode === "index" && (
-        <div className="space-y-1.5 sm:space-y-2">
-          {filteredProducts.map((product, index) => (
-            <div
-              key={product.id}
-              onClick={() => setSelectedProduct(product)}
-              className="group relative p-3 sm:p-5 rounded-xl sm:rounded-2xl bg-white hover:bg-[#F8F7F4] border border-[#E8E5DC] hover:border-[#0B0B0C] transition-all duration-200 cursor-pointer flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 sm:gap-3 shadow-rauno-xs"
-            >
-              {/* Left Column: Number, Icon & Title */}
-              <div className="flex items-center gap-3">
-                <span className="font-mono text-xs text-[#737067] font-bold shrink-0">
-                  0{index + 1}
-                </span>
+        <div className="border-y border-[#E8E5DC] divide-y divide-[#E8E5DC]">
+          {filteredProducts.map((product, index) => {
+            const indexNumber = String(index + 1).padStart(2, "0");
+            const oneLiner = product.shortDescription || product.tagline;
+            const hasDetailPage = Boolean(product.detailSlug);
+            const isTesting = product.releaseState === "testing";
 
-                {product.appIcon && (
-                  <div className="relative w-7 h-7 rounded-lg overflow-hidden border border-[#E8E5DC] group-hover:border-[#0B0B0C] shrink-0 bg-white shadow-xs">
-                    <Image
-                      src={product.appIcon}
-                      alt={product.name}
-                      fill
-                      sizes="28px"
-                      className="object-cover"
-                    />
+            return (
+              <div
+                key={product.id}
+                className="group py-4 sm:py-5 px-1 sm:px-3 hover:bg-[#FAF9F5]/80 transition-colors"
+              >
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                  {/* Left: Number + Icon + Name & 1-line Utility */}
+                  <div className="flex items-start sm:items-center gap-3.5 min-w-0 flex-1">
+                    <span className="font-mono text-xs text-[#9E9A8F] shrink-0 mt-1 sm:mt-0 w-5">
+                      {indexNumber}
+                    </span>
+
+                    {product.appIcon && (
+                      <div className="relative w-9 h-9 rounded-xl overflow-hidden border border-[#E8E5DC] shrink-0 bg-white">
+                        <Image
+                          src={product.appIcon}
+                          alt={`${product.name} 아이콘`}
+                          fill
+                          sizes="36px"
+                          className="object-cover"
+                        />
+                      </div>
+                    )}
+
+                    <div className="min-w-0 flex-1">
+                      <div className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
+                        {hasDetailPage ? (
+                          <Link
+                            href={`/projects/${product.detailSlug}`}
+                            className="text-base sm:text-[17px] font-bold text-[#0B0B0C] hover:underline underline-offset-4"
+                          >
+                            {product.name}
+                          </Link>
+                        ) : (
+                          <button
+                            type="button"
+                            onClick={() => setSelectedProduct(product)}
+                            className="text-left text-base sm:text-[17px] font-bold text-[#0B0B0C] hover:underline underline-offset-4 cursor-pointer"
+                          >
+                            {product.name}
+                          </button>
+                        )}
+                        {product.subName && (
+                          <span className="text-xs text-[#737067] font-normal">
+                            {product.subName}
+                          </span>
+                        )}
+                      </div>
+                      <p className="text-xs sm:text-sm text-[#484B52] mt-0.5 leading-snug break-keep-all">
+                        {oneLiner}
+                      </p>
+                    </div>
                   </div>
-                )}
 
-                <div className="flex items-baseline gap-2">
-                  <h3 className="text-base sm:text-lg font-black text-[#0B0B0C] group-hover:text-[#484B52] transition-colors">
-                    {product.name}
-                  </h3>
-                  {product.subName && (
-                    <span className="text-xs text-[#737067] font-normal">
-                      ({product.subName})
-                    </span>
-                  )}
+                  {/* Subtle Dashed Connector on Wide Desktop */}
+                  <div className="hidden lg:block rauno-line-connector max-w-[100px]" aria-hidden="true" />
+
+                  {/* Right: Status (when testing or clear badge) + Single Primary Entry */}
+                  <div className="flex flex-wrap items-center gap-2.5 shrink-0 pl-8 sm:pl-0">
+                    <Badge variant={product.statusBadgeVariant} dot size="sm">
+                      {product.status}
+                    </Badge>
+
+                    {hasDetailPage ? (
+                      <Link
+                        href={`/projects/${product.detailSlug}`}
+                        className="inline-flex items-center gap-1 px-3.5 py-2 min-h-[38px] rounded-full bg-[#0B0B0C] hover:bg-[#252528] text-white text-xs font-bold transition-colors"
+                      >
+                        <span>상세 보기</span>
+                        <ArrowRight className="w-3.5 h-3.5" />
+                      </Link>
+                    ) : (
+                      <button
+                        type="button"
+                        onClick={() => setSelectedProduct(product)}
+                        className="inline-flex items-center gap-1 px-3.5 py-2 min-h-[38px] rounded-full bg-[#F8F7F4] hover:bg-[#0B0B0C] text-[#0B0B0C] hover:text-white border border-[#E8E5DC] hover:border-[#0B0B0C] text-xs font-bold transition-colors cursor-pointer"
+                      >
+                        <span>{isTesting ? product.actionLabel || "개발 현황 보기" : "상세 보기"}</span>
+                        <ArrowRight className="w-3.5 h-3.5" />
+                      </button>
+                    )}
+                  </div>
                 </div>
               </div>
-
-              {/* Rauno's Signature Dashed Line Connector */}
-              <div className="hidden md:block rauno-line-connector" />
-
-              {/* Right Column: Platform, Status & Action */}
-              <div className="flex flex-wrap items-center gap-3 font-mono text-xs shrink-0">
-                <span className="text-[11px] text-[#737067] hidden lg:inline">
-                  {product.category.split("/")[0].trim()}
-                </span>
-
-                <Badge variant={product.statusBadgeVariant} dot size="sm">
-                  {product.status}
-                </Badge>
-
-                <span className="text-xs text-[#AFA99E]">2026</span>
-
-                <div className="flex items-center gap-1.5">
-                  {product.demoUrl && (
-                    <a
-                      href={product.demoUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={(e) => e.stopPropagation()}
-                      className="p-1.5 rounded-lg bg-[#F8F7F4] hover:bg-[#0B0B0C] text-[#0B0B0C] hover:text-white border border-[#E8E5DC] transition-all"
-                      title="공식 웹사이트 바로가기"
-                    >
-                      <Globe className="w-3.5 h-3.5" />
-                    </a>
-                  )}
-
-                  {product.storeUrl && (
-                    <a
-                      href={product.storeUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={(e) => e.stopPropagation()}
-                      className="p-1.5 rounded-lg bg-[#F8F7F4] hover:bg-[#0B0B0C] text-[#0B0B0C] hover:text-white border border-[#E8E5DC] transition-all"
-                      title="Google Play 스토어"
-                    >
-                      <ExternalLink className="w-3.5 h-3.5" />
-                    </a>
-                  )}
-
-                  {!product.storeUrl && !product.demoUrl && (
-                    <span className="p-1.5 rounded-lg bg-[#F8F7F4] text-[#737067] border border-[#E8E5DC]" title="Reviewing">
-                      <Clock className="w-3.5 h-3.5" />
-                    </span>
-                  )}
-                </div>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       )}
 
@@ -232,8 +234,8 @@ export function ProductsSection() {
         </div>
       )}
 
-      {/* Product Detail Modal */}
       <ProductModal
+        key={selectedProduct?.id ?? "none"}
         product={selectedProduct}
         onClose={() => setSelectedProduct(null)}
       />

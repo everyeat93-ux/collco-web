@@ -8,11 +8,35 @@ export interface Product {
   name: string;
   subName?: string;
   tagline: string;
+  shortDescription?: string;
+  featuredDescription?: string;
+  featuredCtaLabel?: string;
   category: string;
   tags: string[];
   status: string;
   statusBadgeVariant: "success" | "info" | "warning" | "purple";
+  releaseState?: "live" | "testing";
   summary: string;
+  targetUser?: string;
+  detailSlug?: string;
+  previewImage?: string;
+  previewImageAlt?: string;
+  ogImage?: string;
+  screenshots?: Array<{
+    src: string;
+    alt: string;
+    caption: string;
+  }>;
+  primaryCtaLabel?: string;
+  secondaryCtaLabel?: string;
+  secondaryCtaHref?: string;
+  backgroundNotes?: string[];
+  craftLabAnchor?: string;
+  craftLabLabel?: string;
+  blogUrl?: string;
+  blogLabel?: string;
+  contentNotice?: string;
+  caseStudyNote?: string;
   problem: {
     title: string;
     description: string;
@@ -68,6 +92,7 @@ export interface BuildingPillar {
   title: string;
   enTitle: string;
   description: string;
+  example?: string;
   tags: string[];
   icon: string;
 }

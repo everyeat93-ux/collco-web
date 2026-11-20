@@ -5,12 +5,17 @@ export const PRODUCTS: Product[] = [
     id: "dudung",
     name: "두둥",
     subName: "아홉 주 동안 머물다 간 작은 별의 이야기",
+    shortDescription: "유산의 아픔을 겪은 부모에게 위로를 전하는 15분 무료 웹 이야기",
     tagline:
       "임신 9주차 검진에서 심장 소리가 멈춘 아기 ‘두둥이’. 아빠가 직접 쓴 노래와 첫 심장 박동 소리를 담은 15분 무료 웹 게임",
     category: "Interactive Web / Narrative Game",
     tags: ["Interactive Story", "Web Game", "Comfort & Empathy", "KO · EN · JA"],
     status: "무료 웹 공개 (Live)",
     statusBadgeVariant: "purple",
+    releaseState: "live",
+    targetUser: "임신 초기 유산의 아픔을 겪고 밤새 자책하고 있는 엄마·아빠",
+    contentNotice:
+      "이 작품은 임신 초기 유산 경험을 다룬 이야기입니다. 마음이 괜찮을 때 소리를 켜고 천천히 만나주세요.",
     summary:
       "“내가 뭘 잘못했을까” 밤새 자책하는 엄마·아빠에게 ‘절대 두 분의 잘못이 아니다’라는 위로와, 아픔을 나누는 밤하늘 ‘별의 정원’을 전하는 인터랙티브 이야기",
     problem: {
@@ -58,13 +63,47 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: "ditta",
+    detailSlug: "ditta",
     name: "ditta",
     subName: "딛다",
-    tagline: "배드민턴 동호인을 위한 실전 반응형 랜덤 풋워크 솔루션",
+    shortDescription: "혼자서도 방향 신호에 맞춰 연습하는 배드민턴 풋워크 코치",
+    featuredDescription: "혼자서도 6방향 랜덤 신호에 맞춰 배드민턴 스텝을 연습해 보세요.",
+    featuredCtaLabel: "딛다 보기",
+    tagline: "혼자서도 방향 신호에 맞춰 연습하는 배드민턴 풋워크 코치",
     category: "Mobile App / Sports Tech",
     tags: ["Mobile App", "Sports Tech", "Google Play Release"],
     status: "Google Play 정식 배포",
     statusBadgeVariant: "success",
+    releaseState: "live",
+    targetUser: "파트너 없이 혼자 배드민턴 실전 반응 속도와 스텝을 훈련하려는 동호인",
+    previewImage: "/previews/ditta/training.jpg",
+    previewImageAlt: "딛다 6방향 배드민턴 풋워크 훈련 실제 화면",
+    screenshots: [
+      {
+        src: "/previews/ditta/training.jpg",
+        alt: "딛다 6방향 풋워크 훈련 화면 — 후위 좌 백핸드 클리어 신호와 코트 표시",
+        caption: "6방향 풋워크 훈련",
+      },
+      {
+        src: "/previews/ditta/home.jpg",
+        alt: "딛다 홈 화면 — 풋워크 훈련 코치 시작, 배드민턴 규칙 사전, 간이 점수판",
+        caption: "맞춤 훈련 · 규칙 사전",
+      },
+      {
+        src: "/previews/ditta/summary.jpg",
+        alt: "딛다 훈련 완료 화면 — 총 훈련 시간, 동작 복습, 훈련 일기",
+        caption: "동작 복습 · 훈련 일기",
+      },
+    ],
+    primaryCtaLabel: "딛다 공식 홈페이지 바로가기",
+    secondaryCtaLabel: "Google Play에서 설치",
+    craftLabAnchor: "/craft#craft-ditta",
+    craftLabLabel: "Craft Lab에서 6구역 풋워크 데모 바로 써보기",
+    backgroundNotes: [
+      "혼자 연습할 때 정해진 코스만 반복하면 실전 코트에서 반응이 늦어지는 문제를 해결하기 위해, 코트 6구역 무작위 신호 알고리즘을 설계했습니다.",
+      "운동 중 스마트폰 화면을 정면으로 계속 보기 어렵기 때문에, 시각 신호와 함께 음성 안내 엔진을 결합해 소리만 듣고도 스텝에 반응할 수 있게 했습니다.",
+      "딛다 공식 홈페이지(ditda.co.kr)에서는 딛다(ditta)와 스핀오프 배드민턴 게임 ‘하늘이 vs 라우니’의 소개와 소식을 함께 제공하고 있습니다.",
+    ],
     summary:
       "혼자서 훈련하기 어려운 배드민턴 풋워크의 무작위성과 실전 반응성을 강화하는 모바일 트레이닝 파트너",
     problem: {
@@ -89,12 +128,12 @@ export const PRODUCTS: Product[] = [
       ],
     },
     impact: {
-      title: "Google Play 스토어 정식 출시 및 웹 데모 동시 운영",
+      title: "Google Play 스토어 정식 출시 및 공식 홈페이지 운영",
       description:
-        "파트너 없이 혼자 코트에 서는 동호인이 스마트폰 거치대 하나로 랜덤 스텝 훈련을 진행할 수 있도록 모바일 앱과 웹 버전을 함께 제공하고 있습니다.",
+        "파트너 없이 혼자 코트에 서는 동호인이 스마트폰 거치대 하나로 랜덤 스텝 훈련을 진행할 수 있도록 모바일 앱을 배포하고, 딛다와 ‘하늘이 vs 라우니’의 공식 홈페이지를 함께 운영하고 있습니다.",
       highlights: [
         "Google Play 스토어 정식 출시 및 배포 중 (패키지명: com.collco.ditta)",
-        "설치 없이 브라우저에서 바로 체험 가능한 웹 데모(ditda.co.kr) 동시 운영",
+        "딛다 · 하늘이 vs 라우니 공식 홈페이지(ditda.co.kr) 운영",
         "세션별 스텝 횟수 및 운동 시간 로컬 기록 기능 제공",
       ],
     },
@@ -113,15 +152,47 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: "jangnal-gaja",
+    detailSlug: "jangnal-gaja",
     name: "장날가자",
     subName: "전국 5일장 찾기",
-    tagline: "전국 전통 오일장의 날짜와 위치를 한눈에 찾는 로컬 라이프 플랫폼",
+    shortDescription: "오늘 내 주변에 열리는 5일장을 찾는 지도",
+    featuredDescription: "오늘 내 주변에 열리는 5일장을 찾아보세요.",
+    featuredCtaLabel: "장날가자 보기",
+    tagline: "오늘 내 주변에 열리는 5일장을 찾아보세요.",
     category: "Mobile App / Local Life",
     tags: ["Mobile App", "Local Life", "Google Play Release"],
     status: "Google Play 정식 배포",
     statusBadgeVariant: "success",
+    releaseState: "live",
+    targetUser: "여행지나 집 근처에서 오늘 실제로 열리는 전통 5일장을 찾고 싶은 방문객과 지역 주민",
+    previewImage: "/previews/jangnal-gaja/map.jpg",
+    previewImageAlt: "장날가자 주변 시장 지도 화면 — 오늘 열리는 장날과 전통시장 위치",
+    ogImage: "/previews/jangnal-gaja/og.png",
+    screenshots: [
+      {
+        src: "/previews/jangnal-gaja/map.jpg",
+        alt: "장날가자 주변 시장 지도 화면 — 장날, 전통시장, 휴장 마커와 주변 추천 시장",
+        caption: "주변 시장 찾기",
+      },
+      {
+        src: "/previews/jangnal-gaja/schedule.jpg",
+        alt: "장날가자 5일장 시장 목록 화면 — 오늘 장날과 다음 장날 일정",
+        caption: "장날 확인하기",
+      },
+      {
+        src: "/previews/jangnal-gaja/detail.jpg",
+        alt: "장날가자 남구로시장 상세 화면 — 오늘 개장 여부, 온누리 가맹 정보, 길찾기 안내",
+        caption: "시장 상세 · 길찾기",
+      },
+    ],
+    primaryCtaLabel: "Google Play에서 설치",
+    backgroundNotes: [
+      "5일장은 끝자리 숫자(1/6일, 2/7일 등) 주기로 열리기 때문에 오래된 블로그 글만 보고 찾아갔다 헛걸음하는 문제가 잦았습니다. 날짜를 자동 계산해 ‘오늘 개장’ 여부를 즉시 보여주도록 설계했습니다.",
+      "전국 450여 개 전통 오일장의 위치 좌표를 정리하고, 현재 위치 기준 가까운 장터를 바로 찾아 카카오맵·네이버지도 길찾기로 이어지게 했습니다.",
+      "부모님 세대도 부담 없이 볼 수 있도록 불필요한 메뉴를 줄이고 큰 글씨와 직관적인 캘린더 중심으로 구성했습니다.",
+    ],
     summary:
-      "흩어져 있던 전국 400여 개 전통 5일장의 개장 일정과 위치, 장터 먹거리 정보를 스마트폰 하나로 쉽게 탐색",
+      "흩어져 있던 전국 450여 개 전통 5일장의 개장 일정과 위치, 장터 먹거리 정보를 스마트폰 하나로 쉽게 탐색",
     problem: {
       title: "검색해도 찾기 힘든 전국 오일장의 정확한 개장일",
       description:
@@ -146,7 +217,7 @@ export const PRODUCTS: Product[] = [
     impact: {
       title: "Google Play 스토어 정식 출시 및 전국 오일장 데이터 수록",
       description:
-        "복잡한 끝자리 장날 계산 없이 오늘 열리는 5일장과 주말 장터를 바로 확인할 수 있도록 Google Play 스토어와 웹 데모로 배포되어 운영 중입니다.",
+        "복잡한 끝자리 장날 계산 없이 오늘 열리는 5일장과 주말 장터를 바로 확인할 수 있도록 Google Play 스토어에 정식 출시되어 운영 중입니다.",
       highlights: [
         "Google Play 스토어 정식 출시 및 배포 중 (패키지명: com.jangnal.gaja)",
         "전국 450여 개 전통 오일장 위치 좌표 및 장날 주기 데이터 수록",
@@ -164,17 +235,19 @@ export const PRODUCTS: Product[] = [
     accentColor: "#f59e0b",
     gradient: "from-amber-500/20 via-orange-500/10 to-transparent",
     storeUrl: "https://play.google.com/store/apps/details?id=com.jangnal.gaja",
-    demoUrl: "https://jangnal-gaja.vercel.app/",
   },
   {
     id: "reptilog",
     name: "랩티로그",
     subName: "ReptiLog",
+    shortDescription: "파충류·양서류 피딩 기록과 병원 문진표를 챙기는 사육일지 앱",
     tagline: "파충류·양서류 집사를 위한 스마트 사육일지 & 데일리 케어 매니저",
     category: "Mobile App / Pet Care",
     tags: ["Mobile App", "Pet Care", "Google Play Release"],
     status: "Google Play 정식 출시",
     statusBadgeVariant: "success",
+    releaseState: "live",
+    targetUser: "개체별 피딩·탈피·온습도 기록과 동물병원 문진 정리가 필요한 파충류·양서류 집사",
     summary:
       "파충류·양서류 집사를 위한 원터치 1초 퀵-로깅, 사육 루틴 알림, 성장 다이어리 및 수의사용 병원 문진표를 제공하는 스마트 케어 앱",
     problem: {
@@ -224,13 +297,31 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: "goldfur",
+    detailSlug: "goldfur",
     name: "황금모피",
     subName: "HWANG GEUM ATELIER",
-    tagline: "35년 부부 장인이 손끝으로 짓는 단 하나의 온기, 수제 모피 아틀리에",
+    shortDescription: "35년 장인 부부의 작업과 제품을 소개하는 브랜드 웹사이트",
+    featuredDescription: "35년 장인 부부의 작업과 대표 제품을 한곳에 담은 브랜드 웹사이트 사례입니다.",
+    featuredCtaLabel: "황금모피 제작 사례 보기",
+    tagline: "35년 장인 부부의 작업과 제품을 소개하는 브랜드 웹사이트",
     category: "Brand Web / Luxury Heritage",
     tags: ["Brand Web", "Luxury Heritage", "Bespoke Atelier"],
     status: "공식 사이트 운영",
     statusBadgeVariant: "success",
+    releaseState: "live",
+    targetUser: "35년 동대문 공방의 비스포크 맞춤 모피를 알아보고 사전 예약 방문을 고민하는 고객",
+    previewImage: "/previews/goldfur.png",
+    previewImageAlt: "황금모피 공식 브랜드 웹사이트 첫 화면",
+    primaryCtaLabel: "황금모피 사이트 보기",
+    secondaryCtaLabel: "비슷한 웹사이트 제작 문의",
+    secondaryCtaHref: "/studio",
+    caseStudyNote:
+      "이 사례는 콜코가 브랜드 웹사이트 기획·디자인·개발·운영 경험을 보여주기 위해 공개한 제작 사례입니다.",
+    backgroundNotes: [
+      "1990년부터 동대문 공방을 지켜온 부부 장인의 작업 이야기가 기존 쇼핑몰 형식에서는 충분히 전달되지 않는 점을 해결하고자, 브랜드 헤리티지와 룩북 중심의 공식 웹사이트로 구성했습니다.",
+      "첫 화면에서 장인의 제작 철학과 대표 작품을 바로 확인하고, 100% 사전 예약제 공방 방문 안내와 스마트스토어 부티크로 자연스럽게 이어지도록 동선을 설계했습니다.",
+      "모바일과 데스크톱 모두에서 사진의 질감과 타이포그래피가 안정적으로 보이도록 반응형 레이아웃과 기본 검색 메타태그를 함께 적용했습니다.",
+    ],
     summary:
       "1990년부터 동대문 공방을 지켜온 35년 부부 장인의 비스포크 헤리티지와 엄선된 원피, 정밀 손바느질 테일러메이드 가치를 전하는 공식 웹사이트",
     problem: {
@@ -255,13 +346,13 @@ export const PRODUCTS: Product[] = [
       ],
     },
     impact: {
-      title: "브랜드 헤리티지 디지털 자산화 및 VIP 방문 예약 창구 구축",
+      title: "공식 브랜드 웹사이트 제작 및 운영 사례",
       description:
-        "공식 도메인 런칭을 통해 오프라인 공방의 신뢰도를 웹으로 확장하고, 프라이빗 100% 사전 예약 고객 접점을 확립했습니다.",
+        "35년 동대문 공방의 제작 이야기와 대표 제품 룩북, 사전 예약 방문 안내를 한곳에서 살펴볼 수 있도록 공식 도메인에 구축해 운영하고 있습니다.",
       highlights: [
-        "공식 도메인 (www.goldfur.co.kr) 런칭 및 안정적 라이브 운영",
-        "35년 공방의 독보적 장인정신을 디지털 공간에 성공적으로 브랜딩",
-        "Bespoke 맞춤 제작 및 아틀리에 방문 상담 문의 활성화",
+        "공식 도메인 (www.goldfur.co.kr) 배포 및 반응형 웹 운영",
+        "브랜드 헤리티지, 대표 제품 룩북, 공방 방문 예약 안내 섹션 구성",
+        "스마트스토어 부티크 및 상담 동선 연결 (콜코 제작·운영 경험 사례)",
       ],
     },
     techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "SEO & OpenGraph"],
@@ -279,11 +370,14 @@ export const PRODUCTS: Product[] = [
     id: "haneul-rauni",
     name: "하늘이 vs 라우니",
     subName: "배드민턴 게임 대결",
+    shortDescription: "원터치 타이밍으로 즐기는 캐주얼 배드민턴 아케이드 게임",
     tagline: "귀여운 다람쥐 라우니와 하늘다람쥐 하늘이의 스릴 넘치는 캐주얼 배드민턴 대결!",
     category: "Mobile Game / Casual Sports",
     tags: ["Mobile Game", "Casual Arcade", "Google Play Release"],
     status: "Google Play 정식 출시",
     statusBadgeVariant: "success",
+    releaseState: "live",
+    targetUser: "복잡한 가상 패드 없이 한 손 터치로 가볍게 랠리를 즐기고 싶은 모바일 게이머",
     domainLabel: "Google Play Store",
     actionLabel: "Google Play",
     summary:
@@ -335,11 +429,14 @@ export const PRODUCTS: Product[] = [
     id: "fm-analyst",
     name: "FM 선수 데이터 분석기",
     subName: "Football Manager Role Scout",
+    shortDescription: "풋볼매니저 전술 롤별 적합도와 레이더 차트를 비교하는 웹 도구",
     tagline: "풋볼매니저 전용 롤별 적합도 산출 및 선수 비교 레이더 차트 시각화 툴",
     category: "Web Service / Data Analytics",
     tags: ["Web Service", "Data Analytics", "Interactive Chart"],
     status: "라이브 서비스 (Live)",
     statusBadgeVariant: "info",
+    releaseState: "live",
+    targetUser: "전술 역할에 딱 맞는 선수를 수치로 비교하고 싶은 FM 전략 게이머",
     summary:
       "복잡한 30여 개 능력치 속에서 전술에 딱 맞는 선수를 즉시 발굴하는 축구 시뮬레이션 게이머 전용 분석 도구",
     problem: {
@@ -388,11 +485,14 @@ export const PRODUCTS: Product[] = [
     id: "one-minute-quiz",
     name: "1분 퀴즈",
     subName: "Daily Mini Trivia",
+    shortDescription: "설치·로그인 없이 매일 60초 만에 푸는 데일리 상식 퀴즈",
     tagline: "출퇴근길 가볍게 상식을 넓히는 무설치·무로그인 데일리 퀴즈 플랫폼",
     category: "Interactive Web / Casual",
     tags: ["Interactive Web", "Gamification", "Casual App"],
     status: "정식 배포 (Live)",
     statusBadgeVariant: "success",
+    releaseState: "live",
+    targetUser: "출퇴근길 1분 동안 가볍게 상식을 넓히고 싶은 직장인·학생",
     summary:
       "바쁜 일상 속 단 60초, 군더더기 없는 인터랙션으로 매일 새로운 시사·상식·역사를 배우는 스낵 콘텐츠 웹앱",
     problem: {
@@ -441,13 +541,20 @@ export const PRODUCTS: Product[] = [
     id: "cashbook",
     name: "초간편 가계부",
     subName: "3초 입력 & 부부 공유 가계부",
+    shortDescription: "금융 연동 없이 3초 안에 지출을 기록하는 오프라인 가계부",
+    featuredDescription: "복잡한 금융 연동 없이 3초 안에 지출을 적고 급여일 예산을 관리해 보세요.",
+    featuredCtaLabel: "개발 현황 보기",
     tagline: "복잡한 금융 연동 없이 3초 안에 입력을 끝내는 직관적인 오프라인 퍼스트 가계부",
     category: "Mobile App / Personal Finance",
     tags: ["Mobile App", "Personal Finance", "Closed Testing"],
-    status: "비공개 테스트 중",
+    status: "테스트 중",
     statusBadgeVariant: "warning",
-    domainLabel: "Google Play Console",
-    actionLabel: "Closed Test",
+    releaseState: "testing",
+    targetUser: "복잡한 금융 연동 없이 빠르게 지출을 적고 월급날 기준 예산을 관리하려는 사용자",
+    previewImage: "/previews/cashbook/calendar.png",
+    previewImageAlt: "초간편 가계부 급여일 예산 바와 감정 스탬프 캘린더 실제 화면",
+    domainLabel: "Google Play 비공개 테스트",
+    actionLabel: "개발 현황 보기",
     summary:
       "계산기 일체형 퀵 입력 모달, 급여일 기준 월간 예산 바, 아이콘·스탬프 중심 캘린더로 매일의 지출을 가장 가볍게 기록하는 가계부 앱",
     problem: {
@@ -496,11 +603,14 @@ export const PRODUCTS: Product[] = [
     id: "soccer-data-insights",
     name: "사커 데이터 인사이트",
     subName: "Soccer Data Insights",
+    shortDescription: "유럽 축구선수 시장가치 순위와 세후 주급을 계산하는 데이터 포털",
     tagline: "트랜스퍼마크트 & 카폴로지 공식 데이터 기반 글로벌 축구선수 시장가치 순위 및 세후 주급 계산기",
     category: "Web Service / Sports Analytics",
     tags: ["Web Service", "Football Data", "Transfermarkt", "Salary Calculator"],
     status: "공식 도메인 운영",
     statusBadgeVariant: "info",
+    releaseState: "live",
+    targetUser: "해외파 및 유럽 5대 리그 선수의 몸값과 세후 주급을 원화로 비교하려는 축구 팬",
     summary:
       "트랜스퍼마크트(Transfermarkt)와 카폴로지(Capology) 공식 데이터를 바탕으로 해외파 및 유럽 5대 리그 선수들의 실시간 시장가치(몸값) 순위와 리그별 세후 주급·연봉을 비교 계산하는 축구 데이터 인사이트 포털",
     problem: {
@@ -549,11 +659,14 @@ export const PRODUCTS: Product[] = [
     id: "datawriter",
     name: "데이터라이터",
     subName: "DataWriter",
+    shortDescription: "2026년 4대보험 요율을 반영한 연봉 실수령액 1초 계산기",
     tagline: "2026년 최신 4대보험 요율과 간이세액표를 완벽 반영한 연봉 실수령액 계산기",
     category: "Web Service / Financial Utility",
     tags: ["Web Service", "Salary Calculator", "Tax & 4대보험", "SEO Utility"],
     status: "공식 도메인 운영",
     statusBadgeVariant: "success",
+    releaseState: "live",
+    targetUser: "2026년 최신 4대보험·간이세액표 기준으로 세후 실수령액을 바로 확인하려는 직장인·구직자",
     summary:
       "2026년 인상된 국민연금 요율(4.75%)과 최신 건강보험·소득세 간이세액표를 정밀 반영하여, 비과세 식대부터 내 통장에 찍히는 실제 월급까지 1초 만에 산출하는 급여 계산 플랫폼",
     problem: {
@@ -599,3 +712,29 @@ export const PRODUCTS: Product[] = [
     demoUrl: "https://www.datawriter.co.kr/",
   },
 ];
+
+export function getProductCounts() {
+  const total = PRODUCTS.length;
+  const testing = PRODUCTS.filter((p) => p.releaseState === "testing").length;
+  const live = total - testing;
+  const mobile = PRODUCTS.filter((p) => p.category.includes("Mobile")).length;
+  const web = PRODUCTS.filter(
+    (p) => p.category.includes("Web") || p.category.includes("Brand")
+  ).length;
+  const googlePlay = PRODUCTS.filter((p) => Boolean(p.storeUrl)).length;
+  return { total, live, testing, mobile, web, googlePlay };
+}
+
+export function getFeaturedProduct(featuredId: string): Product | undefined {
+  if (!featuredId) return undefined;
+  return PRODUCTS.find((p) => p.id === featuredId);
+}
+
+export function getDetailProducts(): Product[] {
+  return PRODUCTS.filter((p) => Boolean(p.detailSlug));
+}
+
+export function getProductBySlug(slug: string): Product | undefined {
+  return PRODUCTS.find((p) => p.detailSlug === slug);
+}
+

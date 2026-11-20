@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { getProductCounts } from "@/data/products";
+import { SITE_URL, SOCIAL_LINKS } from "@/data/siteConfig";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -8,14 +10,15 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
+const counts = getProductCounts();
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://collco-web.onrender.com"),
-  alternates: {
-    canonical: "https://collco-web.onrender.com",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: "콜코 (COLLCO) 공식 홈페이지 | 1인 프로덕트 스튜디오",
+    template: "%s | 콜코 (COLLCO)",
   },
-  title: "콜코 (COLLCO) 공식 홈페이지 | 1인 프로덕트 스튜디오 & 컬렉션 허브",
-  description:
-    "콜코(COLLCO) 공식 사이트입니다. 일상의 문제와 마음의 이야기를 담은 독자적 디지털 솔루션(두둥, ditta, 장날가자, 랩티로그, 황금모피, 하늘이 vs 라우니, 초간편 가계부, 사커 데이터 인사이트, 데이터라이터 등) 개발과, 카드와 피규어를 애정하는 마음으로 꾸려가는 컬렉션 스토어를 함께 운영하는 1인 프로덕트 스튜디오입니다.",
+  description: `콜코(COLLCO) 공식 사이트입니다. 일상의 구체적인 문제를 해결하는 ${counts.total}가지 앱과 웹(장날가자, 딛다, 황금모피, 두둥, 랩티로그, 데이터라이터 등)을 직접 기획·개발·운영하는 1인 프로덕트 스튜디오입니다.`,
   keywords: [
     "콜코",
     "COLLCO",
@@ -26,11 +29,8 @@ export const metadata: Metadata = {
     "콜코 홈페이지",
     "1인 개발자",
     "1인 프로덕트 스튜디오",
-    "인디 해커",
-    "포트폴리오",
+    "소규모 브랜드 웹사이트 제작",
     "두둥",
-    "두둥이",
-    "별의 정원",
     "ditta",
     "딛다",
     "배드민턴 풋워크",
@@ -39,36 +39,22 @@ export const metadata: Metadata = {
     "랩티로그",
     "ReptiLog",
     "파충류 사육일지",
-    "랩타일로그",
     "황금모피",
     "goldfur",
     "하늘이 vs 라우니",
-    "하늘이vs라우니",
-    "캐주얼 배드민턴 게임",
     "FM 선수 데이터 분석기",
     "1분 퀴즈",
     "초간편 가계부",
-    "3초 가계부",
-    "부부 공유 가계부",
     "사커 데이터 인사이트",
-    "soccerdatainsights",
     "데이터라이터",
-    "datawriter",
-    "연봉 실수령액 계산기",
-    "축구선수 몸값 계산기",
-    "피규어 스토어",
-    "피규어",
     "피규어 컬렉션",
-    "포켓몬 카드",
     "TCG 카드",
-    "키덜트 컬렉션",
   ],
-  authors: [{ name: "COLLCO Solo Product Builder" }],
+  authors: [{ name: "COLLCO Solo Product Studio" }],
   openGraph: {
-    title: "콜코 (COLLCO) 공식 홈페이지 | 1인 프로덕트 스튜디오 & 컬렉션 허브",
-    description:
-      "일상의 문제와 마음의 이야기를 담은 11가지 디지털 솔루션을 만들고, 애정하는 피규어 & TCG 카드 컬렉션을 나누는 콜코(COLLCO) 공식 스튜디오입니다.",
-    siteName: "콜코 COLLCO Official Studio",
+    title: "콜코 (COLLCO) 공식 홈페이지 | 1인 프로덕트 스튜디오",
+    description: `일상의 작은 불편을 발견하고 해결하는 ${counts.total}가지 앱·웹 프로젝트와 소규모 브랜드 웹사이트 제작, 수집가의 선반을 운영하는 콜코(COLLCO)입니다.`,
+    siteName: "콜코 COLLCO Studio",
     locale: "ko_KR",
     type: "website",
     images: [
@@ -83,8 +69,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "콜코 (COLLCO) 공식 홈페이지 | 1인 프로덕트 스튜디오",
-    description:
-      "일상의 니치한 문제를 해결하는 독자적 디지털 솔루션과 애정하는 피규어 & TCG 카드 컬렉션.",
+    description: `일상의 작은 불편을 발견하고 해결하는 ${counts.total}가지 앱·웹 프로젝트와 소규모 브랜드 웹사이트 제작.`,
     images: ["/logo-collco-og.png"],
   },
   icons: {
@@ -104,15 +89,15 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   name: "콜코",
+  url: SITE_URL,
   alternateName: ["COLLCO", "콜코 스튜디오", "COLLCO Studio", "콜코 공식 홈페이지"],
-  description:
-    "일상의 문제와 마음의 이야기를 담은 11가지 디지털 솔루션을 만들고, 애정하는 피규어 & TCG 카드 컬렉션을 나누는 1인 프로덕트 스튜디오",
+  description: `일상의 작은 불편을 발견하고 해결하는 ${counts.total}가지 앱과 웹을 직접 기획·개발·운영하는 1인 프로덕트 스튜디오`,
   inLanguage: "ko-KR",
   sameAs: [
-    "https://www.instagram.com/collco_korea/",
-    "https://www.threads.net/@collco_korea",
-    "https://blog.naver.com/collco_kr",
-    "https://smartstore.naver.com/collco",
+    SOCIAL_LINKS.instagram,
+    SOCIAL_LINKS.threads,
+    SOCIAL_LINKS.blog,
+    SOCIAL_LINKS.smartStore,
   ],
 };
 
@@ -129,7 +114,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-screen flex flex-col bg-[#F5F4EE] text-[#0B0B0C] antialiased selection:bg-[#0B0B0C] selection:text-white">
+      <body className="min-h-screen flex flex-col bg-white text-[#0B0B0C] antialiased selection:bg-[#FFE600] selection:text-black">
         {children}
       </body>
     </html>

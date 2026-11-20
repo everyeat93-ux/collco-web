@@ -1,142 +1,182 @@
 "use client";
 
 import React, { useState } from "react";
-import {
-  Mail,
-  Send,
-  Check,
-} from "lucide-react";
+import { Mail, Send, Check, Copy } from "lucide-react";
+import { CONTACT_EMAIL, INQUIRY_GUIDE, SOCIAL_LINKS } from "@/data/siteConfig";
+import { getProductCounts } from "@/data/products";
+import { trackEvent } from "@/lib/analytics";
 
-export function ContactSection() {
+interface InquiryFormCardProps {
+  defaultSubjectPrefix?: string;
+  locationTag: string;
+  heading?: string;
+  description?: string;
+}
+
+export function InquiryFormCard({
+  defaultSubjectPrefix = "[COLLCO 문의]",
+  locationTag,
+  heading = INQUIRY_GUIDE.heading,
+  description = INQUIRY_GUIDE.description,
+}: InquiryFormCardProps) {
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    type: "프로덕트 제작·협업 제안",
-    message: "",
+    channelUrl: "",
+    reason: "",
+    timeline: "",
   });
   const [copied, setCopied] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
-  const [loading, setLoading] = useState(false);
-
-  const contactEmail = "collcokorea@gmail.com";
 
   const handleCopyEmail = () => {
-    navigator.clipboard.writeText(contactEmail);
+    navigator.clipboard.writeText(CONTACT_EMAIL);
     setCopied(true);
+    trackEvent("contact_email_copy", {
+      destinationType: "copy_email",
+      location: locationTag,
+    });
     setTimeout(() => setCopied(false), 2000);
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setLoading(true);
 
-    const subject = encodeURIComponent(`[COLLCO 프로덕트 협업 문의] ${formData.name}`);
+    trackEvent("contact_email_draft_click", {
+      destinationType: "mailto",
+      location: locationTag,
+    });
+
+    const subject = encodeURIComponent(`${defaultSubjectPrefix} 제작 · 협업 문의`);
     const body = encodeURIComponent(
-      `보낸 사람: ${formData.name} (${formData.email})\n문의 구분: ${formData.type}\n\n[문의 내용]\n${formData.message}`
+      [
+        `1. 운영 중인 SNS 또는 스토어 주소: ${formData.channelUrl}`,
+        `2. 웹사이트가 필요한 이유 / 해결하고 싶은 문제:\n${formData.reason}`,
+        `3. 희망 시기: ${formData.timeline}`,
+      ].join("\n\n")
     );
 
-    window.location.href = `mailto:${contactEmail}?subject=${subject}&body=${body}`;
-
-    setTimeout(() => {
-      setLoading(false);
-      setSubmitted(true);
-    }, 600);
+    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
   };
 
   return (
-    <section id="contact" className="py-8 sm:py-16 md:py-24 px-3 sm:px-6 lg:px-8 max-w-6xl mx-auto relative">
-      {/* Rauno's Iconic Four-Corner Contact Frame */}
-      <div className="relative bg-[#F8F7F4] border border-[#E8E5DC] rounded-[1.5rem] sm:rounded-[2.5rem] p-4 sm:p-16 mb-6 sm:mb-16 shadow-rauno-card overflow-hidden">
-        {/* Rauno Corner Plus Accents */}
-        <span className="absolute top-3 left-3 sm:top-4 sm:left-4 font-mono text-[10px] sm:text-xs text-[#C5C0B4] select-none">+</span>
-        <span className="absolute top-3 right-3 sm:top-4 sm:right-4 font-mono text-[10px] sm:text-xs text-[#C5C0B4] select-none">+</span>
-        <span className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 font-mono text-[10px] sm:text-xs text-[#C5C0B4] select-none">+</span>
-        <span className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 font-mono text-[10px] sm:text-xs text-[#C5C0B4] select-none">+</span>
-
-        <div className="relative z-10 flex flex-col items-center justify-center text-center py-4 sm:py-8">
-          <div className="text-[10px] font-mono font-bold text-[#737067] uppercase tracking-widest mb-2 sm:mb-3">
-            [PRIMARY INQUIRY] · PRODUCT COLLABORATION
-          </div>
-
-          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-[#0B0B0C] tracking-tight mb-3 sm:mb-4 break-keep-all">
-            함께 만들 프로덕트가 있으신가요?
-          </h2>
-
-          <p className="text-xs sm:text-sm text-[#484B52] max-w-lg mx-auto mb-5 sm:mb-8 font-normal leading-[1.75] break-keep-all">
-            일상의 구체적인 문제를 해결하는 <strong>신규 앱·웹 프로덕트 제작 및 서비스 협업 제안</strong>을 기다립니다.
-            이메일 주소를 복사해 직접 보내주시거나 아래 양식으로 메일 초안을 작성하실 수 있습니다.
-          </p>
-
-          {/* Center Interactive Email Copy Capsule */}
-          <button
-            onClick={handleCopyEmail}
-            className="group relative inline-flex items-center gap-2 px-5 py-2.5 sm:px-6 sm:py-3 rounded-full bg-[#0B0B0C] hover:bg-[#252528] text-white font-mono font-bold text-xs uppercase tracking-wider shadow-rauno transition-all active:scale-95"
-          >
-            {copied ? (
-              <>
-                <Check className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-400" />
-                <span>이메일 주소 복사 완료!</span>
-              </>
-            ) : (
-              <>
-                <Mail className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#FFE600]" />
-                <span>{contactEmail}</span>
-                <span className="text-[#AFA99E] text-[10px]">[주소 복사]</span>
-              </>
-            )}
-          </button>
-        </div>
-
-        {/* Four-Corner Minimal Navigation Links */}
-        <div className="pt-4 sm:pt-8 border-t border-[#E8E5DC] flex flex-wrap items-center justify-between gap-3 sm:gap-4 text-xs font-mono text-[#737067]">
-          <a
-            href="https://blog.naver.com/collco_kr"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-[#0B0B0C] transition-colors"
-          >
-            ↗ Naver Blog
-          </a>
-          <a
-            href="https://www.instagram.com/collco_korea/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-[#0B0B0C] transition-colors"
-          >
-            ↗ Instagram
-          </a>
-          <a
-            href="https://www.threads.net/@collco_korea"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-[#0B0B0C] transition-colors"
-          >
-            ↗ Threads
-          </a>
-          <a
-            href="https://smartstore.naver.com/collco"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-[#0B0B0C] transition-colors"
-          >
-            ↗ Naver SmartStore
-          </a>
-          <a
-            href="#projects"
-            className="hover:text-[#0B0B0C] transition-colors"
-          >
-            ↑ Shipped Works (11)
-          </a>
-        </div>
+    <div className="bg-[#FAF9F5] border border-[#E8E5DC] rounded-2xl p-5 sm:p-10 lg:p-12">
+      <div className="max-w-2xl mb-6 sm:mb-8">
+        <h2 className="text-2xl sm:text-3xl font-black text-[#0B0B0C] tracking-tight break-keep-all">
+          {heading}
+        </h2>
+        <p className="mt-2.5 text-sm sm:text-base text-[#484B52] leading-[1.8] break-keep-all">
+          {description}
+        </p>
       </div>
 
-      {/* Rauno's Iconic Yellow Manifesto Banner */}
-      <div className="bg-[#FFE600] rounded-[1.5rem] sm:rounded-[2.5rem] p-5 sm:p-14 mb-6 sm:mb-16 text-[#0B0B0C] shadow-rauno-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-6 sm:gap-8">
+      {/* Mailto Draft Form */}
+      <form onSubmit={handleSubmit} className="space-y-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <label className="block space-y-1.5">
+            <span className="text-xs font-bold text-[#0B0B0C]">
+              운영 중인 SNS 또는 스토어 주소
+            </span>
+            <input
+              type="text"
+              required
+              placeholder="예: 인스타그램 아이디, 스마트스토어 링크"
+              value={formData.channelUrl}
+              onChange={(e) => setFormData({ ...formData, channelUrl: e.target.value })}
+              className="w-full px-4 py-3 rounded-xl bg-white border border-[#E8E5DC] focus:border-[#0B0B0C] text-sm text-[#0B0B0C] outline-none"
+            />
+          </label>
+
+          <label className="block space-y-1.5">
+            <span className="text-xs font-bold text-[#0B0B0C]">희망 시기</span>
+            <input
+              type="text"
+              required
+              placeholder="예: 이번 달 말, 12월 중순, 일정 협의"
+              value={formData.timeline}
+              onChange={(e) => setFormData({ ...formData, timeline: e.target.value })}
+              className="w-full px-4 py-3 rounded-xl bg-white border border-[#E8E5DC] focus:border-[#0B0B0C] text-sm text-[#0B0B0C] outline-none"
+            />
+          </label>
+        </div>
+
+        <label className="block space-y-1.5">
+          <span className="text-xs font-bold text-[#0B0B0C]">
+            웹사이트가 필요한 이유나 해결하고 싶은 문제
+          </span>
+          <textarea
+            required
+            rows={4}
+            placeholder="소개하고 싶은 브랜드 이야기, 작업 내용, 또는 함께 만들고 싶은 앱·웹 아이디어를 편하게 적어주세요."
+            value={formData.reason}
+            onChange={(e) => setFormData({ ...formData, reason: e.target.value })}
+            className="w-full px-4 py-3 rounded-xl bg-white border border-[#E8E5DC] focus:border-[#0B0B0C] text-sm text-[#0B0B0C] outline-none resize-none leading-relaxed"
+          />
+        </label>
+
+        <div className="pt-1 space-y-2.5">
+          <button
+            type="submit"
+            className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-7 py-3.5 min-h-[48px] rounded-full bg-[#0B0B0C] hover:bg-[#252528] text-white font-bold text-sm transition-colors cursor-pointer"
+          >
+            <Send className="w-4 h-4" />
+            <span>문의 이메일 작성</span>
+          </button>
+
+          <p className="text-xs text-[#737067] leading-relaxed break-keep-all">
+            {INQUIRY_GUIDE.mailtoNote}
+          </p>
+        </div>
+      </form>
+
+      {/* Email Address & Copy Fallback */}
+      <div className="mt-6 pt-6 border-t border-[#E8E5DC] flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+        <div className="flex items-center gap-2 text-xs sm:text-sm text-[#484B52]">
+          <Mail className="w-4 h-4 text-[#0B0B0C] shrink-0" />
+          <span className="font-mono font-bold text-[#0B0B0C]">{CONTACT_EMAIL}</span>
+          <span className="text-xs text-[#737067] hidden sm:inline">
+            · 메일 앱이 열리지 않으면 주소를 복사해 직접 보내주세요.
+          </span>
+        </div>
+
+        <button
+          type="button"
+          onClick={handleCopyEmail}
+          className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 min-h-[42px] rounded-full bg-white hover:bg-[#0B0B0C] text-[#0B0B0C] hover:text-white border border-[#E8E5DC] hover:border-[#0B0B0C] text-xs font-bold transition-colors shrink-0 cursor-pointer"
+        >
+          {copied ? (
+            <>
+              <Check className="w-3.5 h-3.5 text-emerald-500" />
+              <span>복사됨</span>
+            </>
+          ) : (
+            <>
+              <Copy className="w-3.5 h-3.5" />
+              <span>주소 복사</span>
+            </>
+          )}
+        </button>
+      </div>
+    </div>
+  );
+}
+
+export function ContactSection() {
+  const counts = getProductCounts();
+
+  return (
+    <section
+      id="contact"
+      aria-label="제작 및 협업 문의"
+      className="py-12 sm:py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto border-t border-[#E8E5DC] space-y-10 sm:space-y-14"
+    >
+      {/* Inquiry Form + Email Copy */}
+      <InquiryFormCard locationTag="home_contact" />
+
+      {/* Signature Yellow Manifesto Banner */}
+      <div className="bg-[#FFE600] rounded-2xl sm:rounded-3xl p-7 sm:p-14 text-[#0B0B0C] flex flex-col md:flex-row items-start md:items-center justify-between gap-6 sm:gap-8">
         <div>
-          <div className="text-[10px] font-mono font-black uppercase tracking-widest text-black/60 mb-1.5 sm:mb-2">
-            THE COLLCO MANIFESTO
+          <div className="text-[11px] font-mono font-bold uppercase tracking-widest text-black/60 mb-2.5">
+            COLLCO MANIFESTO
           </div>
-          <p className="text-lg sm:text-2xl lg:text-3xl font-black leading-snug tracking-tight">
+          <p className="text-xl sm:text-2xl lg:text-3xl font-black leading-snug tracking-tight">
             Make it fast.
             <br />
             Make it beautiful.
@@ -151,64 +191,37 @@ export function ContactSection() {
           </p>
         </div>
 
-        <div className="max-w-sm text-xs font-mono text-black/80 leading-[1.75] pt-2 md:pt-0 border-t md:border-t-0 md:border-l border-black/20 md:pl-8 break-keep-all">
-          &ldquo;불필요한 군더더기를 덜어내고 본질에 집중합니다. 일상의 사소한 불편과 마음의 이야기를 담은 11개의 독자적 디지털 솔루션, 그리고 좋아하는 마음으로 하나씩 골라 담은 카드·피규어 컬렉션.&rdquo;
-        </div>
-      </div>
-
-      {/* Mail Draft Form */}
-      <div className="bg-white border border-[#E8E5DC] rounded-[1.5rem] sm:rounded-[2rem] p-4 sm:p-12 shadow-rauno-card">
-        <h3 className="text-xl font-black text-[#0B0B0C] tracking-tight mb-2">
-          프로덕트 협업 문의 메일 작성하기
-        </h3>
-        <p className="text-xs sm:text-sm text-[#484B52] mb-6 leading-[1.7] break-keep-all">
-          아래 내용을 입력하고 버튼을 누르면 <strong>사용 중인 기기의 기본 메일 앱이 열리며 제목과 본문이 자동으로 채워집니다.</strong> 열린 메일 앱에서 내용을 확인하신 뒤 <strong>‘보내기(전송)’</strong>를 눌러야 최종 발송이 완료됩니다.
-        </p>
-
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <input
-              type="text"
-              required
-              placeholder="성함 / 팀·기업명"
-              value={formData.name}
-              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-              className="w-full px-4 py-2.5 rounded-xl bg-[#F8F7F4] border border-[#E8E5DC] focus:border-[#0B0B0C] focus:bg-white text-xs sm:text-sm text-[#0B0B0C] outline-none"
-            />
-            <input
-              type="email"
-              required
-              placeholder="회신받을 이메일 주소"
-              value={formData.email}
-              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-              className="w-full px-4 py-2.5 rounded-xl bg-[#F8F7F4] border border-[#E8E5DC] focus:border-[#0B0B0C] focus:bg-white text-xs sm:text-sm text-[#0B0B0C] outline-none"
-            />
+        <div className="max-w-sm space-y-4 pt-4 md:pt-0 border-t md:border-t-0 md:border-l border-black/15 md:pl-8">
+          <p className="text-xs sm:text-sm text-black/85 leading-[1.8] break-keep-all">
+            &ldquo;군더더기를 덜어내고 본질에 집중합니다. 일상의 작은 불편과 이야기를 담은 {counts.total}개의 앱·웹, 그리고 좋아하는 마음으로 골라 담은 컬렉션.&rdquo;
+          </p>
+          <div className="flex flex-wrap gap-4 text-xs font-mono font-bold text-black/80">
+            <a
+              href={SOCIAL_LINKS.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline underline-offset-4"
+            >
+              ↗ Instagram
+            </a>
+            <a
+              href={SOCIAL_LINKS.threads}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline underline-offset-4"
+            >
+              ↗ Threads
+            </a>
+            <a
+              href={SOCIAL_LINKS.blog}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline underline-offset-4"
+            >
+              ↗ Naver Blog
+            </a>
           </div>
-
-          <textarea
-            required
-            rows={4}
-            placeholder="해결하고 싶은 문제나 함께 만들고 싶은 프로덕트, 협업 제안 내용을 편하게 적어주세요."
-            value={formData.message}
-            onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-            className="w-full px-4 py-3 rounded-xl bg-[#F8F7F4] border border-[#E8E5DC] focus:border-[#0B0B0C] focus:bg-white text-xs sm:text-sm text-[#0B0B0C] outline-none resize-none leading-relaxed"
-          />
-
-          <button
-            type="submit"
-            disabled={loading}
-            className="inline-flex items-center justify-center gap-2 w-full py-3.5 rounded-full bg-[#0B0B0C] hover:bg-[#252528] text-white font-mono font-bold text-xs uppercase tracking-wider transition-all shadow-rauno-xs active:scale-95"
-          >
-            <Send className="w-3.5 h-3.5" />
-            <span>{loading ? "메일 앱 여는 중..." : "작성 내용으로 메일 앱 열기 (메일 앱에서 최종 전송)"}</span>
-          </button>
-
-          {submitted && (
-            <div className="p-3.5 rounded-xl bg-[#FAF9F5] border border-[#E8E5DC] text-xs text-[#484B52] leading-relaxed break-keep-all">
-              기본 메일 앱이 실행되었습니다. <strong>메일 앱 창에서 ‘보내기’ 버튼을 눌러 최종 발송을 완료해 주세요.</strong> 만약 PC·모바일에 연결된 메일 앱이 없다면 위에서 복사한 <strong>{contactEmail}</strong> 주소로 웹메일(네이버·지메일 등)에서 직접 보내주시면 됩니다.
-            </div>
-          )}
-        </form>
+        </div>
       </div>
     </section>
   );
