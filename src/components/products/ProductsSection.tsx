@@ -46,7 +46,8 @@ export function ProductsSection() {
         </div>
 
         <p className="text-xs font-mono text-[#484B52] bg-[#FAF9F5] border border-[#E8E5DC] px-3.5 py-2 rounded-full shrink-0 w-fit">
-          {CATALOG_UPDATED_LABEL} · 전체 {counts.total} · 공개 {counts.live} · 테스트 {counts.testing}
+          {CATALOG_UPDATED_LABEL} · 전체 {counts.total} · 공개 {counts.live}
+          {counts.testing > 0 ? ` · 테스트 ${counts.testing}` : ""}
         </p>
       </div>
 

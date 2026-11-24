@@ -7,7 +7,7 @@ export const BUILDING_PILLARS: BuildingPillar[] = [
     enTitle: "Fast Iteration",
     description:
       "거창한 계획보다 꼭 필요한 기능 하나를 먼저 만들어 꺼내놓습니다. 직접 써보고, 사용자 이야기를 들으며 조금씩 고쳐 나갑니다.",
-    example: "초간편 가계부는 금융 연동 없이 3초 입력 흐름부터 만들어 비공개 테스트로 다듬고 있습니다.",
+    example: "초간편 가계부는 금융 연동 없이 3초 입력 흐름부터 만들어 비공개 테스트를 거쳐 정식 출시했습니다.",
     tags: [],
     icon: "Zap",
   },
